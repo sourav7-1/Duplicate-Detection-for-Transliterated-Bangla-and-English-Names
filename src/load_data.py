@@ -24,6 +24,9 @@ def connect():
         dbname=os.environ["DB_NAME"],
         user=os.environ["DB_USER"],
         password=os.environ["DB_PASSWORD"],
+        # Fail fast instead of hanging when the server is unreachable. Applies per
+        # address, so "localhost" (::1 then 127.0.0.1) can take up to ~6 s to fail.
+        connect_timeout=3,
     )
 
 
