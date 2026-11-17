@@ -77,7 +77,7 @@ def plot_f1_bars(metrics):
     ax.grid(axis="x", visible=False)
     ax.set_title("F1 per method, raw vs normalized names", loc="left")
     ax.legend(loc="upper left", ncols=2)
-    save(fig, "f1_by_method.png")
+    return fig
 
 
 # ----------------------------------------------------------- (2) PR curves
@@ -239,7 +239,7 @@ def plot_failure_table(types, columns, rates, counts):
 def main():
     FIG.mkdir(parents=True, exist_ok=True)
     pairs = load_pair_scores()
-    plot_f1_bars(read_csv(RESULTS / "metrics.csv"))
+    save(plot_f1_bars(read_csv(RESULTS / "metrics.csv")), "f1_by_method.png")
     plot_pr_curves(pairs)
     plot_scaling(read_csv(RESULTS / "benchmark.csv"))
     plot_failure_table(*failure_table(pairs))
