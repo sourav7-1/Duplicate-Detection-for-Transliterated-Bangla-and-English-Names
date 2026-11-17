@@ -1,0 +1,2692 @@
+record_id,person_id,full_name,variant_type
+1,250,A. D'Costa,initials
+2,122,Mohammad.Kamal Ali,spacing
+3,454,Priya Lata Dam,hard_negative
+4,212,Michael Corraya ,spacing
+5,356,Syed Rezoul Hossain Faruque,vowel
+6,301,A. L. Rodrigues,initials
+7,266,Joydeb Sarrkar,double_letter
+8,117,Puja Rani Karmakar,original
+9,392,Joydeb.Kanti Bhattacharjee,spacing
+10,69,bijoy lal mondal,case
+11,297,Zonnat Akter,vowel
+12,233,AMIT KUMAR SEN,case
+13,162,SHAHNAZ CHOWDHURY,case
+14,197,Partho Kumar Karmakar,vowel
+15,272,FARZANA SULTANA,case
+16,21,Khatun Nusrat,word_order
+17,7,Shahid   Faruque,spacing
+18,66,Proshenjit Kumar Sen,sh_s
+19,133,Shampa Lata Banerjee,original
+20,19,Rakib Ullah Siddique,prefix
+21,316,Zakir Faruque,original
+22,257,Puja Dootta,oo_u
+23,289,Sheikh Mohammad Ashik  Talukder,spacing
+24,344,Mosammat Shirin Nur Isam,typo
+25,65,J. Cruze,initials
+26,214,Runald Pereira,vowel
+27,126,Md. Farhad Hossain Ali,original
+28,88,Joydeb Ghosh,original
+29,288,Sabbir Sharker,sh_s
+30,262,Ziaur Sarker,original
+31,202,Gopal Dutta,original
+32,399,mD. rAKIB sHEIKH,case
+33,319,Mst. Rokeya Khotun,vowel
+34,219,C. Rodrigues,initials
+35,392,JOYDEB KANTI BHATTACHARJEE,case
+36,184,robin pereira,case
+37,246,Mahbub  Nur Hossain,spacing
+38,349,Mahbub  Siddique,spacing
+39,341,SAIFUL MOLLAH,case
+40,140,Habiib Alam,double_letter
+41,93,Mossammat Tania Sultana Islam,double_letter
+42,29,"Faruque, Shoaib",word_order
+43,204,Shaheed Sarker,ee_i
+44,398,Pritam Banerzee,z_j
+45,90,Dilip  Chakraborty,spacing
+46,175,Preya Lata Das,vowel
+47,304,Deepa.Banerjee,spacing
+48,229,Amit Kantee Chakraborty,ee_i
+49,217,Nancy D'Costa,original
+50,353,Mosammmat Nusrat Rahman,typo
+51,357,Sharmin Chowdhoory,oo_u
+52,320,Deelip Sarkar,ee_i
+53,358,Md. Asheek Zaman,ee_i
+54,244,Mosammat Shahnaz Islam,original
+55,103,Rakeeb Ali Chowdhury,ee_i
+56,174,Farhad Kabeer Faruque,ee_i
+57,159,Zaman Habibur,word_order
+58,314,Tahmmina Jahan Khatun,double_letter
+59,196,Mst. Fatema Ara Parvin,original
+60,158,Uddin Shafiq,word_order
+61,292,Uttam Sen,original
+62,73,Md. Hasan Islam,prefix
+63,225,rITA sUNNY pALMA,case
+64,172,SALMA ISLAM,case
+65,386,Md. Ziaur Ishlam,sh_s
+66,229,A.K. Chakraborty,initials
+67,224,Rakib Uddin,original
+68,322,Tapas Kumar Sarkar,sh_s
+69,99,Joyaa Ghosh,double_letter
+70,386,mD. zIAUR iSLAM,case
+71,387,"Karmakar, Partha",word_order
+72,64,RINA RANI DEBNATH,case
+73,161,Shuvo Bhattacharjee,original
+74,47,Esther Daveed Rodrigues,ee_i
+75,346,"Haque, Farzana",word_order
+76,287,Sujeet Debnath,ee_i
+77,254,S.M.R.H. Sarker,initials
+78,413,Uttam Son,hard_negative
+79,70,Leenda Francis Rozario,ee_i
+80,382,Rashed Sorker,vowel
+81,58,Michale Robin Cruze,typo
+82,295,Syed Mostafa Kabi,typo
+83,373,Mosammat Zannat Pherdousi,ph_f
+84,84,Sheikh Md. Sabbir Uddin,word_order
+85,229,Amit. Kanti Chakraborty,spacing
+86,134,Jyodeb Roy,typo
+87,233,Sen Amit Kumar,word_order
+88,284,Stephen.Rozario,spacing
+89,38,M. M. A. Talukder,initials
+90,333,Jahid Ullah Alam,original
+91,50,Sanzoy Kanti Bose,z_j
+92,206,"Corraya, Linda",word_order
+93,315,Salma Parvin,prefix
+94,311,Hasan Alli,double_letter
+95,27,Ruth Christopher Corraya,original
+96,228,Rita.Baroi,spacing
+97,234,Joya Rani Bhottacharjee,vowel
+98,385,Muhammad Arif Ali,prefix
+99,246,Mahbub Nur Hossaeen,ee_i
+100,137,Zakir Zaman,original
+101,108,Mst. Shathi Islam,original
+102,52,R.B. Majumder,initials
+103,222,Pradip Koomar Mukherjee,oo_u
+104,36,Hossain Sheikh Mohammad Saiful Ali,word_order
+105,139,"Chowdhury, Mohammad Rezaul",word_order
+106,297,Z. Akter,initials
+107,340,Sakil Zaman,sh_s
+108,350,"Debnath, Mitu Bala",word_order
+109,6,Debashish Chandra Biswash,sh_s
+110,398,Pritam Banirjee,vowel
+111,166,Zerome Baroi,z_j
+112,314,Tahmina Jahan Khatun,original
+113,181,Paul Baroee,ee_i
+114,285,Mohammad Saeful Faruque,vowel
+115,290,Md. Shahid Alli,double_letter
+116,148,Stephen D'Custa,vowel
+117,347,Mohammad Monir Ali Uddin,prefix
+118,328,Tony  Cruze,spacing
+119,234,Joya Rani Bhattacharjee,original
+120,387,Partha. Karmakar,spacing
+121,207,"Sarkar, Puja",word_order
+122,390,Ayesha. Chowdhury,spacing
+123,285,Mohammad Siaful Faruque,typo
+124,12,M.S.H. Khan,initials
+125,381,Sheikh Mohammad Raliq Faruque,typo
+126,352,Portha Sen,vowel
+127,137,Z. Zaman,initials
+128,395,"Gonsalves, Paul",word_order
+129,396,Ronald Gonsalves,original
+130,75,Mohammad Monir Kabir Khann,double_letter
+131,379,Md. Zahid Ahmxed Uddin,typo
+132,173,Haldar Shankar Kanti,word_order
+133,130,Sheikh Mohammad Jamal Uddeen Chowdhury,ee_i
+134,291, Ashok Kumar Mukherjee,spacing
+135,326,Anup Ranjan Deey,double_letter
+136,187,David Linxa Rodrigues,typo
+137,133,Shampa Lata Baanerjee,double_letter
+138,273,Zahid Bhuiyan,original
+139,96,Shirin Islam,original
+140,3,Yahid Mahmud,typo
+141,285,Mohammad Saiful Faruqoe,vowel
+142,362,Mohammad Imran Ahmed Islam,original
+143,342,Nasrken Ferdousi,typo
+144,325,Md. Anisoor Kabir,oo_u
+145,395,Paul Gonsalves,original
+146,357,Chowdhury Sharmin,word_order
+147,250,agnes d'costa,case
+148,331,Nazma Ferdousi,original
+149,196, Mst. Fatema Ara Parvin,spacing
+150,395,Paul Gosalves,typo
+151,149,Karmakar Gopal,word_order
+152,324,M.M.H. Mahmud,initials
+153,171,Cruze Sharon,word_order
+154,83,Soobrata Mondal,oo_u
+155,334,Tahmina Parvin,original
+156,143,aBDUR uDDIN,case
+157,137,Zaakir Zaman,double_letter
+158,170,Nazmul Sheeekh,ee_i
+159,338,Mohammed Nasir Uddin,prefix
+160,253,monir mahmud,case
+161,335,Md. Jahid Uddin Mollah,original
+162,241,Md. Mijanur Faruque,z_j
+163,142,Pradip Muukherjee,double_letter
+164,198,agnes rodrigues,case
+165,346,FARZANA HAQUE,case
+166,19,Mohammad Rakib Ullah.Siddique,spacing
+167,259,Kishoe Chandra Karmakar,typo
+168,158,Safiq Uddin,sh_s
+169,355,Sheikh Mohammad Mizanur Miah ,spacing
+170,429,Esther Rina Baroi,hard_negative
+171,328,Tony Cruze,original
+172,71,NANCY DAVID GOMES,case
+173,66,Prosenjit Koomar Sen,oo_u
+174,337,Syed Karim Kabir Sheikh,original
+175,230,Joya Rani Chakraborty,original
+176,129,Sumee Shil,ee_i
+177,212,Michael Corraya,original
+178,9,Rashed Mollah,original
+179,325,Md. Aneesur Kabir,ee_i
+180,127,Robin Barai,vowel
+181,266,Zoydeb Sarkar,z_j
+182,216,Puja Paaul,double_letter
+183,339,Anjali Dey,original
+184,333,Jahid Ullah Alamm,double_letter
+185,198,Agnes Rodriguis,vowel
+186,395,P. Gonsalves,initials
+187,455,Joya Sil,hard_negative
+188,239,D'Costa Raphael,word_order
+189,318,sHYAMAL cHANDRA mUKHERJEE,case
+190,284,Stephen Rozario,original
+191,137,"Zaman, Zakir",word_order
+192,287,S. Debnath,initials
+193,320,Dilip Sarkar,original
+194,108,Islam Mst. Shathi,word_order
+195,391,E. Gomes,initials
+196,39,Farhad Alee Zaman,ee_i
+197,325,Md. Anisur Kabeer,ee_i
+198,42,Mst. Lubna Haque,original
+199,39,Farhad Oli Zaman,vowel
+200,336,Mst. Taslima Pherdousi,ph_f
+201,378,S.S. Uddin,initials
+202,184,Robin Pereira,original
+203,396,Ronald Gansalves,vowel
+204,293,Pankja Majumder,typo
+205,318,Mukherjee Shyamal Chandra,word_order
+206,255,Michael Eshther Rozario,sh_s
+207,105,Mosammat Ayesha Ferdousi,prefix
+208,382,rASHED sARKER,case
+209,63,E. R. Baroi,initials
+210,131,Lipika Pakul,typo
+211,234,Bhattacharjee Joya Rani,word_order
+212,458,Md. Monir Ahsan Talukder,hard_negative
+213,228,Rita. Baroi,spacing
+214,440,Rumi Majumder,hard_negative
+215,260,Saiful Kabir,original
+216,116,Michael Stephen Gomes,original
+217,300,Sujit Chakrborty,typo
+218,120,Sipra Saha,sh_s
+219,396,Ronald Gonsalvesh,sh_s
+220,53,Stefen Gonsalves,ph_f
+221,14,Md.Rakib Alam,spacing
+222,239,rAPHAEL d'cOSTA,case
+223,379, Md. Zahid Ahmed Uddin,spacing
+224,124, Deepa Dey,spacing
+225,129,Sumi Shel,typo
+226,303,Sheikh Mohammad Shaiful Sarker,sh_s
+227,138,Md Shahid Mahmud,spacing
+228,9,Rashed Molloh,vowel
+229,19,M.R.U. Siddique,initials
+230,338,Mohammad Naseer Uddin,ee_i
+231,282,Md. Rahim Zaman,original
+232,170,"Sheikh, Nazmul",word_order
+233,42,Mst. Luubna Haque,double_letter
+234,265,JAHID UDDIN MAHMUD,case
+235,235,Taania Akter Sultana,double_letter
+236,162,Shahnaz Chowdhurry,double_letter
+237,82,Shourav Bose,sh_s
+238,365,Joya Biswos,vowel
+239,396,rONALD gONSALVES,case
+240,84,Mohammad Sabbir Uddin Sheikh,prefix
+241,6,Debashish Chondra Biswas,vowel
+242,173,Sankar Kanti Haldar,sh_s
+243,82,Bose Sourav,word_order
+244,76,Komal Miah,vowel
+245,317,Rumana   Akter,spacing
+246,384,Romana Nahar,vowel
+247,276,Kamal Nur Ala,typo
+248,83,S. Mondal,initials
+249,119,Taslima Akter Begum,original
+250,324,mD. mOSTAFA hOSSAIN mAHMUD,case
+251,344,Mosammat Shiren Nur Islam,vowel
+252,147,Lubna Jahan Chowdhury ,spacing
+253,138,Muhammad Shahid Mahmud,prefix
+254,144,S.J. Palma,initials
+255,478,Rasel Alam,hard_negative
+256,234, Joya Rani Bhattacharjee,spacing
+257,239,Raphael D'Cost,typo
+258,148,Srephen D'Costa,typo
+259,375,Dilip Dutta ,spacing
+260,30,S. Sarker,initials
+261,306,Joydeb Mukherjee,original
+262,281,Sheikh Mohammad Jamol Bhuiyan,vowel
+263,53,Stephen Gonsalves,original
+264,144,Sunny Josiph Palma,vowel
+265,174,Farhad Kabir Faruque,original
+266,9,Rasheed Mollah,double_letter
+267,141,Mohammad Rezaul Bhuiyan,original
+268,228,RITA BAROI,case
+269,259,Kishoree Chandra Karmakar,double_letter
+270,143,Abdur Ukddin,typo
+271,114,Mohammed Tanvir Nur Siddique,prefix
+272,224,Rakib Uddiin,double_letter
+273,379,Md. Zohid Ahmed Uddin,vowel
+274,176,Dilip Kumar Dootta,oo_u
+275,357,S. Chowdhury,initials
+276,68,Rahim Khan,original
+277,144,Sunny Joseph Palma,original
+278,173,Shankar Kanti Haldar,original
+279,297,Zannat Akter,original
+280,109,Md. Abduil Sheikh,typo
+281,323,Sampa Lata Debnath,sh_s
+282,278,Md. Mahbub Sharker,sh_s
+283,131,Lipika Paul ,spacing
+284,53, Stephen Gonsalves,spacing
+285,203,Puja. Bhattacharjee,spacing
+286,66,P.K. Sen,initials
+287,293,Majumder Pankaj,word_order
+288,36,Sheikh Mohammad Saiphul Ali Hossain,ph_f
+289,389,S. M. H. U. Talukder,initials
+290,66,Prosenjet Kumar Sen,vowel
+291,146,Sunny Stephen Baroii,double_letter
+292,139,Mohammad Rezaul Chodhury,typo
+293,139,Mohammad Rezaul Chowdhoory,oo_u
+294,42,mST. lUBNA hAQUE,case
+295,249,mosammat shahnaz akter,case
+296,166,Jerome Baroee,ee_i
+297,75,Mohammad Moneer Kabir Khan,ee_i
+298,335,Md. Jahid Uddin Mollaf,typo
+299,332,Farhaqd Bhuiyan,typo
+300,106,Rooth Rodrigues,oo_u
+301,214,ronald pereira,case
+302,8,ANISUR SHEIKH,case
+303,169,Lubna Rhman,typo
+304,383,Joydeb Hadlar,typo
+305,296,Syed Shafiq Nur Ahmed,original
+306,26,Nashir Miah,sh_s
+307,369,"Sarker, Zahid",word_order
+308,253,Munir Mahmud,vowel
+309,365,joya biswas,case
+310,338,Mohammad. Nasir Uddin,spacing
+311,152,"Khan, Syed Hasan",word_order
+312,11,Esther Christopher Baroi ,spacing
+313,397,Sanjoy. Sarkar,spacing
+314,99,Juya Ghosh,vowel
+315,364,Mohammad Shahid Uddgn,typo
+316,321,Asshok Dey,double_letter
+317,2,Md Rakib Uddin Islam,prefix
+318,380,"Dutta, Anup",word_order
+319,108,Musammat Shathi Islam,prefix
+320,344,Mosammat Shirin Nuur Islam,double_letter
+321,86,Chowdhury Mst. Farzana Sultana,word_order
+322,62,Mohammed Nazmul Miah,prefix
+323,319,Mst. Rokeya Khaton,vowel
+324,471,Alok Kumar Mukherjee,hard_negative
+325,359,Zaman Sheikh Mohammad Jamal Kabir,word_order
+326,133,Shampa Lata Bannerjee,double_letter
+327,176,Dilip Kumar  Dutta,spacing
+328,117,Puja Rani  Karmakar,spacing
+329,167,"Bhattacharjee, Sanjoy",word_order
+330,367,Md. Rashed Alam,prefix
+331,161,Shuvo Bhaattacharjee,double_letter
+332,336,Ferdousi Mst. Taslima,word_order
+333,261,Gopal.Lal Saha,spacing
+334,186,Sophia John Gonsalvem,typo
+335,146,Suny Stephen Baroi,typo
+336,16,Pankaz Dey,z_j
+337,111,Jenny John Palma,original
+338,149,Gopal Karmaakar,double_letter
+339,338,Uddin Mohammad Nasir,word_order
+340,245,Mohammad Asraf Miah,sh_s
+341,278,Md. Mahbub Sarker ,spacing
+342,103,Rakib Ali   Chowdhury,spacing
+343,130,Sheikh.Mohammad Jamal Uddin Chowdhury,spacing
+344,212,Michail Corraya,vowel
+345,109,Md. Abdul Sheikh,original
+346,46,Mohd. Rakib Hossain,prefix
+347,228,Rita Baroi,original
+348,299,Sudeep Lal Ghosh,ee_i
+349,357,Sharmeen Chowdhury,ee_i
+350,341,Saiphul Mollah,ph_f
+351,301,Agnes Linda.Rodrigues,spacing
+352,269,Cajesh Mukherjee,typo
+353,46,Md. Rakib Hossaeen,ee_i
+354,297,Zannot Akter,vowel
+355,167,Sanjoy. Bhattacharjee,spacing
+356,90,Dilip   Chakraborty,spacing
+357,43,Md. Mustafa Ahmed,vowel
+358,333,Jahid Ullah Alma,typo
+359,203,P. Bhattacharjee,initials
+360,311,HASAN ALI,case
+361,310, Taslima Ara Nahar,spacing
+362,81,Jaheed Nur Mahmud,ee_i
+363,294,Mdm. Zahid Mollah,typo
+364,270,Asraf Ullah Haque,sh_s
+365,54,Gopal Sheel,ee_i
+366,346,farzana haque,case
+367,211,Ariif Ali Mahmud,double_letter
+368,73,Mohammad   Hasan Islam,spacing
+369,267,sheikh mohammad rahim haque,case
+370,415,Md. Mahmud Mollah,hard_negative
+371,232,Zenny Jerome D'Costa,z_j
+372,30,Shakil Sarker,original
+373,199,Pxter Rita Corraya,typo
+374,76,kamal miah,case
+375,220,Sheikh Mohaammad Sabbir Faruque,double_letter
+376,199,Peter Rita orraya,typo
+377,133,Shampa Lata Bonerjee,vowel
+378,329,Akter Mahmuda Nur,word_order
+379,151,David Pala,typo
+380,173,Shankar Kantee Haldar,ee_i
+381,151,David Palma,original
+382,370,Sultana Rehana,word_order
+383,72,Sheikh Mohammad Arif Chowdhury,original
+384,127, Robin Baroi,spacing
+385,359,Seikh Mohammad Jamal Kabir Zaman,sh_s
+386,41,Johid Siddique,vowel
+387,336,Mst. Taslima Ferdousi,original
+388,176,Dilip Kumar Dutta,original
+389,377,Pradip Kumarr Paul,double_letter
+390,32,Sreelekha Lato Sen,vowel
+391,104,Talukder Rubel Uddin,word_order
+392,164,Monica Palmaa,double_letter
+393,175,Priya Lata Dos,vowel
+394,362,Md. Imran Ahmed Islam,prefix
+395,331,NAZMA FERDOUSI,case
+396,77,Md. Rakib Rahmman,double_letter
+397,348,Md. Shaeil Mollah,typo
+398,145,M.M.A. Miah,initials
+399,333,Alam Jahid Ullah,word_order
+400,441,Lubna Raihan,hard_negative
+401,76,Kamal Miaah,double_letter
+402,98,Socurav Mondal,typo
+403,113,Jerome Zohn Pereira,z_j
+404,31,Mamun Hossain,original
+405,262,ziaur sarker,case
+406,201,TASLIMA PARVIN,case
+407,198,Agnes Rodrigues,original
+408,25,Prosenjeet Debnath,ee_i
+409,315,Mosammat Salma Parvin,prefix
+410,299,Sudip Lal Ghosh,original
+411,114,Siddique Tanvir Nur,word_order
+412,95,"Majumder, Puja Lata",word_order
+413,361,Sheikh. Mohammad Rakib Hossain Kabir,spacing
+414,319,Mst. Rukeya Khatun,vowel
+415,335,Md. Jahid Uddin Mollah ,spacing
+416,195,Linda Christopher D'Czosta,typo
+417,384,Most. Rumana Nahar,prefix
+418,357,Sharlin Chowdhury,typo
+419,382,Sarker Rashed,word_order
+420,119,Taslima Akter Begoom,oo_u
+421,293,PANKAJ MAJUMDER,case
+422,343,habib ali kabir,case
+423,367,Rashed Alam,original
+424,44,Sakful Ali Miah,typo
+425,108,Msht. Shathi Islam,sh_s
+426,31,Mamun   Hossain,spacing
+427,131,Lipeeka Paul,ee_i
+428,57,NASREEN BEGUM,case
+429,351,Shoaib Mahmud,prefix
+430,292,Ottam Sen,vowel
+431,369,Zahid Saarker,double_letter
+432,383,Joydeb Haldar,original
+433,295,Syed Mostafa Kabeer,ee_i
+434,340,Shakil Zoman,vowel
+435,164,Monica Palma,original
+436,104,Muhammad Rubel Uddin Talukder,prefix
+437,249,M.S. Akter,initials
+438,200,Mst. Nagzma Haque,typo
+439,251,Ripon Ranjan Chakraborty,original
+440,37,Md. Monir Rahmar,typo
+441,23,Anishur Mahmud,sh_s
+442,269,Rajesh Mukherjee,original
+443,219,Christopher Rodriguesh,sh_s
+444,56,Habibur Hossaeen,ee_i
+445,172,Salma Isljm,typo
+446,309,Shreya Daas,double_letter
+447,140,Habib Alam ,spacing
+448,277,Mst. Tania Chuwdhury,vowel
+449,324,Md. Mostafa ossain Mahmud,typo
+450,303,Seikh Mohammad Saiful Sarker,sh_s
+451,328,Tony Crooze,oo_u
+452,54,Gopal.Shil,spacing
+453,102,Najma Nur Sultana,z_j
+454,191,Peter Nancy Corrayaa,double_letter
+455,18,Riota Corraya,typo
+456,114,Tanvir Noor Siddique,oo_u
+457,25,rosenjit Debnath,typo
+458,99,Joya Ghos,sh_s
+459,123,Faruque Md. Habibur,word_order
+460,127,rOBIN bAROI,case
+461,267,Sheikh Mohammad Rahim Haque,original
+462,348,Mohd. Shakil Mollah,prefix
+463,140,hABIB aLAM,case
+464,251,Reepon Ranjan Chakraborty,ee_i
+465,218,Rina Rani Dotta,vowel
+466,421,Mst. Sabina Parvin,hard_negative
+467,113,Jerome John Pereira,original
+468,85,Kisore Lal Mukherjee,sh_s
+469,91,rATAN sEN,case
+470,305,Md. Shakil Ahmmed,double_letter
+471,159,Habeebur Zaman,ee_i
+472,375,DILIP DUTTA,case
+473,10,Mukherjee Rajesh Chandra,word_order
+474,302,Mahbub Khan,original
+475,198,Agnes Rodregues,vowel
+476,218,Rina Rani Dutta,original
+477,368,Shreya Biswas,original
+478,184,Robin Pereeera,ee_i
+479,262,Ziaur Sarkev,typo
+480,320,dilip sarkar,case
+481,91,R. Sen,initials
+482,168,Hason Talukder,vowel
+483,201,Taslima Parvin,original
+484,26,Nasiir Miah,double_letter
+485,10,Rajesh Chandra Mukheerjee,double_letter
+486,397,Sanjoy Sharkar,sh_s
+487,68,Raahim Khan,double_letter
+488,46,Md. Rakeeb Hossain,ee_i
+489,212,Michaell Corraya,double_letter
+490,91,Ratna Sen,typo
+491,51,Mary. Gomes,spacing
+492,187,David Linnda Rodrigues,double_letter
+493,329,M.N. Akter,initials
+494,293,Pankaj Majumder,original
+495,288,Sabbir Saarker,double_letter
+496,14,MD. RAKIB ALAM,case
+497,332,Farhad Bhuiyan,original
+498,401,Joydeb Gope,hard_negative
+499,321,Ashok Dey ,spacing
+500,94,Obdur Ahmed,vowel
+501,106,Ruth Rodriguess,double_letter
+502,464,Rajan Mukherjee,hard_negative
+503,397,Sanjoy Sarkar,original
+504,104,Rubel Uddin Talukder,original
+505,453,Habibur Haider,hard_negative
+506,296,Syed Shaphiq Nur Ahmed,ph_f
+507,358,Md. Ashik Zaman,original
+508,148,Stephen. D'Costa,spacing
+509,158,Shafiq Lddin,typo
+510,264,R. P. Corraya,initials
+511,309,Shreyaa Das,double_letter
+512,414,Pinki Rani Karmakar,hard_negative
+513,256,Ashok. Kumar Roy,spacing
+514,226,Mosammat Nusrat Sultanaa,double_letter
+515,219,Christofer Rodrigues,ph_f
+516,147,L.J. Chowdhury,initials
+517,374,Md. Mamun Mollaah,double_letter
+518,232,Jenny Jerome D'Costa,original
+519,117,P. R. Karmakar,initials
+520,233,Amitt Kumar Sen,double_letter
+521,238,I. Begum,initials
+522,300,Suzit Chakraborty,z_j
+523,184,R. Pereira,initials
+524,41,Jahid Siddique,original
+525,164,Palma Monica,word_order
+526,171,"Cruze, Sharon",word_order
+527,154,Md. asir Uddin Faruque,typo
+528,342,Nasreen Ferdooosi,oo_u
+529,73,Mohd. Hasan Islam,prefix
+530,18,Rita Curraya,vowel
+531,204, Shahid Sarker,spacing
+532,116,Michael Shtephen Gomes,sh_s
+533,193,farhad islam,case
+534,308,Mitu Chakraborty,original
+535,290,Ali Md. Shahid,word_order
+536,88,Juydeb Ghosh,vowel
+537,266,Joydeb Sharkar,sh_s
+538,59,Nirmol Debnath,vowel
+539,298,"Sen, Kishore",word_order
+540,294,Md. Zahid Mollah,original
+541,360,Mamoon Ali,oo_u
+542,210,Mohammad Ziaur Uddin,prefix
+543,249,Mosammat Shahnaz Akter,original
+544,196,Mstt. Fatema Ara Parvin,double_letter
+545,334,Tamina Parvin,typo
+546,184,Robin Pireira,vowel
+547,21,"Khatun, Nusrat",word_order
+548,165,Muhammad Mahbub Haque,prefix
+549,145,Mohd. Mostafa Ahmed Miah,prefix
+550,143,A. Uddin,initials
+551,253,Monir Mahmud,original
+552,324,Md. Mostafa Hossaeen Mahmud,ee_i
+553,153,Shuvo Ghoosh,double_letter
+554,87,Deboshish Dutta,vowel
+555,90,Dillip Chakraborty,double_letter
+556,160,Robin Sophia Corraya,original
+557,124,Deepo Dey,vowel
+558,308,Mitu Chakraboryt,typo
+559,297,Zannat Aketr,typo
+560,204,Shahid. Sarker,spacing
+561,220,S.M.S. Faruque,initials
+562,62,Nahzmul Miah,typo
+563,366,Saeeful Ahmed Islam,ee_i
+564,261,G.L. Saha,initials
+565,20,john rozario,case
+566,97,Prosenjeet Dutta,ee_i
+567,358,M.A. Zaman,initials
+568,326,Anup Raynjan Dey,typo
+569,352,Parrtha Sen,double_letter
+570,82,Sourav Bose,original
+571,361,sheikh mohammad rakib hossain kabir,case
+572,345,md. farhad ali hossain,case
+573,27,Ruth Chrishtopher Corraya,sh_s
+574,61,Sheikh Mohammad Sabbir Hossain Farooque,oo_u
+575,20,John  Rozario,spacing
+576,69,Bijoy Lal Mondal,original
+577,362,M. I. A. Islam,initials
+578,62,nAZMUL mIAH,case
+579,31,Mamun Hocssain,typo
+580,386,Mohd. Ziaur Islam,prefix
+581,87,Dutta Debashish,word_order
+582,255,Michael Esther Rozariu,vowel
+583,178,Ronald Ctrraya,typo
+584,307,Saifool Uddin,oo_u
+585,100,Sume Chakraborty,vowel
+586,381,Sheikh   Mohammad Rafiq Faruque,spacing
+587,82,Sourrav Bose,double_letter
+588,92,Mohd. Mahbub Hossain,prefix
+589,166,Jerome Baroi,original
+590,352,Paartha Sen,double_letter
+591,180,Sheikh Mohammad Zahid   Uddin,spacing
+592,386,Md. Jiaur Islam,z_j
+593,95,Puja Lata Majumdeg,typo
+594,177,Ritta Rodrigues,double_letter
+595,38,M.M.A. Talukder,initials
+596,357,"Chowdhury, Sharmin",word_order
+597,399,Md. Rakib Sheikh,original
+598,190,S. M. A. Siddique,initials
+599,467,Mosammat Taslima Nur Raihan,hard_negative
+600,363,Md. Anisur Ullah Udidn,typo
+601,80,Mosammat Shirin Chowdhoory,oo_u
+602,35,Debnath Ashok,word_order
+603,59,Debnath Nirmal,word_order
+604,208,N. Uddin,initials
+605,63,Esther Rita Baroi,original
+606,449,Rupa Banerjee,hard_negative
+607,329,Mahmuda Nur Aktir,vowel
+608,278,Md. Mahboob Sarker,oo_u
+609,260,Saiful Kabiir,double_letter
+610,324,MD. MOSTAFA HOSSAIN MAHMUD,case
+611,279,L.L. Roy,initials
+612,348,Md. Shakil Mollah,original
+613,98,sOURAV mONDAL,case
+614,227,Mosammat Toslima Nur Rahman,vowel
+615,351,Md. Soaib Mahmud,sh_s
+616,125,Md. Shaakil Kabir Talukder,double_letter
+617,361,SHEIKH MOHAMMAD RAKIB HOSSAIN KABIR,case
+618,423,Sujoy Debnath,hard_negative
+619,391,Esther Games,vowel
+620,301,Agnes Linda Rodrigues,original
+621,91,Ratan.Sen,spacing
+622,147,Luna Jahan Chowdhury,typo
+623,332,Bhuiyan Farhad,word_order
+624,16,Pankaaj Dey,double_letter
+625,86,Mst. Farjana Sultana Chowdhury,z_j
+626,190,Sheikh Moohammad Abdur Siddique,double_letter
+627,97,Prosenjit Dootta,oo_u
+628,395,Paal Gonsalves,typo
+629,472,Sheikh Mohammad Rakib Hasan Kabir,hard_negative
+630,174,Farhad. Kabir Faruque,spacing
+631,221,A. Sarker,initials
+632,180,S.M.Z. Uddin,initials
+633,16,pANKAJ dEY,case
+634,184,Rubin Pereira,vowel
+635,277,Mst. Tania Chowdhoory,oo_u
+636,371,Karim Ullah Ali,original
+637,217,Nancy D'Cossta,double_letter
+638,426,Jahid Ullah Islam,hard_negative
+639,274,Moshammat Taslima Haque,sh_s
+640,334,Tahmina Parveen,ee_i
+641,93, Mosammat Tania Sultana Islam,spacing
+642,87,Debashiish Dutta,double_letter
+643,28,Joyaa Sen,double_letter
+644,129,Sumip Shil,typo
+645,250,Agnnes D'Costa,double_letter
+646,106,Ruth Rodrigues ,spacing
+647,288,Sabbeer Sarker,ee_i
+648,262,Ziaur Sharker,sh_s
+649,364,Md Shahid Uddin,prefix
+650,142,Pradip Mukherjie,vowel
+651,355, Sheikh Mohammad Mizanur Miah,spacing
+652,209,Kihsore Dey,typo
+653,290,Md. Shahid Ali,original
+654,195,Linda Christophre D'Costa,typo
+655,66,Prosenjit Kumar Sen,original
+656,128,Md. Rezul Mahmud,typo
+657,73,mOHAMMAD hASAN iSLAM,case
+658,256,Ashok Kumar Roy,original
+659,20,Zohn Rozario,z_j
+660,147,Loobna Jahan Chowdhury,oo_u
+661,215,Sumi Sen,original
+662,181,Paul Baroi,original
+663,312,Kabir Rahim Nur,word_order
+664,131,Lipika Paul,original
+665,58,Michael Robin Crooze,oo_u
+666,130,Sheikh Mohammed Jamal Uddin Chowdhury,prefix
+667,134,Joydeb Roy,original
+668,277,Mst. Tania Chowdhury ,spacing
+669,349,Mahbub Siddiqoe,vowel
+670,335,Md. Jahid Uddin Mallah,vowel
+671,319,Mst. Rokeya Khatun ,spacing
+672,195,Linda Christofer D'Costa,ph_f
+673,255,Michael Esther Rozario,original
+674,202,G. Dutta,initials
+675,280, Md. Karim Sarker,spacing
+676,203,Poja Bhattacharjee,vowel
+677,314,Tahmina Jahan Khatoon,oo_u
+678,34,Sultana Rabeya,word_order
+679,318, Shyamal Chandra Mukherjee,spacing
+680,236,Philep Cruze,vowel
+681,299, Sudip Lal Ghosh,spacing
+682,101,Ruma Majumder,original
+683,250,"D'Costa, Agnes",word_order
+684,100,Soomi Chakraborty,oo_u
+685,20,John Rozareo,vowel
+686,72,Sheikh Mohammad Arif Chowdhury ,spacing
+687,1,Amiit Chakraborty,double_letter
+688,288,Mohammad Sabbir Sarker,prefix
+689,210,Md. Jiaur Uddin,z_j
+690,352,P. Sen,initials
+691,18,Rita Corroya,vowel
+692,332,FARHAD BHUIYAN,case
+693,255,M. E. Rozario,initials
+694,168,Hasan Talukder,original
+695,368,Shreya Piswas,typo
+696,408,Dipak Chakraborty,hard_negative
+697,387,Partha Karamkar,typo
+698,122,Muhammad Kamal Ali,prefix
+699,347,Monir Alii Uddin,double_letter
+700,269,RAJESH MUKHERJEE,case
+701,22,Anu Karmakar,typo
+702,97,Prosenjit Duutta,double_letter
+703,236,Phiilip Cruze,double_letter
+704,371,Karim Ollah Ali,vowel
+705,155,Farjana Islam,z_j
+706,372,Saha Subrata,word_order
+707,322,Topash Kumar Sarkar,vowel
+708,127,Robin Baroee,ee_i
+709,320,Dilip Sakrar,typo
+710,320,Dileep Sarkar,ee_i
+711,223,Christofer Jenny Rozario,ph_f
+712,108,M.S. Islam,initials
+713,319,Mst. Rokeya Khatuun,double_letter
+714,347,Monir Ali.Uddin,spacing
+715,179,Rumana Akter Khaatun,double_letter
+716,294,md. zahid mollah,case
+717,108,Mst. Shathi.Islam,spacing
+718,190,Sheikh Mohammad Abdur Shiddique,sh_s
+719,354,Ashraf   Chowdhury,spacing
+720,76,Kamal.Miah,spacing
+721,113,Jerome John Pereeera,ee_i
+722,277,Mst. Tania Chowdhory,vowel
+723,305,Md Shakil Ahmed,spacing
+724,196,M. F. A. Parvin,initials
+725,177,"Rodrigues, Rita",word_order
+726,122,Md. Kamal Ali,prefix
+727,68,Rahim Khaan,double_letter
+728,295,Syed Mostafa Kabirr,double_letter
+729,434,Abdul Alam,hard_negative
+730,159,Habibu Zaman,typo
+731,40,RATAN MONDAL,case
+732,177,Rita Rodrigues,original
+733,283,dEBASHISH mAJUMDER,case
+734,83,Subrata Mondol,vowel
+735,292,U. Sen,initials
+736,462,Sreelekha Lata Son,hard_negative
+737,138,Md. Shahid Mohmud,vowel
+738,46,Md. Rakib Hossaain,double_letter
+739,224,Uddin Rakib,word_order
+740,174,Mohammed Farhad Kabir Faruque,prefix
+741,42,Most. Lubna Haque,prefix
+742,11,Esther Christopher Barroi,double_letter
+743,22,Onup Karmakar,vowel
+744,380,aNUP dUTTA,case
+745,391,Esther Gomis,vowel
+746,100,Sumti Chakraborty,typo
+747,238,Begum Ishrat,word_order
+748,296,Syed Shafiq Nor Ahmed,vowel
+749,162,Shahnaz Chowdhoory,oo_u
+750,264,Ruth Paul Corraya,original
+751,310,Taslima Ara Nahal,typo
+752,357,Sharmin Chowdhory,vowel
+753,240,Mohammad Ziaur Talukder,prefix
+754,350,Mitu Bala Debnath,original
+755,184,Robin Perera,typo
+756,290,Md. Shahid Ale,vowel
+757,274,Mosammat Taslima Haque,original
+758,10,R.C. Mukherjee,initials
+759,157,Anupq Mondal,typo
+760,295, Syed Mostafa Kabir,spacing
+761,200,Mst. Nazmo Haque,vowel
+762,89,Subrata Debnatth,double_letter
+763,310,Tasslima Ara Nahar,double_letter
+764,33,Md. Sabbiir Ullah Faruque,double_letter
+765,399,Md.   Rakib Sheikh,spacing
+766,23,Anisur Mahmud,original
+767,255,"Rozario, Michael Esther",word_order
+768,465,Asif Ali,hard_negative
+769,86,Mst. Farzana Suultana Chowdhury,double_letter
+770,7,Shahid Faruque,original
+771,296,sYED sHAFIQ nUR aHMED,case
+772,226,Mosammat Nusrat Sultana,original
+773,201,Taslima Parvin ,spacing
+774,376,ruma karmakar,case
+775,147,Musammat Lubna Jahan Chowdhury,prefix
+776,382,Rashed Sarker,original
+777,206,L. Corraya,initials
+778,77,Md. Raakib Rahman,double_letter
+779,95,Puza Lata Majumder,z_j
+780,390,Mosammat Ayesha Chowdhury,prefix
+781,49,Mohammad Anisur Kabir Mahmud,original
+782,154,Md. Nasir Uddin Faruque,original
+783,51,"Gomes, Mary",word_order
+784,438,Salma Alam,hard_negative
+785,191,P. N. Corraya,initials
+786,69,Bijoy  Lal Mondal,spacing
+787,262,Ziaur Sarkerr,typo
+788,168,Hasan   Talukder,spacing
+789,214,Ronald Pereira,original
+790,265,Jahed Uddin Mahmud,vowel
+791,151,David Palmca,typo
+792,182,Mohammad Rezaool Sarker,oo_u
+793,74,Francish Robin Pereira,sh_s
+794,347,Monir Ali Uddin,original
+795,390,Ayesha Chowdhury,original
+796,74, Francis Robin Pereira,spacing
+797,74,Krancis Robin Pereira,typo
+798,55,Mosammat Ayesha Nahar,original
+799,143,Abdur Uddin,original
+800,466,Sudip Lal Bose,hard_negative
+801,424,Ajit Kumar Sen,hard_negative
+802,61,Sheikh Mohammad Sabbir Hossain Foruque,vowel
+803,221,Anisurl Sarker,typo
+804,12,Md. Shakel Hossain Khan,vowel
+805,369,zahid sarker,case
+806,394,Khan Nazmul,word_order
+807,265,Jahid Uddin Mahmud,original
+808,209,Kishure Dey,vowel
+809,265,Jahid   Uddin Mahmud,spacing
+810,17,Ashraph Hossain,ph_f
+811,361,Sheikh Mohammad Rakib Hossain Kabir,original
+812,149,gOPAL kARMAKAR,case
+813,224,Rakib Oddin,vowel
+814,444,Ashok Das,hard_negative
+815,345,Md. Farhad Ali Hossain,original
+816,151,David.Palma,spacing
+817,269,rAJESH mUKHERJEE,case
+818,9,RASHED MOLLAH,case
+819,101,Ruma Majumdir,vowel
+820,259,Kishore Chandra  Karmakar,spacing
+821,301,Agnes Linda Rodrigues ,spacing
+822,142,Pradip Mukherzee,z_j
+823,311,Hasan Oli,vowel
+824,258,Ashraf Zaman,original
+825,80,Mosammaat Shirin Chowdhury,double_letter
+826,394,Mohammad Nazmul Khan,prefix
+827,144,sUNNY jOSEPH pALMA,case
+828,13,rAJESH dEBNATH,case
+829,234,Joya Ranee Bhattacharjee,ee_i
+830,240,M.Z. Talukder,initials
+831,98,Mondal Sourav,word_order
+832,329,Mahmuda Nur Akter,original
+833,374,Md. Mamon Mollah,vowel
+834,199,Peter Rita Corraya,original
+835,148,Stephenn D'Costa,typo
+836,107,Tanvir Siddique,original
+837,97,Dutta Prosenjit,word_order
+838,65,jerome cruze,case
+839,342,Nasreen Ferdousi,original
+840,259,Kishore Chandra.Karmakar,spacing
+841,313,Sudip Bhattacharrjee,double_letter
+842,287,Sujit Debnath,original
+843,366,"Islam, Saiful Ahmed",word_order
+844,89,Subrata. Debnath,spacing
+845,20,J. Rozario,initials
+846,22,Anup. Karmakar,spacing
+847,297,Zannatt Akter,double_letter
+848,71,Nancy David Goomes,double_letter
+849,460,Sumit Kanti Chakraborty,hard_negative
+850,475,Lina Corraya,hard_negative
+851,237,M. A. U. Sheikh,initials
+852,384,Rumana. Nahar,spacing
+853,173,S. K. Haldar,initials
+854,123,Md. Habeebur Faruque,ee_i
+855,112,Ameet Ranjan Sen,ee_i
+856,312,Rahim Nur Kabir,original
+857,253,Moneer Mahmud,ee_i
+858,271,Shreya Moondal,double_letter
+859,200,Mst. Nazmaa Haque,double_letter
+860,206,Linda Corraya,original
+861,90,Dilip Chakraborty ,spacing
+862,164,mONICA pALMA,case
+863,11,Esther Christofer Baroi,ph_f
+864,144,Sunny Zoseph Palma,z_j
+865,177,Rita Rodriguesh,sh_s
+866,181,"Baroi, Paul",word_order
+867,354,Mohammed Ashraf Chowdhury,prefix
+868,160,Corraya Robin Sophia,word_order
+869,15,"Sultana, Mahmuda",word_order
+870,234,"Bhattacharjee, Joya Rani",word_order
+871,322,Tapash Kumar Saprkar,typo
+872,124,Dipa Dey,ee_i
+873,127,"Baroi, Robin",word_order
+874,230,joya rani chakraborty,case
+875,373,mOSAMMAT zANNAT fERDOUSI,case
+876,341,Saiful  Mollah,spacing
+877,22,ANUP KARMAKAR,case
+878,3,Zahid Mahmmud,double_letter
+879,283,D. Majumder,initials
+880,147,L. J. Chowdhury,initials
+881,203,Puja Bhattaacharjee,double_letter
+882,99,Joya Ghosh ,spacing
+883,89,Subrata   Debnath,spacing
+884,214,Pereira Ronald,word_order
+885,12,Md. Shakil Hossoin Khan,vowel
+886,206,Corraya Linda,word_order
+887,266,Joydeb Sarkar,original
+888,374,Md. Mamun Molloh,vowel
+889,37,Md. Munir Rahman,vowel
+890,344,Mosammat.Shirin Nur Islam,spacing
+891,107,Tanivr Siddique,typo
+892,123,md. habibur faruque,case
+893,112,Amhit Ranjan Sen,typo
+894,303,Sheeekh Mohammad Saiful Sarker,ee_i
+895,391,Esther Gomees,double_letter
+896,393,Sharmin Rahmman,double_letter
+897,368,"Biswas, Shreya",word_order
+898,299,Sudip Laal Ghosh,double_letter
+899,263,Ashik Ali Sarker,original
+900,182,M.R. Sarker,initials
+901,21,Nusraat Khatun,double_letter
+902,125,Md. Shakil Kabir Talookder,oo_u
+903,306,Jaydeb Mukherjee,vowel
+904,256,"Roy, Ashok Kumar",word_order
+905,253,Monir Mahmood,oo_u
+906,82,Sourva Bose,typo
+907,102,Nazma Noor Sultana,oo_u
+908,221,Anisur Sharker,sh_s
+909,246,Mahbub Nur Hoshsain,sh_s
+910,161,Shuvo Bhattachaarjee,double_letter
+911,79,Md. Shahed Talukder,vowel
+912,25,Prosenjit Debnath ,spacing
+913,322,Tapash Kumar Sorkar,vowel
+914,189,S. Rozario,initials
+915,286,Mizanur Talukdre,typo
+916,102, Nazma Nur Sultana,spacing
+917,107,Siddique Tanvir,word_order
+918,186,Saphia John Gonsalves,vowel
+919,238,Ishrat Beegum,double_letter
+920,328,Tony Crzue,typo
+921,203,Puja Bhattacharzee,z_j
+922,255,michael esther rozario,case
+923,381,Sheikh Mohammad Rafeeq Faruque,ee_i
+924,265,Jahid Uddin Maahmud,double_letter
+925,140,Hbib Alam,typo
+926,205,Mohammad Imran Ullah Islam,original
+927,340,Shakeel Zaman,ee_i
+928,334,Most. Tahmina Parvin,prefix
+929,380,Anup Dutta,original
+930,25,Porsenjit Debnath,typo
+931,44,Miah Saiful Ali,word_order
+932,345,Muhammad Farhad Ali Hossain,prefix
+933,271,Mondal Shreya,word_order
+934,236,Philip Cruzi,vowel
+935,372,Sobrata Saha,vowel
+936,178,rONALD cORRAYA,case
+937,445,Sanjib Kanti Bose,hard_negative
+938,127,Robin Baroi ,spacing
+939,254,Sheikh Mohammad Rezaul Hoshsain Sarker,sh_s
+940,259,Kisore Chandra Karmakar,sh_s
+941,210,Md Ziaur Uddin,spacing
+942,124,Deepa Dey,original
+943,394,Mohd. Nazmul Khan,prefix
+944,374,Mollah Md. Mamun,word_order
+945,17,Ashraf Hossain,original
+946,79,Md. Shohid Talukder,vowel
+947,117,uja Rani Karmakar,typo
+948,312,Rahim Nuur Kabir,double_letter
+949,198,AGNES RODRIGUES,case
+950,52,Rina Bala Majumder,original
+951,16,P. Dey,initials
+952,307,Mohd. Saiful Uddin,prefix
+953,366,Saiful Ahmed Islam,original
+954,21,Nusrat Khatun,original
+955,382,Rashed Saarker,double_letter
+956,280,Sarker Md. Karim,word_order
+957,62,Nazmul Miah,original
+958,312,Rohim Nur Kabir,vowel
+959,150,"Sarker, Md. Saiful",word_order
+960,263,"Sarker, Ashik Ali",word_order
+961,247,Shakil Mahmod,vowel
+962,242,Msht. Shirin Haque,sh_s
+963,166,Jeromee Baroi,double_letter
+964,339,Anjalz Dey,typo
+965,330,Raphael Nancy Pereira,original
+966,2,Rakib Uddin Islam,prefix
+967,153,Shuuvo Ghosh,double_letter
+968,233,Amit Kumar Sen,original
+969,15,Mahmuda Shultana,sh_s
+970,48,M. N. A. Ferdousi,initials
+971,184,Roobin Pereira,double_letter
+972,8,Anisur. Sheikh,spacing
+973,76,Kamal Miiah,double_letter
+974,243,jenny gonsalves,case
+975,298,Kishore Sen,original
+976,397,"Sarkar, Sanjoy",word_order
+977,89,Subrats Debnath,typo
+978,258,Ashraph Zaman,ph_f
+979,14,Alam Md. Rakib,word_order
+980,387,Partha Karmakar,original
+981,217,Nancy.D'Costa,spacing
+982,6,Debasish Chandra Biswas,sh_s
+983,389,sheikh mohammad habib uddin talukder,case
+984,343,Habib Ali Kabiir,double_letter
+985,222,Pradip Kumar Mukherjie,vowel
+986,267, Sheikh Mohammad Rahim Haque,spacing
+987,30,shakil sarker,case
+988,398,Pritam Bvnerjee,typo
+989,199,Peter.Rita Corraya,spacing
+990,121,Pritam Paul,original
+991,333,Zahid Ullah Alam,z_j
+992,450,Sanjit Sarkar,hard_negative
+993,33,M. S. U. Faruque,initials
+994,11,Esther Christopher Baroi,original
+995,417,Md. Shamil Mollah,hard_negative
+996,85,KISHORE LAL MUKHERJEE,case
+997,25,P. Debnath,initials
+998,43,Md. Mosttafa Ahmed,double_letter
+999,310,Mosammat Taslima Ara Nahar,prefix
+1000,433,Jahid Ullah Mahmud,hard_negative
+1001,52,Majumder Rina Bala,word_order
+1002,363,Md. Anisur Ullah   Uddin,spacing
+1003,368,S. Biswas,initials
+1004,180,Sheikh Mohammad Zahid Uddin,original
+1005,180,Sheikh Mohammad Zahid Uddeen,ee_i
+1006,12,Md. Shakil Hossain Khan ,spacing
+1007,223, Christopher Jenny Rozario,spacing
+1008,18,R. Corraya,initials
+1009,383,"Haldar, Joydeb",word_order
+1010,394,Nazmaul Khan,typo
+1011,223,Chreestopher Jenny Rozario,ee_i
+1012,102,Nazma Nur Sultana,original
+1013,58, Michael Robin Cruze,spacing
+1014,128,Md. Rezaul Mahmu,typo
+1015,9,Mollah Rashed,word_order
+1016,25,Prosenjet Debnath,vowel
+1017,211,Arif Ali Mahmud,original
+1018,282,Md. Rahim Jaman,z_j
+1019,272,Farzana Soltana,vowel
+1020,101,Rumaa Majumder,double_letter
+1021,102,Musammat Nazma Nur Sultana,prefix
+1022,374,Md. Mamun Mollah,original
+1023,76,Kamal Miah,original
+1024,369,Zahid Sarker,original
+1025,283,Debashish Majumder,original
+1026,391,Esther Gomes,original
+1027,125,mD. sHAKIL kABIR tALUKDER,case
+1028,70,Linda Francees Rozario,ee_i
+1029,169,Lubnaa Rahman,double_letter
+1030,209,KISHORE DEY,case
+1031,389,Sheikg Mohammad Habib Uddin Talukder,typo
+1032,343,Habib Alii Kabir,double_letter
+1033,169,L. Rahman,initials
+1034,29,Soaib Faruque,sh_s
+1035,209,Kishore. Dey,spacing
+1036,48,"Ferdousi, Mosammat Nusrat Ara",word_order
+1037,162,Shahnaz Chowdhury,original
+1038,73,Hasan Islam,prefix
+1039,97,Prosenjit Dutta,original
+1040,316,Mohammad Zakir Faruque,prefix
+1041,81,Jahid Nur Mahmood,oo_u
+1042,144,Shunny Joseph Palma,sh_s
+1043,135,Md. Sabbir Katbir,typo
+1044,349,Mahbub Siddeeque,ee_i
+1045,4,Md. Rakib Haquee,double_letter
+1046,242,Ms. Shirin Haque,typo
+1047,159,Habinbur Zaman,typo
+1048,54,Shil Gopal,word_order
+1049,393,Shormin Rahman,vowel
+1050,171,sHARON cRUZE,case
+1051,48,Mosammat Nusrat Ara Ferdousi,original
+1052,35,ashok debnath,case
+1053,349,Mahbub Siddique,original
+1054,190,Sheiikh Mohammad Abdur Siddique,double_letter
+1055,188,Anup Debnath,original
+1056,106,Rvth Rodrigues,typo
+1057,131,Lipeka Paul,vowel
+1058,164,M. Palma,initials
+1059,291,"Mukherjee, Ashok Kumar",word_order
+1060,355,Sheikh Mohaammad Mizanur Miah,double_letter
+1061,149,opal Karmakar,typo
+1062,246,MAHBUB NUR HOSSAIN,case
+1063,46,Md. Rakib Hssain,typo
+1064,133,Shompa Lata Banerjee,vowel
+1065,5,Anup Ghossh,double_letter
+1066,264,Ruth Paull Corraya,double_letter
+1067,78,Syid Sohel Miah,vowel
+1068,24,Joseph D'Casta,vowel
+1069,43,Md. Moshtafa Ahmed,sh_s
+1070,348,Md. Shakeel Mollah,ee_i
+1071,341,Saifool Mollah,oo_u
+1072,388,Mousumi Lata Chakxraborty,typo
+1073,48,Ferdousi Mosammat Nusrat Ara,word_order
+1074,272,Farzanaa Sultana,double_letter
+1075,23,Muhammad Anisur Mahmud,prefix
+1076,272, Farzana Sultana,spacing
+1077,18,Rita Corraya,original
+1078,219,Christopher Rodrigues,original
+1079,135,Kabir Md. Sabbir,word_order
+1080,283,Debasheesh Majumder,ee_i
+1081,191,Peter Nancy Corrqaya,typo
+1082,402,Rumi Chakraborty,hard_negative
+1083,213,R. Bhattacharjee,initials
+1084,42,Mst. Loobna Haque,oo_u
+1085,186,"Gonsalves, Sophia John",word_order
+1086,308,Metu Chakraborty,vowel
+1087,67,Msht. Tania Ferdousi,sh_s
+1088,431,Sheikh Mohammad Rezaul Hasan Sarker,hard_negative
+1089,241,Md. Mizanur Faruque,original
+1090,44,Saeeful Ali Miah,ee_i
+1091,252,Shampa Sarkar,original
+1092,342,Nashreen Ferdousi,sh_s
+1093,300,SUJIT CHAKRABORTY,case
+1094,114,T. N. Siddique,initials
+1095,109,M. A. Sheikh,initials
+1096,19, Mohammad Rakib Ullah Siddique,spacing
+1097,182,MOHAMMAD REZAUL SARKER,case
+1098,384,Rumana Nahar,original
+1099,327,Fark Talukder,typo
+1100,115,Abdul Islam,original
+1101,6,debashish chandra biswas,case
+1102,65,Jerome Cruze,original
+1103,2, Mohammad Rakib Uddin Islam,spacing
+1104,220,Sheikh Mohammad Sabbir Faruque,original
+1105,75,Mohammad Monir Kabir Khan,original
+1106,218,Rina Rani Dbutta,typo
+1107,201,Taslema Parvin,vowel
+1108,169,Lubna Rahmain,typo
+1109,134,"Roy, Joydeb",word_order
+1110,236,Phileep Cruze,ee_i
+1111,351,Md. Shoaib Mahmud,original
+1112,73,"Islam, Mohammad Hasan",word_order
+1113,246, Mahbub Nur Hossain,spacing
+1114,306,joydeb mukherjee,case
+1115,156,Nazmull Ali,double_letter
+1116,294,Md Zahid Mollah,spacing
+1117,301,aGNES lINDA rODRIGUES,case
+1118,341,Saiful Mollah,original
+1119,133,Sampa Lata Banerjee,sh_s
+1120,122,Mohavmmad Kamal Ali,typo
+1121,341,saiful mollah,case
+1122,42,Mst.  Lubna Haque,spacing
+1123,105,Ayesha Ferdousi,original
+1124,132,Md. Ashraf Ali Mollah,original
+1125,152,Syed   Hasan Khan,spacing
+1126,263,A. A. Sarker,initials
+1127,156,nazmul ali,case
+1128,100,sUMI cHAKRABORTY,case
+1129,350,M.B. Debnath,initials
+1130,375,Dilip Dutta,original
+1131,224,Rokib Uddin,vowel
+1132,302,Mahbub Khon,vowel
+1133,356,Syed Rezaul Hossain Farooque,oo_u
+1134,28,J. Sen,initials
+1135,44,Saiful Ali Miazh,typo
+1136,87,DEBASHISH DUTTA,case
+1137,389,Talukder Sheikh Mohammad Habib Uddin,word_order
+1138,451,Rumi Shil,hard_negative
+1139,21,N. Khatun,initials
+1140,151,Divid Palma,typo
+1141,142,Pradip Mukherjee,original
+1142,245,M. A. Miah,initials
+1143,45,Mosammat.Tahmina Rahman,spacing
+1144,224,Raakib Uddin,double_letter
+1145,45,Mosammat Tahmina Rahman,original
+1146,231,Ashik Nur Uddiin,double_letter
+1147,395,Gonsalves Paul,word_order
+1148,181,Paool Baroi,oo_u
+1149,83,Suubrata Mondal,double_letter
+1150,379,Mohammed Zahid Ahmed Uddin,prefix
+1151,394,Nazmul Khon,vowel
+1152,275,puja bala bose,case
+1153,33,"Faruque, Md. Sabbir Ullah",word_order
+1154,109,Md. Abdul Sheikuh,typo
+1155,183,PANKAJ BHATTACHARJEE,case
+1156,215,Sumin Sen,typo
+1157,46,M. R. Hossain,initials
+1158,292,Sen Uttam,word_order
+1159,196,Fatema Ara Parvin,prefix
+1160,105,Musammat Ayesha Ferdousi,prefix
+1161,170,N. Sheikh,initials
+1162,246,M. N. Hossain,initials
+1163,353,Moskmmat Nusrat Rahman,typo
+1164,46,Md. Rakiib Hossain,double_letter
+1165,322,Tapash Kumar Sarkar,original
+1166,321,Ashok Dev,typo
+1167,312,Rahim Noor Kabir,oo_u
+1168,37,Md.Monir Rahman,spacing
+1169,280,Md. Kareem Sarker,ee_i
+1170,24,Joseph D'Costo,vowel
+1171,113,Jerome John   Pereira,spacing
+1172,195,Linda Christopher D'Costa,original
+1173,32,Sreelekho Lata Sen,vowel
+1174,184,Robeen Pereira,ee_i
+1175,241,Md. Mizanoor Faruque,oo_u
+1176,53,Stephen Gonssalves,double_letter
+1177,278,Md. Mahbub Sarkir,vowel
+1178,317,Rumano Akter,vowel
+1179,392,Joydebb Kanti Bhattacharjee,typo
+1180,319,Msht. Rokeya Khatun,sh_s
+1181,267,"Haque, Sheikh Mohammad Rahim",word_order
+1182,315,Musammat Salma Parvin,prefix
+1183,45,Mosammat Taahmina Rahman,double_letter
+1184,123,MD. HABIBUR FARUQUE,case
+1185,316,Zakir Faruuque,double_letter
+1186,73,Mohammad Hasan Islam,original
+1187,388,Mousumi Lata Chakraborty,original
+1188,72,Sheikh Muhammad Arif Chowdhury,prefix
+1189,203,Puja Bhattachaarjee,double_letter
+1190,400,"Mukherjee, Deepa",word_order
+1191,132,Md. Ashraf Alri Mollah,typo
+1192,317,Rumanna Akter,double_letter
+1193,461,Rita Rani Debnath,hard_negative
+1194,93,Mosammat Tania Sultana Islam,original
+1195,173,Shankar Kanti aldar,typo
+1196,32,S. L. Sen,initials
+1197,418,Md. Shakil Haider Khan,hard_negative
+1198,194,Rataqn Mukherjee,typo
+1199,278,Md. Mahbub  Sarker,spacing
+1200,217,Nancy E'Costa,typo
+1201,355,Sheikh Mohammad Mizanur Miah,original
+1202,370, Rehana Sultana,spacing
+1203,393,Sharmin Rahman,original
+1204,77,Md. Rakeeb Rahman,ee_i
+1205,47,Esther Dovid Rodrigues,vowel
+1206,151,David   Palma,spacing
+1207,355,Sheikh Mohammad Meezanur Miah,ee_i
+1208,97,Prosenjiit Dutta,double_letter
+1209,325,"Kabir, Md. Anisur",word_order
+1210,326,Anop Ranjan Dey,vowel
+1211,179,"Khatun, Rumana Akter",word_order
+1212,236,Philip Cruzte,typo
+1213,42,MST. LUBNA HAQUE,case
+1214,64,rina rani debnath,case
+1215,26,Naser Miah,vowel
+1216,106,Ruth Rodriigues,double_letter
+1217,173,sHANKAR kANTI hALDAR,case
+1218,200,Mst. Nazma Haque,original
+1219,343,"Kabir, Habib Ali",word_order
+1220,333,J. U. Alam,initials
+1221,337,"Sheikh, Syed Karim Kabir",word_order
+1222,84,M.S.U. Sheikh,initials
+1223,344,"Islam, Mosammat Shirin Nur",word_order
+1224,295,Shyed Mostafa Kabir,sh_s
+1225,230,Joya.Rani Chakraborty,spacing
+1226,321,Ashok. Dey,spacing
+1227,221,Anisur Sarker,original
+1228,244,Mosammat Shahnaz Islom,vowel
+1229,7,Faruque Shahid,word_order
+1230,270,Haque Ashraf Ullah,word_order
+1231,355,Sheikh Mohd. Mizanur Miah,prefix
+1232,32,Sreelekha Lata Sen,original
+1233,375,Dileep Dutta,ee_i
+1234,42,"Haque, Mst. Lubna",word_order
+1235,278,M. M. Sarker,initials
+1236,32,sreelekha lata sen,case
+1237,272,Pharzana Sultana,ph_f
+1238,144,Sunny Josepm Palma,typo
+1239,78,SYED SOHEL MIAH,case
+1240,338,MOHAMMAD NASIR UDDIN,case
+1241,22,Anoop Karmakar,oo_u
+1242,286,Mizanr Talukder,typo
+1243,22,Anup Kaarmakar,double_letter
+1244,59,N. Debnath,initials
+1245,126,Mohd. Farhad Hossain Ali,prefix
+1246,56,H. Hossain,initials
+1247,338,Mohammad Nasir Uddin,original
+1248,98,Sourav Mondal,original
+1249,362,Mohaammad Imran Ahmed Islam,double_letter
+1250,236,Philip Cruje,z_j
+1251,57,Nasreen Aegum,typo
+1252,294,Md. Zaheed Mollah,ee_i
+1253,181,Paul Barroi,double_letter
+1254,232,D'Costa Jenny Jerome,word_order
+1255,55,Moshammat Ayesha Nahar,sh_s
+1256,222,Pradip Kumaar Mukherjee,double_letter
+1257,146,S. S. Baroi,initials
+1258,232,Jenny Jerome D'Custa,vowel
+1259,157,Anup Mondal,original
+1260,264,Ruth Paul Corroya,vowel
+1261,226,Mosammat Nuusrat Sultana,double_letter
+1262,352,Partha.Sen,spacing
+1263,117,Puja Rani Karmaakr,typo
+1264,244,Moshammat Shahnaz Islam,sh_s
+1265,74,Francees Robin Pereira,ee_i
+1266,141,mOHAMMAD rEZAUL bHUIYAN,case
+1267,244,Mosammat Shahnaz Ishlam,sh_s
+1268,247,Shakil Mahmud,original
+1269,330,R. N. Pereira,initials
+1270,286,Mizannur Talukder,double_letter
+1271,349,Mahbub   Siddique,spacing
+1272,342,Nasreen Ferdousee,ee_i
+1273,285,Mohammad Saiful Faruque,original
+1274,140,Habeeb Alam,ee_i
+1275,400,Deepa Mukherji,ee_i
+1276,480,Rita Bala Majumder,hard_negative
+1277,354,Chowdhury Ashraf,word_order
+1278,81,Jahid Nur Maahmud,double_letter
+1279,311,H. Ali,initials
+1280,262,Ziaur. Sarker,spacing
+1281,185,"Talukder, Mohammad Tanvir",word_order
+1282,304,Deepa anerjee,typo
+1283,6,Debashish Chandrra Biswas,double_letter
+1284,81,Jahid Nu Mahmud,typo
+1285,56,Habibur Hossain,original
+1286,88,Joydeb Ghosh ,spacing
+1287,70,L.F. Rozario,initials
+1288,252,Sampa Sarkar,sh_s
+1289,378,SYED SABBIR UDDIN,case
+1290,200,Most. Nazma Haque,prefix
+1291,252,Shampa Sarkarr,double_letter
+1292,269,Razesh Mukherjee,z_j
+1293,355,Sheikh Mohammad Mijanur Miah,z_j
+1294,365,Joya Bisswas,double_letter
+1295,374,M. M. Mollah,initials
+1296,367,R. Alam,initials
+1297,83,Subrata Mondar,typo
+1298,175,Priya Lata Das,original
+1299,287,Sujit Debnatth,double_letter
+1300,102,Nazma Nur Sooltana,oo_u
+1301,117,Puja Ranee Karmakar,ee_i
+1302,193,Mohammad Farhad Islam,prefix
+1303,311,Hasan Ali,original
+1304,214,Ronald. Pereira,spacing
+1305,1,A. Chakraborty,initials
+1306,37,Md. Monir Rahman,original
+1307,301,Agnnes Linda Rodrigues,double_letter
+1308,412,Champa Lata Banerjee,hard_negative
+1309,359,Sheikh Mohammad Jamal Kabirs Zaman,typo
+1310,225,Rita Shunny Palma,sh_s
+1311,335,Md. Jaahid Uddin Mollah,double_letter
+1312,41,Zahid Siddique,z_j
+1313,289,Sheiikh Mohammad Ashik Talukder,double_letter
+1314,45,Rahman Mosammat Tahmina,word_order
+1315,372,Subrata Shaha,sh_s
+1316,298,K. Sen,initials
+1317,325,Md. Anisur Kabir,original
+1318,353,Mosammat Nusrat Rohman,vowel
+1319,215,Sume Sen,vowel
+1320,211,Arif Alee Mahmud,ee_i
+1321,72,Sheikh Moohammad Arif Chowdhury,double_letter
+1322,54,Gopal Shil,original
+1323,342,Nasreen Ferduusi,vowel
+1324,220,S. M. S. Faruque,initials
+1325,379,Md. Jahid Ahmed Uddin,z_j
+1326,92,Mahbob Hossain,vowel
+1327,349,Mahbub Seeddique,ee_i
+1328,380,Anop Dutta,vowel
+1329,272,fARZANA sULTANA,case
+1330,228, Rita Baroi,spacing
+1331,212,Michael.Corraya,spacing
+1332,144,Soonny Joseph Palma,oo_u
+1333,162,Shahnaz Choodhury,typo
+1334,321,"Dey, Ashok",word_order
+1335,188,Anup Dibnath,vowel
+1336,70,L. F. Rozario,initials
+1337,276,Kamal Nr Ali,typo
+1338,370,Rehana Sultana,original
+1339,2,Mohammad Rakib Uddin Ishlam,sh_s
+1340,58,Michael Roben Cruze,vowel
+1341,66,P. K. Sen,initials
+1342,332,Mohammed Farhad Bhuiyan,prefix
+1343,259,Kishore Chandra Karmakaar,double_letter
+1344,128,Md. Rezaul Mahmood,oo_u
+1345,358,Md. Ashek Zaman,vowel
+1346,297,Zannaat Akter,double_letter
+1347,332,"Bhuiyan, Farhad",word_order
+1348,309,shreya das,case
+1349,325,M. A. Kabir,initials
+1350,264,Ruth Zaul Corraya,typo
+1351,216,puja paul,case
+1352,271,Shreya. Mondal,spacing
+1353,261,Gopal. Lal Saha,spacing
+1354,356,Syed Rezaul Hossain Pharuque,ph_f
+1355,127,Rabin Baroi,vowel
+1356,278,Md. Mahbub Sarker,original
+1357,19,mohammad rakib ullah siddique,case
+1358,321,Ashok Dey,original
+1359,15,Mahmuda Sultana,original
+1360,319,Mst. Rokeya Khatun,original
+1361,332,Pharhad Bhuiyan,ph_f
+1362,86,Mst. Farzana  Sultana Chowdhury,spacing
+1363,191,P.N. Corraya,initials
+1364,52,"Majumder, Rina Bala",word_order
+1365,8,Anisur Sheikh,original
+1366,385,Arif Ali,original
+1367,258,Asraf Zaman,sh_s
+1368,352,Partha. Sen,spacing
+1369,153,Suvo Ghosh,sh_s
+1370,21,nusrat khatun,case
+1371,420,Zayed Bhuiyan,hard_negative
+1372,300, Sujit Chakraborty,spacing
+1373,307,Saiful Uddeen,ee_i
+1374,259,Kishore Chandra Karmakar,original
+1375,116,Meechael Stephen Gomes,ee_i
+1376,374,MD. MAMUN MOLLAH,case
+1377,178,Ronald Corraya,original
+1378,327,Faruk Talukder,original
+1379,175,Priya. Lata Das,spacing
+1380,268,Estheq Baroi,typo
+1381,61,Sheikh Mohammad Sabbir Hossain Faruque,original
+1382,272,Sultana Farzana,word_order
+1383,14,Md. Rakeeb Alam,ee_i
+1384,249,Mosmmat Shahnaz Akter,typo
+1385,170,Nazmol Sheikh,vowel
+1386,64,R. R. Debnath,initials
+1387,150,Md. Saiphul Sarker,ph_f
+1388,95,Puuja Lata Majumder,double_letter
+1389,456,Sheikh Mohammad Karim Haque,hard_negative
+1390,198,Agnes Rodreegues,ee_i
+1391,397,Sanzoy Sarkar,z_j
+1392,257,Pujoa Dutta,typo
+1393,275,Pujo Bala Bose,vowel
+1394,141, Mohammad Rezaul Bhuiyan,spacing
+1395,392,Joydeb Kanti Bhattacharjee,original
+1396,60,MST. RABEYA ARA KHATUN,case
+1397,209,Kishore Dey,original
+1398,309,Shreya Das,original
+1399,13,Razesh Debnath,z_j
+1400,230,Joya Rane Chakraborty,vowel
+1401,192,Md. Jamal Mahmud,original
+1402,286,Mizanur Tolukder,vowel
+1403,40,Ratan Mandal,vowel
+1404,33,Md. Sabbir Ulla Faruque,typo
+1405,266,jOYDEB sARKAR,case
+1406,307,Saifl Uddin,typo
+1407,185,Mohammad Tanvir Talukdeer,double_letter
+1408,428,Syed Sabbir Ullah,hard_negative
+1409,87,D. Dutta,initials
+1410,324,Md. Mostafa Hossain Mahmud,original
+1411,75,Khan Mohammad Monir Kabir,word_order
+1412,118, Habib Khan,spacing
+1413,284, Stephen Rozario,spacing
+1414,397,sanjoy sarkar,case
+1415,187,Daavid Linda Rodrigues,double_letter
+1416,114,Tanvir Nur Siddqique,typo
+1417,114,Tanveer Nur Siddique,ee_i
+1418,365,Joya Biswass,double_letter
+1419,40,R. Mondal,initials
+1420,290,Md. Sahid Ali,sh_s
+1421,217,Noncy D'Costa,vowel
+1422,260,S. Kabir,initials
+1423,213,Ruma Bhattacharjee ,spacing
+1424,31,MAMUN HOSSAIN,case
+1425,35,Ashok Debnaeth,typo
+1426,225,Palma Rita Sunny,word_order
+1427,391,Esther Goomes,double_letter
+1428,225,Rita Sunny Palma,original
+1429,155,Farana Islam,typo
+1430,80,Mosammat Shirin Chowdhury,original
+1431,304,Banerjee Deepa,word_order
+1432,302,Muhammad Mahbub Khan,prefix
+1433,32,Sreelekha Lota Sen,vowel
+1434,194,RATAN MUKHERJEE,case
+1435,88,Joydeeb Ghosh,double_letter
+1436,149,Gopjal Karmakar,typo
+1437,353,Mosammat Nusrat Rahman,original
+1438,67,Mst. Tania Pherdousi,ph_f
+1439,101,Majumder Ruma,word_order
+1440,342,Naasreen Ferdousi,double_letter
+1441,237,md. abdul uddin sheikh,case
+1442,1,Amit.Chakraborty,spacing
+1443,13,Rajes Debnath,sh_s
+1444,57,Nasreen Begoom,oo_u
+1445,378,Syeed Sabbir Uddin,double_letter
+1446,101,"Majumder, Ruma",word_order
+1447,324,M. M. H. Mahmud,initials
+1448,268,Isther Baroi,vowel
+1449,384,Rumana Naharr,double_letter
+1450,399,"Sheikh, Md. Rakib",word_order
+1451,296,Syed Shafeeq Nur Ahmed,ee_i
+1452,246,Mahbub Nur Hossain,original
+1453,282,MD. RAHIM ZAMAN,case
+1454,96,Sheerin Islam,ee_i
+1455,341,Saeeful Mollah,ee_i
+1456,205,Mohammad Imdan Ullah Islam,typo
+1457,136,Sanoy Das,typo
+1458,162,"Chowdhury, Shahnaz",word_order
+1459,20,John Rozario,original
+1460,242,Mst. Shirin Haque,original
+1461,136,Sanjoy Das,original
+1462,398,Pritam Banerjee,original
+1463,71,Gomes Nancy David,word_order
+1464,330,Rafael Nancy Pereira,ph_f
+1465,202,Gopal Duutta,double_letter
+1466,222,P. K. Mukherjee,initials
+1467,277,mst. tania chowdhury,case
+1468,168,Hasan Talookder,oo_u
+1469,130,Sheikh Mohammad Jamal Uddin Chowdhury,original
+1470,122,Mohammad Kamal Ali,original
+1471,256,Roy Ashok Kumar,word_order
+1472,29,Shoaib Faruque,original
+1473,63,Esther Reeta Baroi,ee_i
+1474,386,Md. Ziaoor Islam,oo_u
+1475,6,Biswas Debashish Chandra,word_order
+1476,136,Sanjoy. Das,spacing
+1477,280,Md. Karim Sarker,original
+1478,382,Rashed Sarker ,spacing
+1479,279,Lipika Lota Roy,vowel
+1480,12,M. S. H. Khan,initials
+1481,128,Mahmud Md. Rezaul,word_order
+1482,387,partha karmakar,case
+1483,38,Md. Moneer Ahmed Talukder,ee_i
+1484,405,Md. Farhad Ali Hasan,hard_negative
+1485,46,Md. Rakib Hossain,original
+1486,301,Agnes Linda Rodriguees,double_letter
+1487,201,Mst. Taslima Parvin,prefix
+1488,188,Anup Debnnath,double_letter
+1489,59,Nirmal Debnath ,spacing
+1490,57,Nasrin Begum,ee_i
+1491,195,Linda Chrishtopher D'Costa,sh_s
+1492,321,Asok Dey,sh_s
+1493,286,Md Mizanur Talukder,prefix
+1494,33,Md. Sabbir Ullah Faruque,original
+1495,224,rakib uddin,case
+1496,150,M. S. Sarker,initials
+1497,359,Sheikh Mohammed Jamal Kabir Zaman,prefix
+1498,254,Sheikh Mohammad Rezaool Hossain Sarker,oo_u
+1499,242,Mst. Shirpn Haque,typo
+1500,283,Debashish Maajumder,double_letter
+1501,303,S.M.S. Sarker,initials
+1502,83,Subrata Monda,typo
+1503,36,sheikh mohammad saiful ali hossain,case
+1504,88,J. Ghosh,initials
+1505,269,"Mukherjee, Rajesh",word_order
+1506,59,Nirmal Debnoth,vowel
+1507,284,Stepehn Rozario,typo
+1508,289,Sheeikh Mohammad Ashik Talukder,double_letter
+1509,47,Esther David Rodrigues,original
+1510,197,Partha Koomar Karmakar,oo_u
+1511,79,Md. Shahid Talukder,original
+1512,136,sanjoy das,case
+1513,310,Taslima Ara Nahar,original
+1514,154,M. N. U. Faruque,initials
+1515,276,Kamal Nur Alee,ee_i
+1516,376,R. Karmakar,initials
+1517,152,Syed Hashan Khan,sh_s
+1518,435,Abdur Ullah,hard_negative
+1519,3,Zaahid Mahmud,double_letter
+1520,430,Zahir Sarker,hard_negative
+1521,190,Sheikh Mohammad Abdur Siddeeque,ee_i
+1522,136,S. Das,initials
+1523,107,T. Siddique,initials
+1524,216,Puza Paul,z_j
+1525,17,Asraf Hossain,sh_s
+1526,75,Mohommad Monir Kabir Khan,vowel
+1527,346,Farzana Haquue,double_letter
+1528,5,Anup. Ghosh,spacing
+1529,158,Shafiq Uddeen,ee_i
+1530,108,"Islam, Mst. Shathi",word_order
+1531,280,Jd. Karim Sarker,typo
+1532,291,Ashok Kumar Mukherjee,original
+1533,407,Raul Gonsalves,hard_negative
+1534,34,Rabeya Sooltana,oo_u
+1535,35,Ashok Debnath,original
+1536,41,Jahid Siddique ,spacing
+1537,410,Rasel Sarker,hard_negative
+1538,236,Philp Cruze,typo
+1539,231,Asheek Nur Uddin,ee_i
+1540,158,Shafiiq Uddin,double_letter
+1541,128,Md. Rezaul Mahmud,original
+1542,344,Mosammat Shirin Nur Islam,original
+1543,359,S. M. J. K. Zaman,initials
+1544,39,Farhad Ali Jaman,z_j
+1545,425,Mohammad Rakib Uddin Aslam,hard_negative
+1546,217,Nancy D'Coshta,sh_s
+1547,256,Ashok Kuumar Roy,double_letter
+1548,288,"Sarker, Sabbir",word_order
+1549,332,Farhad Bhuiya,typo
+1550,243,Jenny. Gonsalves,spacing
+1551,37,Md. Monir Raahman,double_letter
+1552,384,R. Nahar,initials
+1553,212,michael corraya,case
+1554,342,nasreen ferdousi,case
+1555,63,Esther Rita Barui,vowel
+1556,323,Debnath Shampa Lata,word_order
+1557,49,Mohammad Anisoor Kabir Mahmud,oo_u
+1558,10,Rajesh Chaxdra Mukherjee,typo
+1559,104,RUBEL UDDIN TALUKDER,case
+1560,237,Md. Abdool Uddin Sheikh,oo_u
+1561,322,"Sarkar, Tapash Kumar",word_order
+1562,126,Md. Farhad Hossain Alee,ee_i
+1563,257,Puuja Dutta,double_letter
+1564,13,R. Debnath,initials
+1565,89,Subrata Debnnath,double_letter
+1566,384,Roomana Nahar,oo_u
+1567,35,"Debnath, Ashok",word_order
+1568,63,Esther Rita Baroee,ee_i
+1569,225,"Palma, Rita Sunny",word_order
+1570,387,Partha Kramakar,typo
+1571,2,mohammad rakib uddin islam,case
+1572,283,Debaashish Majumder,double_letter
+1573,238,Ishrat Begum ,spacing
+1574,251,"Chakraborty, Ripon Ranjan",word_order
+1575,294,M. Z. Mollah,initials
+1576,50,Sanjoy Kantee Bose,ee_i
+1577,139,Md Rezaul Chowdhury,prefix
+1578,384,Rumana.Nahar,spacing
+1579,268,Esther Bparoi,typo
+1580,34,Rabeya Shultana,sh_s
+1581,295,Syed Mostafa Kabir,original
+1582,302,Mahub Khan,typo
+1583,463,Ritu Corraya,hard_negative
+1584,136,Sanjoy Das ,spacing
+1585,115,Abdul.Islam,spacing
+1586,299,"Ghosh, Sudip Lal",word_order
+1587,119,Tasleema Akter Begum,ee_i
+1588,372,Subrata Saha,original
+1589,149,G. Karmakar,initials
+1590,72,Sheekh Mohammad Arif Chowdhury,vowel
+1591,79,M. S. Talukder,initials
+1592,209,K. Dey,initials
+1593,448,Md. Jahid Uzzaman Mollah,hard_negative
+1594,381,Sheikh Md. Rafiq Faruque,prefix
+1595,284,Shtephen Rozario,sh_s
+1596,155,Farzana Islam,original
+1597,328,T. Cruze,initials
+1598,131,L. Paul,initials
+1599,370,Rehana Sultanaa,double_letter
+1600,365,Joya.Biswas,spacing
+1601,331,Ferdousi Nazma,word_order
+1602,336,Msht. Taslima Ferdousi,sh_s
+1603,62,Nazmul Miah ,spacing
+1604,156,Nazmul Ali,original
+1605,137,Zakir Zamna,typo
+1606,32,Srilekha Lata Sen,ee_i
+1607,4,Md. Rakib Haque,original
+1608,112,Amit Ranjan Sen,original
+1609,348,Mohammed Shakil Mollah,prefix
+1610,59,Nirmal Debnath,original
+1611,342,"Ferdousi, Nasreen",word_order
+1612,110,Pankaj Sen,original
+1613,299,sudip lal ghosh,case
+1614,34,Rabeya Sultana,original
+1615,268,Esther Baroee,ee_i
+1616,296,S. S. N. Ahmed,initials
+1617,372,Soobrata Saha,oo_u
+1618,147,Lubna Jahan Chowdhury,original
+1619,360,Mamun Ale,vowel
+1620,339,Anjali  Dey,spacing
+1621,396,Ronaldu Gonsalves,typo
+1622,264,Ruth Paul.Corraya,spacing
+1623,155,Musammat Farzana Islam,prefix
+1624,324,Md. Mostafa Hossain Mahmood,oo_u
+1625,147,Lubno Jahan Chowdhury,vowel
+1626,383,Jaydeb Haldar,vowel
+1627,333,"Alam, Jahid Ullah",word_order
+1628,205,Mohammad Imran Ulah Islam,typo
+1629,96,shirin islam,case
+1630,70,Linda Francis Rozario,original
+1631,319,Mst. Rokeya Khatoon,oo_u
+1632,181,Baroi Paul,word_order
+1633,201,Tasleema Parvin,ee_i
+1634,387,Portha Karmakar,vowel
+1635,2,Mohammad Rakib Uddin Islam,original
+1636,378,Syed Sabbir Uddi,typo
+1637,83,"Mondal, Subrata",word_order
+1638,92,Mahbub Hossain,original
+1639,153,Shuvo   Ghosh,spacing
+1640,94,Abdoor Ahmed,oo_u
+1641,91,Ratan Sen,original
+1642,348,Mollah Md. Shakil,word_order
+1643,244,Mosammat Shahnaz  Islam,spacing
+1644,172,Salma. Islam,spacing
+1645,79,Muhammad Shahid Talukder,prefix
+1646,216,Paul Puja,word_order
+1647,106,"Rodrigues, Ruth",word_order
+1648,36,Sheikh Mohammad Saiful Ali Hossain,original
+1649,118,Haabib Khan,double_letter
+1650,274,Mosammat Tasleema Haque,ee_i
+1651,283,Majumder Debashish,word_order
+1652,156,Najmul Ali,z_j
+1653,135,MD. SABBIR KABIR,case
+1654,17,Ashraf Hossainn,double_letter
+1655,111,J.J. Palma,initials
+1656,163,Mamoon Rahman,oo_u
+1657,436,Puja Raul,hard_negative
+1658,376,Ruma Karmakar,original
+1659,24,Joseph D'Costa,original
+1660,55,Mosammat Ayesha Nahar ,spacing
+1661,468,Farzana Aslam,hard_negative
+1662,167,Shanjoy Bhattacharjee,sh_s
+1663,243,Zenny Gonsalves,z_j
+1664,214,Ronald Pereeera,ee_i
+1665,53,Stephen. Gonsalves,spacing
+1666,142,Pradip Mukheerjee,double_letter
+1667,194,R. Mukherjee,initials
+1668,398,Prritam Banerjee,double_letter
+1669,194,Ratan Mukhirjee,vowel
+1670,282,Md. Rahim Zaan,typo
+1671,169,"Rahman, Lubna",word_order
+1672,210,mD. zIAUR uDDIN,case
+1673,236,Philip Cruze,original
+1674,78,Syed Sohel Miah,original
+1675,273,"Bhuiyan, Zahid",word_order
+1676,239,R. D'Costa,initials
+1677,171,Sharon Crooze,oo_u
+1678,223,Rozario Christopher Jenny,word_order
+1679,348,Md. Shakil Mollaah,double_letter
+1680,227,Mosammat Taslima Noor Rahman,oo_u
+1681,3,Zahid Mahmhd,typo
+1682,237,Md. Abdul Uddin Shiikh,vowel
+1683,60,Mst. Rabeya Araa Khatun,double_letter
+1684,395,Paul Gonsalvis,vowel
+1685,5,Anoop Ghosh,oo_u
+1686,304,Deepa Banerjee,original
+1687,282,Md. Rahim Zamon,vowel
+1688,222,Pradip Kumar Mukherjee,original
+1689,170,Nzmul Sheikh,typo
+1690,263,Mohd. Ashik Ali Sarker,prefix
+1691,378,Syed Sabbir Uddin,original
+1692,163,Md Mamun Rahman,prefix
+1693,371,K. U. Ali,initials
+1694,360,Mammun Ali,double_letter
+1695,400,Deepa Mudkherjee,typo
+1696,233,A.K. Sen,initials
+1697,356,Syed Rezaul Hussain Faruque,vowel
+1698,316,Zakir Faroque,vowel
+1699,135,M.S. Kabir,initials
+1700,4,Md. Rakeeb Haque,ee_i
+1701,257,Puja Dutta,original
+1702,156,Nazmmul Ali,double_letter
+1703,176,Dilip Kumar Duhtta,typo
+1704,89,Subrata Deebnath,double_letter
+1705,237,Md. Abdul Uddin Sheikh,original
+1706,296,Syed Shofiq Nur Ahmed,vowel
+1707,19,Mohammad Rakib Ullah Siddique,original
+1708,183,pANKAJ bHATTACHARJEE,case
+1709,400,Dipa Mukherjee,ee_i
+1710,30,Mohammed Shakil Sarker,prefix
+1711,76,Kamhal Miah,typo
+1712,233,Amit Kumar Sin,vowel
+1713,24,Josheph D'Costa,sh_s
+1714,379,Md. Zahid Ahmed Uddin,original
+1715,202,gopal dutta,case
+1716,28,Jooya Sen,double_letter
+1717,293,Pankaj  Majumder,spacing
+1718,358,Md. Ashic Zaman,typo
+1719,129,Sume Shil,vowel
+1720,266,Joydeb Sarkaar,double_letter
+1721,443,Md. Sajid Ullah Faruque,hard_negative
+1722,202,Gopal Dutta ,spacing
+1723,323,Shampa Lata Debnath,original
+1724,73,mohammad hasan islam,case
+1725,259,K. C. Karmakar,initials
+1726,228,Reeta Baroi,ee_i
+1727,166,jerome baroi,case
+1728,136,Sanjo Das,typo
+1729,87,Debashis Dutta,sh_s
+1730,90,Dilp Chakraborty,typo
+1731,159,Habibur Zaman,original
+1732,149,Gopal Karmakar,original
+1733,411,Sheikh Mohammad Hasib Uddin Talukder,hard_negative
+1734,111,Jenny John Palmaa,double_letter
+1735,139,M. R. Chowdhury,initials
+1736,393,Sarmin Rahman,sh_s
+1737,145,M. M. A. Miah,initials
+1738,224,Rakib Uddeen,ee_i
+1739,133,Banerjee Shampa Lata,word_order
+1740,194, Ratan Mukherjee,spacing
+1741,273,Jahid Bhuiyan,z_j
+1742,346,Mosammat Farzana Haque,prefix
+1743,311,hasan ali,case
+1744,224,Rakiib Uddin,double_letter
+1745,117,pUJA rANI kARMAKAR,case
+1746,327,Farus Talukder,typo
+1747,231,Ashik.Nur Uddin,spacing
+1748,17,ashraf hossain,case
+1749,84,Muhammad Sabbir Uddin Sheikh,prefix
+1750,329,mahmuda nur akter,case
+1751,180, Sheikh Mohammad Zahid Uddin,spacing
+1752,278,Md.Mahbub Sarker,spacing
+1753,43,"Ahmed, Md. Mostafa",word_order
+1754,392,Joydeb Kantti Bhattacharjee,double_letter
+1755,285,Mohammad.Saiful Faruque,spacing
+1756,47,Esther David Rodriguesh,sh_s
+1757,389,Sheikh Mohammad Habib Rddin Talukder,typo
+1758,163,Mamun Rahman,original
+1759,218,rINA rANI dUTTA,case
+1760,394,nAZMUL kHAN,case
+1761,82,Sooorav Bose,oo_u
+1762,40,Ratan Mondal,original
+1763,188,A. Debnath,initials
+1764,151,"Palma, David",word_order
+1765,370,Rehanaa Sultana,double_letter
+1766,269,Rajesh Mukherzee,z_j
+1767,189,Sunny Rozaria,vowel
+1768,276,Kamal Nur Ali,original
+1769,476,Champa Lata Debnath,hard_negative
+1770,251,Ripon Ranzan Chakraborty,z_j
+1771,216,Puja Paul,original
+1772,343,Habib Alli Kabir,double_letter
+1773,256,A. K. Roy,initials
+1774,108,Mst. Shathee Islam,ee_i
+1775,300,Sujit Chakraborty,original
+1776,124,dEEPA dEY,case
+1777,380,A. Dutta,initials
+1778,100,Sumi.Chakraborty,spacing
+1779,53,Stephen.Gonsalves,spacing
+1780,16,Pankaj Dey,original
+1781,292,uTTAM sEN,case
+1782,194,Ratan Mookherjee,oo_u
+1783,86,Mst. Farzana Sultana Chowdhury,original
+1784,175,priya lata das,case
+1785,89,Subrata Debnath,original
+1786,273,Zahed Bhuiyan,vowel
+1787,182,Mohammad Rezaul.Sarker,spacing
+1788,223,Christopher Jenny Rozario,original
+1789,109,Md. Abdul Seikh,sh_s
+1790,169,Loobna Rahman,oo_u
+1791,395,Paul Gonsalvees,double_letter
+1792,155,F. Islam,initials
+1793,256,Ashok Koomar Roy,oo_u
+1794,284,Stephen Rozorio,vowel
+1795,187, David Linda Rodrigues,spacing
+1796,97,Prosinjit Dutta,vowel
+1797,277,Mstl. Tania Chowdhury,typo
+1798,232,Jenny Jerome D'Costa ,spacing
+1799,169,Lubna Rahman,original
+1800,330,Raphael Nancy Pereeera,ee_i
+1801,38,Md. Monir Ahmef Talukder,typo
+1802,294,Zahid Mollah,prefix
+1803,322,Tapash Komar Sarkar,vowel
+1804,121,Pritam   Paul,spacing
+1805,71,Nancy David Gomesh,sh_s
+1806,120,Shipra Saha ,spacing
+1807,31,Mamun Hossaiin,double_letter
+1808,4,Haque Md. Rakib,word_order
+1809,308,MITU CHAKRABORTY,case
+1810,72,"Chowdhury, Sheikh Mohammad Arif",word_order
+1811,254,Sheikh Mohammad Rejaul Hossain Sarker,z_j
+1812,275,Puja Bala Bose,original
+1813,416,Joya Bose,hard_negative
+1814,363,Md. Anisur Ulloh Uddin,vowel
+1815,248,Syed Sabbir Ahmedg,typo
+1816,105,Ayesa Ferdousi,sh_s
+1817,115,Abdull Islam,double_letter
+1818,419,Rumi Karmakar,hard_negative
+1819,324,Mostafa Hossain Mahmud,prefix
+1820,103,Rakib Ali Chowdhoory,oo_u
+1821,21,Nushrat Khatun,sh_s
+1822,129,Shumi Shil,sh_s
+1823,174,Farhad Kabir Farooque,oo_u
+1824,217,N. D'Costa,initials
+1825,35,Ashok Debnoth,vowel
+1826,373,Mosammat.Zannat Ferdousi,spacing
+1827,369,Zaheed Sarker,ee_i
+1828,85,K. L. Mukherjee,initials
+1829,24,"D'Costa, Joseph",word_order
+1830,78,Syeed Sohel Miah,double_letter
+1831,193,Farhad Islam,original
+1832,9,Roshed Mollah,vowel
+1833,363,Md. Anisur Ullah Uddin,original
+1834,306,Joydeb Mukhirjee,vowel
+1835,251,Ripon Ranjan Chakraborrty,double_letter
+1836,100,Sumi Chakraborty,original
+1837,47,Esther David Rodrgiues,typo
+1838,261,Gopal Lal Saha,original
+1839,318,Shyamal Chandraa Mukherjee,double_letter
+1840,51,mARY gOMES,case
+1841,193,Farhad   Islam,spacing
+1842,162,sHAHNAZ cHOWDHURY,case
+1843,260,Kabir Saiful,word_order
+1844,206,Linda Corqraya,typo
+1845,379,M. Z. A. Uddin,initials
+1846,179,Roomana Akter Khatun,oo_u
+1847,118,Habib Khon,vowel
+1848,227, Mosammat Taslima Nur Rahman,spacing
+1849,61,Sheikh Mohammad.Sabbir Hossain Faruque,spacing
+1850,205,Mohammad Imran Ullah Ishlam,sh_s
+1851,358,Md. Ashiik Zaman,double_letter
+1852,202,Gowal Dutta,typo
+1853,85,Kisshore Lal Mukherjee,double_letter
+1854,233,Ammit Kumar Sen,double_letter
+1855,201,"Parvin, Taslima",word_order
+1856,22,Qnup Karmakar,typo
+1857,318,Shyomal Chandra Mukherjee,vowel
+1858,171,Sharonn Cruze,double_letter
+1859,43,Ahmed Md. Mostafa,word_order
+1860,221,Aneesur Sarker,ee_i
+1861,387,Partha Kaermakar,typo
+1862,215,sumi sen,case
+1863,81,Jahid Nur Mahmud,original
+1864,26,Nasir Siah,typo
+1865,145,Md. Mostafa Ahmed Miah,original
+1866,394,Nazmul Khan,original
+1867,51,Mary Gomes,original
+1868,285,mOHAMMAD sAIFUL fARUQUE,case
+1869,207,Puja Sarkar,original
+1870,122,Mohammad Kamal Alee,ee_i
+1871,82,Soourav Bose,double_letter
+1872,81,Johid Nur Mahmud,vowel
+1873,175,P.L. Das,initials
+1874,23,Anisur Mahmdu,typo
+1875,344,Moshammat Shirin Nur Islam,sh_s
+1876,199,Peter Rita Carraya,vowel
+1877,233,Ameet Kumar Sen,ee_i
+1878,316,Faruque Zakir,word_order
+1879,341, Saiful Mollah,spacing
+1880,316,ZAKIR FARUQUE,case
+1881,188,Onup Debnath,vowel
+1882,69,Bijoy Lal Moondal,double_letter
+1883,175,Priya Lasa Das,typo
+1884,192,Md. Zamal Mahmud,z_j
+1885,41,J. Siddique,initials
+1886,69,B.L. Mondal,initials
+1887,264,"Corraya, Ruth Paul",word_order
+1888,270,Md. Ashraf Ullah Haque,prefix
+1889,94,Abdu Ahmed,typo
+1890,43,Md. Mostafa Ohmed,vowel
+1891,59,Nirmal.Debnath,spacing
+1892,12,Md. Shakil Hossain Khaen,typo
+1893,75,M.M.K. Khan,initials
+1894,14,M. R. Alam,initials
+1895,260,saiful kabir,case
+1896,211,Orif Ali Mahmud,vowel
+1897,31,Momun Hossain,vowel
+1898,314,Mst. Tahmina Jahan Khatun,prefix
+1899,67,Mst. Tania Ferdousi,original
+1900,359,Sheikh Mohammad Jamal Kabir Zaman,original
+1901,172,Salma Ishlam,sh_s
+1902,371,Karim Ullah Alee,ee_i
+1903,111,Jenny  John Palma,spacing
+1904,357,Sharmin Chowdhury,original
+1905,357,sharmin chowdhury,case
+1906,99,Joya Ghosh,original
+1907,299,Shudip Lal Ghosh,sh_s
+1908,155,Farzana Islaam,double_letter
+1909,350,Mitu Bala Denbath,typo
+1910,351,Mohd. Shoaib Mahmud,prefix
+1911,310,tASLIMA aRA nAHAR,case
+1912,171,Sharon Cruze,original
+1913,210,Md. Ziaoor Uddin,oo_u
+1914,91,Rotan Sen,vowel
+1915,321,A. Dey,initials
+1916,286,Meezanur Talukder,ee_i
+1917,165,mOHAMMAD mAHBUB hAQUE,case
+1918,15,M. Sultana,initials
+1919,95,Puja Lata Majumder,original
+1920,381,Seikh Mohammad Rafiq Faruque,sh_s
+1921,1,Amit Chakraborty,original
+1922,470,Simon Gonsalves,hard_negative
+1923,354,Ashraf Chowdhury,original
+1924,346,Farjana Haque,z_j
+1925,173,shankar kanti haldar,case
+1926,115,Abdool Islam,oo_u
+1927,349,Md Mahbub Siddique,prefix
+1928,160,Robin Sophia Corrayaa,double_letter
+1929,39,farhad ali zaman,case
+1930,26,Nasir Miah ,spacing
+1931,11,Esther Christopher Baroni,typo
+1932,346,Farzana Haque,original
+1933,269,Rajesh Mukehrjee,typo
+1934,81,Jahid Nor Mahmud,vowel
+1935,179,Rumana Akter Khatun,original
+1936,387,Partha Karmakor,vowel
+1937,50,Sanjoy Kanti Bose,original
+1938,313,Sudip.Bhattacharjee,spacing
+1939,66,Prosinjit Kumar Sen,vowel
+1940,183,Pankaj Bhattacharjee,original
+1941,346,Haque Farzana,word_order
+1942,13,Rajesh Debnath,original
+1943,38,MD. MONIR AHMED TALUKDER,case
+1944,99,joya ghosh,case
+1945,338,Mohammad Nashir Uddin,sh_s
+1946,331,Nazma Pherdousi,ph_f
+1947,176,D. K. Dutta,initials
+1948,2,Mohammad Rakib Udin Islam,typo
+1949,57,Mst. Nasreen Begum,prefix
+1950,221,Anisur  Sarker,spacing
+1951,191,Peter Nancy Corraya,original
+1952,338,Mohammad Nosir Uddin,vowel
+1953,307, Saiful Uddin,spacing
+1954,340,Shakil Zaman,original
+1955,382,Roshed Sarker,vowel
+1956,312,Rahiim Nur Kabir,double_letter
+1957,66,Prusenjit Kumar Sen,vowel
+1958,385,Arrif Ali,double_letter
+1959,240,Md. Ziaoor Talukder,oo_u
+1960,39,Farhad Ali Zmaan,typo
+1961,207,Puja Sarkar ,spacing
+1962,389,Sheikh Md Habib Uddin Talukder,prefix
+1963,260,Saiful Eabir,typo
+1964,305,Md. Shakil Ahmed,original
+1965,172,Solma Islam,vowel
+1966,186,Sophia John Gonsalves,original
+1967,265,Mohammed Jahid Uddin Mahmud,prefix
+1968,348,M. S. Mollah,initials
+1969,345,Md. Farhad Ali Hossin,typo
+1970,155,fARZANA iSLAM,case
+1971,170,Nazmul Sheikh,original
+1972,258,Ashraf. Zaman,spacing
+1973,322,Tapash Kumar Saarkar,double_letter
+1974,171,Zharon Cruze,typo
+1975,348,Md. Shakil Mollah ,spacing
+1976,176,Dilip Kumar Dotta,vowel
+1977,126,MD. FARHAD HOSSAIN ALI,case
+1978,7,Shahid Farooque,oo_u
+1979,223,Chrishtopher Jenny Rozario,sh_s
+1980,258,Muhammad Ashraf Zaman,prefix
+1981,129,Suim Shil,typo
+1982,446,Mahbub Nur Hasan,hard_negative
+1983,171,Shoron Cruze,vowel
+1984,312,rAHIM nUR kABIR,case
+1985,350,Mitu. Bala Debnath,spacing
+1986,287,Sujit Debnoth,vowel
+1987,227,Mosammat Taslima Nur Rahman,original
+1988,336,Mst. Taslima Ferdooosi,oo_u
+1989,102,Most. Nazma Nur Sultana,prefix
+1990,31,Mohd. Mamun Hossain,prefix
+1991,39,Forhad Ali Zaman,vowel
+1992,182,Mohammad Rezaul Sarker,original
+1993,94,Abdur Ahmed,original
+1994,138,Md. Shahid Mahmud,original
+1995,223,Christoopher Jenny Rozario,double_letter
+1996,205,Md Imran Ullah Islam,prefix
+1997,153,shuvo ghosh,case
+1998,123,Md. Habibur Faruque,original
+1999,332,Farhad Bhiyan,typo
+2000,380,Annup Dutta,double_letter
+2001,253,Monir Mahmod,vowel
+2002,30,Shakeel Sarker,ee_i
+2003,313,Sudeep Bhattacharjee,ee_i
+2004,459,Rina Sunny Palma,hard_negative
+2005,86,mST. fARZANA sULTANA cHOWDHURY,case
+2006,152,Khan Syed Hasan,word_order
+2007,182,Mohammad Rezaul Sarkeer,double_letter
+2008,182,Mohammadd Rezaul Sarker,typo
+2009,186,Sophia Johnw Gonsalves,typo
+2010,8,Aneesur Sheikh,ee_i
+2011,72,Seikh Mohammad Arif Chowdhury,sh_s
+2012,162, Shahnaz Chowdhury,spacing
+2013,287,Suzit Debnath,z_j
+2014,213,Ruma Bhattacharjee,original
+2015,204,Shahid Sharker,sh_s
+2016,155,Farzana Ishlam,sh_s
+2017,38,md. monir ahmed talukder,case
+2018,26,Nasir Miah,original
+2019,37,Rahman Md. Monir,word_order
+2020,381,Sheikh Mohammad Rafiq Farooque,oo_u
+2021,5,Anup Ghosh,original
+2022,116,Michael Stephen Gommes,double_letter
+2023,379,M.Z.A. Uddin,initials
+2024,333,Jahiid Ullah Alam,double_letter
+2025,388,Mousoomi Lata Chakraborty,oo_u
+2026,373,Mosammat Zannat Ferdousi,original
+2027,122,Mohammad Kamal Oli,vowel
+2028,207,pUJA sARKAR,case
+2029,260,Md. Saiful Kabir,prefix
+2030,273,Zahid Bhuiiyan,double_letter
+2031,147,Lubna Jahaan Chowdhury,double_letter
+2032,248,"Ahmed, Syed Sabbir",word_order
+2033,28,jOYA sEN,case
+2034,210,Md. Ziaur Uddin,original
+2035,213,Ruuma Bhattacharjee,double_letter
+2036,355,Sheikh Mohammad Mizanoor Miah,oo_u
+2037,311,Haasan Ali,double_letter
+2038,220,Sheeekh Mohammad Sabbir Faruque,ee_i
+2039,247,Shakil Mahmcud,typo
+2040,119,TASLIMA AKTER BEGUM,case
+2041,237,Md. Abdul Uddeen Sheikh,ee_i
+2042,208,Nazmul Uddin,original
+2043,54,Gompal Shil,typo
+2044,300,Sujit Chokraborty,vowel
+2045,190,Sheikh Mohammd Abdur Siddique,typo
+2046,218,Reena Rani Dutta,ee_i
+2047,95,Pooja Lata Majumder,oo_u
+2048,358,Md. Ashik Zamn,typo
+2049,409,Prosenjit Kumar Son,hard_negative
+2050,334,T. Parvin,initials
+2051,75,Mohammad Monir Kabir Khan ,spacing
+2052,21, Nusrat Khatun,spacing
+2053,371,KARIM ULLAH ALI,case
+2054,256,Ashok Kumar Boy,typo
+2055,93,"Islam, Mosammat Tania Sultana",word_order
+2056,274,M.T. Haque,initials
+2057,215,Sumi Cen,typo
+2058,74,F. R. Pereira,initials
+2059,439,Michael Simon Gomes,hard_negative
+2060,452,Rodney Baroi,hard_negative
+2061,298,KISHORE SEN,case
+2062,226,Mosammat Nosrat Sultana,vowel
+2063,61,Sheikh Mohamomad Sabbir Hossain Faruque,typo
+2064,35,Ashok Debnnath,double_letter
+2065,352,Partha Sin,vowel
+2066,270,Ashraf Ollah Haque,vowel
+2067,323,shampa lata debnath,case
+2068,92,Mahbub Hossaain,double_letter
+2069,386,Md. Ziaur Islam,original
+2070,231,Ashik Nur Uddin,original
+2071,326,Dey Anup Ranjan,word_order
+2072,363,Md. Anisur Ullah Uddjin,typo
+2073,139,Mohammad Rezaul Chowdhury,original
+2074,133,Shampa Lata.Banerjee,spacing
+2075,90,Dilip.Chakraborty,spacing
+2076,185,Mohammad Tanvir Taulkder,typo
+2077,303,Sheikh Mohammad Saeful Sarker,vowel
+2078,279,Lipika Laa Roy,typo
+2079,381,Sheikh Mohammad Rafiq Faruque,original
+2080,103,Rakib Ali Chowdhury,original
+2081,288,Sabbir   Sarker,spacing
+2082,194,Ratan Mukheerjee,double_letter
+2083,377,pRADIP kUMAR pAUL,case
+2084,389,Sheikh Mohammad Habib Uddin Talukder,original
+2085,83,Subrata Mondal,original
+2086,61,SHEIKH MOHAMMAD SABBIR HOSSAIN FARUQUE,case
+2087,251,Ripun Ranjan Chakraborty,vowel
+2088,336,M.T. Ferdousi,initials
+2089,180,Sheeikh Mohammad Zahid Uddin,double_letter
+2090,180,Sheikh Muhammad Zahid Uddin,prefix
+2091,364,Shahid Uddin,prefix
+2092,457,Mohammad Kamrul Ali,hard_negative
+2093,250,Agnes D'Coshta,sh_s
+2094,337,sYED kARIM kABIR sHEIKH,case
+2095,298,Kisore Sen,sh_s
+2096,267,Sheikh Md. Rahim Haque,prefix
+2097,214,Ronald Perira,typo
+2098,250,D'Costa Agnes,word_order
+2099,14,Md. Rokib Alam,vowel
+2100,100,S. Chakraborty,initials
+2101,190,Sheikh Abdur Siddique,prefix
+2102,250,Agnes D'Costta,double_letter
+2103,307,Saiful Uddin,original
+2104,113,"Pereira, Jerome John",word_order
+2105,33,Md Sabbir Ullah Faruque,spacing
+2106,142,P. Mukherjee,initials
+2107,134,J. Roy,initials
+2108,366,Saiful Ahmed Ishlam,sh_s
+2109,364,Mohammad Shahid Uddin,original
+2110,37,Md. Monir.Rahman,spacing
+2111,240,Md. Ziaur Talukder,original
+2112,185,Mohammad Tanvir Talokder,vowel
+2113,311,Hasani Ali,typo
+2114,137,ZAKIR ZAMAN,case
+2115,300,Soojit Chakraborty,oo_u
+2116,174,Pharhad Kabir Faruque,ph_f
+2117,78,Syed  Sohel Miah,spacing
+2118,316,Md. Zakir Faruque,prefix
+2119,381,Faruque Sheikh Mohammad Rafiq,word_order
+2120,204,sHAHID sARKER,case
+2121,22,Anup Karmakar,original
+2122,91,Raton Sen,vowel
+2123,365,Joya Biswas,original
+2124,356,Syed Rezaul Hossaeen Faruque,ee_i
+2125,288,Sabbir Sarker,original
+2126,314,Tahminna Jahan Khatun,double_letter
+2127,139,Mohammad.Rezaul Chowdhury,spacing
+2128,189,sunny rozario,case
+2129,90,DILIP CHAKRABORTY,case
+2130,202,"Dutta, Gopal",word_order
+2131,290,M.S. Ali,initials
+2132,6,Debashish Chndra Biswas,typo
+2133,252,Shampa Sarkra,typo
+2134,68,Mohammed Rahim Khan,prefix
+2135,140,"Alam, Habib",word_order
+2136,326,Anup Ranjan Dey,original
+2137,80,MOSAMMAT SHIRIN CHOWDHURY,case
+2138,233,Amit Kumar.Sen,spacing
+2139,204,Shahid Sarker,original
+2140,268,Esther Barooi,double_letter
+2141,247,Shakeel Mahmud,ee_i
+2142,121,Paul Pritam,word_order
+2143,39,Farhad Ali Zaman,original
+2144,199,Peterr Rita Corraya,double_letter
+2145,364,Mohamad Shahid Uddin,typo
+2146,242,Mst. Shirirn Haque,typo
+2147,200,Mst. Nazka Haque,typo
+2148,81,Jahid Nur Mahcmud,typo
+2149,234,Joya Rani Bhattacharji,ee_i
+2150,74,Francis Robin Pereira ,spacing
+2151,120,shipra saha,case
+2152,216,"Paul, Puja",word_order
+2153,56,habibur hossain,case
+2154,71,Nancy Daveed Gomes,ee_i
+2155,55,mOSAMMAT aYESHA nAHAR,case
+2156,185,Mohammad Tanvir Talukder,original
+2157,335,M. Jahid Uddin Mollah,typo
+2158,165,Mohammad Mahbub Haque,original
+2159,142,Pradipp Mukherjee,typo
+2160,148,sTEPHEN d'cOSTA,case
+2161,277,M.T. Chowdhury,initials
+2162,243,Jenny Gansalves,vowel
+2163,240,Md. Jiaur Talukder,z_j
+2164,343,Habib Ali Kabir,original
+2165,375,Diilip Dutta,double_letter
+2166,142,Pradip Mukherjei,vowel
+2167,212,Michael Curraya,vowel
+2168,57,Nasreenn Begum,double_letter
+2169,309,Shreya Dass,double_letter
+2170,86,mst. farzana sultana chowdhury,case
+2171,78,Syed Sohel Miaah,double_letter
+2172,337,syed karim kabir sheikh,case
+2173,163,M. Rahman,initials
+2174,140,Habib Alam,original
+2175,178,Runald Corraya,vowel
+2176,244,Mosammat Shahnaz Eslam,vowel
+2177,208, Nazmul Uddin,spacing
+2178,101,Ruma Majomder,vowel
+2179,19,Mohammad Rakib Ullah Shiddique,sh_s
+2180,275,"Bose, Puja Bala",word_order
+2181,67,Mst. Tania Ferdooosi,oo_u
+2182,57,Nasreen Begum,original
+2183,350,Mitoo Bala Debnath,oo_u
+2184,135,Md. Sabbir Kabir ,spacing
+2185,154,Md. Nasir Uddin Pharuque,ph_f
+2186,153,Shuvo Ghosh,original
+2187,368,Shreya.Biswas,spacing
+2188,74,Francis Robin Pereira,original
+2189,282,Md. Rahim Zamann,double_letter
+2190,106,Ruth Rodriguesh,sh_s
+2191,294,Md. Jahid Mollah,z_j
+2192,192,Md. Jamaal Mahmud,double_letter
+2193,54,gOPAL sHIL,case
+2194,313,Sudip Bhattacharjee,original
+2195,81,Jahid Nur Mohmud,vowel
+2196,20,Rozario John,word_order
+2197,427,Kishore Deb,hard_negative
+2198,343,Md. Habib Ali Kabir,prefix
+2199,90,Dilip Chakraborty,original
+2200,124,Deepoa Dey,typo
+2201,187,David Linda Rodrigues,original
+2202,359,Sheikh Mahammad Jamal Kabir Zaman,vowel
+2203,398,"Banerjee, Pritam",word_order
+2204,299,SUDIP LAL GHOSH,case
+2205,389,Sheikh Mohammad Habib Udden Talukder,vowel
+2206,221,ANISUR SARKER,case
+2207,50,SANJOY KANTI BOSE,case
+2208,255,Michael Estherr Rozario,double_letter
+2209,304,Deepa Banerzee,z_j
+2210,148,D'Costa Stephen,word_order
+2211,281,Bhuiyan Sheikh Mohammad Jamal,word_order
+2212,207,P. Sarkar,initials
+2213,29,Shoaeb Faruque,vowel
+2214,229,aMIT kANTI cHAKRABORTY,case
+2215,11,Esther Chreestopher Baroi,ee_i
+2216,205,M. I. U. Islam,initials
+2217,341,Saiful Mollha,typo
+2218,120,Shipra Saha,original
+2219,262,Z. Sarker,initials
+2220,323,SHAMPA LATA DEBNATH,case
+2221,299,Ghosh Sudip Lal,word_order
+2222,286,Mizanur Talukder,original
+2223,235,T.A. Sultana,initials
+2224,157,Anup Modndal,typo
+2225,177,Reeta Rodrigues,ee_i
+2226,333,Jahid Ullha Alam,typo
+2227,78,Syed Sohel Mioh,vowel
+2228,17,A. Hossain,initials
+2229,87,Debasish Dutta,sh_s
+2230,255,Michael Esther Rozarrio,double_letter
+2231,288,Sabbiir Sarker,double_letter
+2232,3,Zahid Mahmud,original
+2233,64,Rina Rani Debnath,original
+2234,210,Mohd. Ziaur Uddin,prefix
+2235,226,Mosammat Nusrat.Sultana,spacing
+2236,36,Sheikh Mohammad Saifool Ali Hossain,oo_u
+2237,241,Md. Mezanur Faruque,vowel
+2238,254,S. M. R. H. Sarker,initials
+2239,230,Joya Ranee Chakraborty,ee_i
+2240,442,Rodney Sophia Corraya,hard_negative
+2241,201,Tashlima Parvin,sh_s
+2242,218,Riina Rani Dutta,double_letter
+2243,236,Phillip Cruze,double_letter
+2244,214,Ronaald Pereira,double_letter
+2245,272,Farzana Sultana,original
+2246,392,Jooydeb Kanti Bhattacharjee,double_letter
+2247,298,Keeshore Sen,ee_i
+2248,305,Ahmed Md. Shakil,word_order
+2249,170,nAZMUL sHEIKH,case
+2250,326,Anup Ranzan Dey,z_j
+2251,239,Raphael D'Costa ,spacing
+2252,344,Mossammat Shirin Nur Islam,double_letter
+2253,327,Faruk Talukder ,spacing
+2254,135,Md. Sabbir Kabir,original
+2255,352,Partha Sen,original
+2256,26,N. Miah,initials
+2257,5,Anop Ghosh,vowel
+2258,170,Nazmool Sheikh,oo_u
+2259,38,Md. Monir Ahmed Talukder ,spacing
+2260,6,Debaoshish Chandra Biswas,typo
+2261,64,"Debnath, Rina Rani",word_order
+2262,305,Md. Shakil.Ahmed,spacing
+2263,300,Shujit Chakraborty,sh_s
+2264,149,gopal karmakar,case
+2265,19,Mohammad. Rakib Ullah Siddique,spacing
+2266,217,D'Costa Nancy,word_order
+2267,40,Rotan Mondal,vowel
+2268,176,DILIP KUMAR DUTTA,case
+2269,79,Md. Shahid Tlukder,typo
+2270,369,Zahid   Sarker,spacing
+2271,54,Gopal Shill,double_letter
+2272,186,Sophia Zohn Gonsalves,z_j
+2273,49,M. A. K. Mahmud,initials
+2274,104,Rubel. Uddin Talukder,spacing
+2275,353,mosammat nusrat rahman,case
+2276,279,Lipika Lata Roy,original
+2277,359,sHEIKH mOHAMMAD jAMAL kABIR zAMAN,case
+2278,165,Mohatmad Mahbub Haque,typo
+2279,122,Ali Mohammad Kamal,word_order
+2280,116,Michakl Stephen Gomes,typo
+2281,37,md. monir rahman,case
+2282,128,Md. Rezaul Mahmod,vowel
+2283,118,Habib Khan,original
+2284,135,Md. Sabbeer Kabir,ee_i
+2285,285,Faruque Mohammad Saiful,word_order
+2286,71,Nancy David Gomes,original
+2287,316,Zakir Pharuque,ph_f
+2288,115,Abdul Isslam,double_letter
+2289,306,Joydeb Mukherji,ee_i
+2290,127,Roobin Baroi,double_letter
+2291,85,Kishore Lal Mukherjee,original
+2292,118,H. Khan,initials
+2293,473,Dennis Palma,hard_negative
+2294,371,Mohd. Karim Ullah Ali,prefix
+2295,398,Pritam Banerji,ee_i
+2296,272,Frazana Sultana,typo
+2297,378,Syed  Sabbir Uddin,spacing
+2298,264,Corraya Ruth Paul,word_order
+2299,329,Mahumda Nur Akter,typo
+2300,264,ruth paul corraya,case
+2301,375,Diliip Dutta,double_letter
+2302,61,Seikh Mohammad Sabbir Hossain Faruque,sh_s
+2303,2,Mohammed Rakib Uddin Islam,prefix
+2304,309,Shreya Dws,typo
+2305,397,Sajnoy Sarkar,typo
+2306,5,Anup hosh,typo
+2307,353,Rahman Mosammat Nusrat,word_order
+2308,254,Sheikh Mohammad Rezaul Hossain Sarker,original
+2309,133,SHAMPA LATA BANERJEE,case
+2310,172,Salma Islam,original
+2311,477,Asif Ali Mahmud,hard_negative
+2312,218,Rina Rvani Dutta,typo
+2313,70,Linda Phrancis Rozario,ph_f
+2314,56,"Hossain, Habibur",word_order
+2315,261,"Saha, Gopal Lal",word_order
+2316,197,Partha Kumar Karmakar,original
+2317,244,Mosammat Shahnaz Isllam,double_letter
+2318,334,tahmina parvin,case
+2319,362,Mohammad Imran Ahmed Islam ,spacing
+2320,193,Pharhad Islam,ph_f
+2321,422,Sheikh Mohammad Jamal Ullah Chowdhury,hard_negative
+2322,270,Ashraf Ullah Haque,original
+2323,104,Rubel Oddin Talukder,vowel
+2324,268,Esther Baroi,original
+2325,120,Saha Shipra,word_order
+2326,325,Md. Anisur Kabir ,spacing
+2327,49,Mohammad Anisur Kabir  Mahmud,spacing
+2328,253,Moniir Mahmud,double_letter
+2329,245,Mohammad Ashraf Miah,original
+2330,58,Michael Roin Cruze,typo
+2331,74,fRANCIS rOBIN pEREIRA,case
+2332,8,A. Sheikh,initials
+2333,101,ruma majumder,case
+2334,156,Nazmol Ali,vowel
+2335,161,Shoovo Bhattacharjee,oo_u
+2336,92,Mohbub Hossain,vowel
+2337,287,Sojit Debnath,vowel
+2338,167,Sanjoy Bhattacharjee,original
+2339,92,Mahbub Hossainn,double_letter
+2340,18,Rita Corrata,typo
+2341,230,Chakraborty Joya Rani,word_order
+2342,396,Ronald. Gonsalves,spacing
+2343,300,Sujeet Chakraborty,ee_i
+2344,377,Pradip Kumar Paool,oo_u
+2345,156,Ali Nazmul,word_order
+2346,371,Kafim Ullah Ali,typo
+2347,245,mohammad ashraf miah,case
+2348,36,Shiikh Mohammad Saiful Ali Hossain,vowel
+2349,235,Tania Akter Sultana,original
+2350,307,"Uddin, Saiful",word_order
+2351,320,Dilip Sharkar,sh_s
+2352,221,Anismr Sarker,typo
+2353,162,Shahnnaz Chowdhury,double_letter
+2354,277,Mst. Tania Chowdhury,original
+2355,124,D. Dey,initials
+2356,102,"Sultana, Nazma Nur",word_order
+2357,353,Moosammat Nusrat Rahman,double_letter
+2358,245,Mohammad Ashraf Meah,vowel
+2359,79,Md. Shahid Talookder,oo_u
+2360,24,Zoseph D'Costa,z_j
+2361,260,Saiiful Kabir,double_letter
+2362,43,Md. Mostafa Ahmedp,typo
+2363,196,Mst. Phatema Ara Parvin,ph_f
+2364,308,Mitu Chakrraborty,double_letter
+2365,244,Mossammat Shahnaz Islam,double_letter
+2366,238,Ishrat Begum,original
+2367,251,Ripon. Ranjan Chakraborty,spacing
+2368,263,Asshik Ali Sarker,double_letter
+2369,257,PUJA DUTTA,case
+2370,309,Shriya Das,vowel
+2371,238,Ishrat. Begum,spacing
+2372,315,Mst. Salma Parvin,original
+2373,9,Rashed. Mollah,spacing
+2374,3,Zahid Mahmood,oo_u
+2375,390,"Chowdhury, Ayesha",word_order
+2376,97,Proshenjit Dutta,sh_s
+2377,125,Md. Shakil Kabir Talukder,original
+2378,296,SYED SHAFIQ NUR AHMED,case
+2379,404,Md. Zahir Ahmed Uddin,hard_negative
+2380,212,Corraya Michael,word_order
+2381,44,Saiful Ali Miah,original
+2382,302,Mohammad Mahbub Khan,prefix
+2383,390,Ayesha Chowdhoory,oo_u
+2384,239,RAPHAEL D'COSTA,case
+2385,180,Sheiko Mohammad Zahid Uddin,typo
+2386,286,Mizanur Talukdeb,typo
+2387,195,Lindaa Christopher D'Costa,double_letter
+2388,292, Uttam Sen,spacing
+2389,243,Jenny Gonsalves,original
+2390,163,Mammun Rahman,double_letter
+2391,110,Pankaj   Sen,spacing
+2392,432,Sophia Jonas Gonsalves,hard_negative
+2393,96,Shireen Islam,ee_i
+2394,336,Mst. Tasleema Ferdousi,ee_i
+2395,191,Peter Nancy Corraaya,double_letter
+2396,52,RINA BALA MAJUMDER,case
+2397,270,Ashraf Ullah Haqoe,vowel
+2398,376,Ruma Karmokar,vowel
+2399,13,Rajesh Debnaht,typo
+2400,383, Joydeb Haldar,spacing
+2401,98,Sooorav Mondal,oo_u
+2402,274,Mosammat Taslima aque,typo
+2403,318,S. C. Mukherjee,initials
+2404,267,Sheikh Rahim Haque,prefix
+2405,279,lIPIKA lATA rOY,case
+2406,399,Md. Rakib Seikh,sh_s
+2407,391,Estheer Gomes,double_letter
+2408,240,MD. ZIAUR TALUKDER,case
+2409,254,Sarker Sheikh Mohammad Rezaul Hossain,word_order
+2410,229,Amit Kanti Chakraborty,original
+2411,49,Mohammad Aneesur Kabir Mahmud,ee_i
+2412,302,Khan Mahbub,word_order
+2413,173,Fhankar Kanti Haldar,typo
+2414,128,Rezaul Mahmud,prefix
+2415,284,STEPHEN ROZARIO,case
+2416,360,Mamun Ali,original
+2417,181,Paul Baaroi,double_letter
+2418,194,Ratan Mukherjee,original
+2419,158,Shafiq Uddin,original
+2420,111,Jenny   John Palma,spacing
+2421,268,esther baroi,case
+2422,155,Fazrana Islam,typo
+2423,127,Robin Baroi,original
+2424,103, Rakib Ali Chowdhury,spacing
+2425,199,peter rita corraya,case
+2426,294,M.Z. Mollah,initials
+2427,269,Rajesh. Mukherjee,spacing
+2428,48,mosammat nusrat ara ferdousi,case
+2429,319,mst. rokeya khatun,case
+2430,149,Gopol Karmakar,vowel
+2431,380,Anoop Dutta,oo_u
+2432,343,Kabir Habib Ali,word_order
+2433,372,subrata saha,case
+2434,388,Mofsumi Lata Chakraborty,typo
+2435,58,Michael Robin Cruze,original
+2436,79,Md. Shahid Tolukder,vowel
+2437,130,Sheikh Mohammad Jamal Uddin howdhury,typo
+2438,89,Subraata Debnath,double_letter
+2439,33,Md. Sabbir Ullah Farooque,oo_u
+2440,123,Md. Habibur Faruque ,spacing
+2441,43,Md. Mostafa Ahmed,original
+2442,309,Shreya. Das,spacing
+2443,40,Ratan   Mondal,spacing
+2444,5,Anup Ghos,sh_s
+2445,279,Leepika Lata Roy,ee_i
+2446,447,Sheikh Mohammad Jalal Kabir Zaman,hard_negative
+2447,205,"Islam, Mohammad Imran Ullah",word_order
+2448,326,Anoop Ranjan Dey,oo_u
+2449,243,"Gonsalves, Jenny",word_order
+2450,141,Mohammad Rejaul Bhuiyan,z_j
+2451,157,Anoop Mondal,oo_u
+2452,34,RABEYA SULTANA,case
+2453,338,Mohammad Nasir Uddeen,ee_i
+2454,131,"Paul, Lipika",word_order
+2455,400,Deepa Mukherjee,original
+2456,218,Rina. Rani Dutta,spacing
+2457,211,A. A. Mahmud,initials
+2458,146,Sunny Stephen Baroi,original
+2459,15,Mahmuda Sultanna,double_letter
+2460,183,Pankaj Bhattacharji,ee_i
+2461,263,Ashik Alee Sarker,ee_i
+2462,326,aNUP rANJAN dEY,case
+2463,25,Prosenjit Debnath,original
+2464,202,Gopal.Dutta,spacing
+2465,176,Dilip Kumar Dktta,typo
+2466,84,mD. sABBIR uDDIN sHEIKH,case
+2467,209,kISHORE dEY,case
+2468,281,Sheikh Mohammad Jamal Bhuiyan,original
+2469,376, Ruma Karmakar,spacing
+2470,151,Daviid Palma,double_letter
+2471,24,JOSEPH D'COSTA,case
+2472,130,Sheikh Mohammad Jamal Uddin Chuwdhury,vowel
+2473,239,Rophael D'Costa,vowel
+2474,95,Puja Lataa Majumder,double_letter
+2475,129,Sumi Shil,original
+2476,189,Sunny Rozario,original
+2477,313,"Bhattacharjee, Sudip",word_order
+2478,394,N. Khan,initials
+2479,87,Debashish Dutta,original
+2480,38,Md. Monir Ahmed Talukder,original
+2481,49,mOHAMMAD aNISUR kABIR mAHMUD,case
+2482,154,Md Nasir Uddin Faruque,spacing
+2483,271,Shreya Mondal,original
+2484,150,Md. Saiful Sarker,original
+2485,197,partha kumar karmakar,case
+2486,398,Pritam Banerjei,vowel
+2487,14,Md. Rakib Alam,original
+2488,382,R. Sarker,initials
+2489,9,R. Mollah,initials
+2490,369,Md Zahid Sarker,prefix
+2491,317,Rumana Akter,original
+2492,148,Stephen D'Coshta,sh_s
+2493,321,Ashak Dey,vowel
+2494,244,"Islam, Mosammat Shahnaz",word_order
+2495,284,Steephen Rozario,double_letter
+2496,367,Rashed.Alam,spacing
+2497,382,rashed sarker,case
+2498,11,Esther Christopher Baroee,ee_i
+2499,213,Ruma Bhattacharzee,z_j
+2500,41,jahid siddique,case
+2501,303,Sheikh Mohammad Saiful Sarker,original
+2502,203,Puja Bhattacharjee,original
+2503,110,Panka Sen,typo
+2504,211,Ariph Ali Mahmud,ph_f
+2505,84,Md. Sabbir Uddin Sheikh,original
+2506,248,Syed Sabbir Ahmed,original
+2507,206,lINDA cORRAYA,case
+2508,378,Mohammad Syed Sabbir Uddin,prefix
+2509,60,Mst. Rabeya Ara Khatun,original
+2510,159,Habibur.Zaman,spacing
+2511,108,Most. Shathi Islam,prefix
+2512,469,Dilwar Sarkar,hard_negative
+2513,336,Ms. Taslima Ferdousi,typo
+2514,65,Cruze Jerome,word_order
+2515,314,Tahmina Jahan Khatunn,double_letter
+2516,377,Pradip Koomar Paul,oo_u
+2517,192,Jamal Mahmud,prefix
+2518,261,Gopal Lal Shaha,sh_s
+2519,139,M.R. Chowdhury,initials
+2520,41,Jaheed Siddique,ee_i
+2521,27,Rooth Christopher Corraya,oo_u
+2522,235,Most. Tania Akter Sultana,prefix
+2523,176,Dileep Kumar Dutta,ee_i
+2524,41,Mohammed Jahid Siddique,prefix
+2525,139,Mohammad Rezaul Chowdhuryw,typo
+2526,289,Sheikh Mohammad Asheek Talukder,ee_i
+2527,135,Md. Sabbir Kaabir,double_letter
+2528,248,Shyed Sabbir Ahmed,sh_s
+2529,8,Anisur Shezkh,typo
+2530,202,gOPAL dUTTA,case
+2531,256,Ashok Kumar Ruy,vowel
+2532,10,Rajesh Chandra Mookherjee,oo_u
+2533,109,Mp. Abdul Sheikh,typo
+2534,206,Lindo Corraya,vowel
+2535,226,Moshammat Nusrat Sultana,sh_s
+2536,67,Mst. Tania Ferdousee,ee_i
+2537,136,"Das, Sanjoy",word_order
+2538,148,Stephen D'Costa,original
+2539,76,Kamol Miah,vowel
+2540,270,Ashraph Ullah Haque,ph_f
+2541,252,Shampa Sarkor,vowel
+2542,339,Anjalee Dey,ee_i
+2543,132,mD. aSHRAF aLI mOLLAH,case
+2544,121,pRITAM pAUL,case
+2545,352,Partho Sen,vowel
+2546,205,Moohammad Imran Ullah Islam,double_letter
+2547,403,Mohammad Basir Uddin,hard_negative
+2548,69,Bijoy Lal Monndal,double_letter
+2549,322,Tapash Koomar Sarkar,oo_u
+2550,263,ashik ali sarker,case
+2551,28,Joya Sen,original
+2552,105,Most. Ayesha Ferdousi,prefix
+2553,106,Ruth Rodrigues,original
+2554,61,"Faruque, Sheikh Mohammad Sabbir Hossain",word_order
+2555,140,H. Alam,initials
+2556,39,F. A. Zaman,initials
+2557,123,Md. Habibur Faruqoe,vowel
+2558,214,rONALD pEREIRA,case
+2559,10,Rajesh Chandra Mukherjee,original
+2560,18,Rita  Corraya,spacing
+2561,267,Seikh Mohammad Rahim Haque,sh_s
+2562,10,Rajesh Chandra Mukherjee ,spacing
+2563,57,Nasrien Begum,vowel
+2564,128,Md. Rezaul Maahmud,double_letter
+2565,151,David Polma,vowel
+2566,239,Raphael D'Costa,original
+2567,158,S. Uddin,initials
+2568,479,Sheikh Mohammad Sajid Faruque,hard_negative
+2569,240,M. Z. Talukder,initials
+2570,31,Mamun  Hossain,spacing
+2571,4,Md. Rakib Haque ,spacing
+2572,377,Pradip Kumar Paul,original
+2573,33,Md. Sabbir Ullah Pharuque,ph_f
+2574,281,Sheikh Mohammad Jamal Bhoiyan,vowel
+2575,197, Partha Kumar Karmakar,spacing
+2576,249,Mosammatt Shahnaz Akter,double_letter
+2577,66,Prosenjit Kumar.Sen,spacing
+2578,328,Toony Cruze,double_letter
+2579,30,Shakil Sarkeer,double_letter
+2580,279,Lipika Lata Roy ,spacing
+2581,137,Mohammad Zakir Zaman,prefix
+2582,334,Tahmino Parvin,vowel
+2583,22,anup karmakar,case
+2584,137,Zgakir Zaman,typo
+2585,112,Amit Ranjan  Sen,spacing
+2586,228,"Baroi, Rita",word_order
+2587,278,Md. Mahbob Sarker,vowel
+2588,97,P. Dutta,initials
+2589,174,Farhad Kabir Pharuque,ph_f
+2590,8,Anisuur Sheikh,double_letter
+2591,47,ESTHER DAVID RODRIGUES,case
+2592,106,Ruth Rodreegues,ee_i
+2593,249,Mosommat Shahnaz Akter,vowel
+2594,335,md. jahid uddin mollah,case
+2595,79,Md. Sahid Talukder,sh_s
+2596,187,David Leenda Rodrigues,ee_i
+2597,111,Jenny Johnf Palma,typo
+2598,64,Rina Rani Deebnath,double_letter
+2599,381,Sheikh Mohammad Rafiq Pharuque,ph_f
+2600,12,Md. Shakil Hossain Khan,original
+2601,107,Tanvir Shiddique,sh_s
+2602,101,RUMA MAJUMDER,case
+2603,177,Rita Roodrigues,double_letter
+2604,296,Syed.Shafiq Nur Ahmed,spacing
+2605,88,JOYDEB GHOSH,case
+2606,277,Mst. Tania Cmowdhury,typo
+2607,153,S. Ghosh,initials
+2608,343,Habeb Ali Kabir,vowel
+2609,51,Marry Gomes,double_letter
+2610,42,Mst. Lubna Hauqe,typo
+2611,291,Ashok Kumar Mukherji,ee_i
+2612,304,Dipa Banerjee,ee_i
+2613,293,Pnakaj Majumder,typo
+2614,208,Uddin Nazmul,word_order
+2615,86,"Chowdhury, Mst. Farzana Sultana",word_order
+2616,73,Mohammad Hasan Eslam,vowel
+2617,158,Shafeeq Uddin,ee_i
+2618,7,Sahid Faruque,sh_s
+2619,24,J. D'Costa,initials
+2620,253,Monir.Mahmud,spacing
+2621,124,Deepaa Dey,double_letter
+2622,474,Mst. Fatin Ara Parvin,hard_negative
+2623,218,"Dutta, Rina Rani",word_order
+2624,243, Jenny Gonsalves,spacing
+2625,291,Ashok Kumar Mukherzee,z_j
+2626,406,Shreya Dam,hard_negative
+2627,44,Shaiful Ali Miah,sh_s
+2628,17,Muhammad Ashraf Hossain,prefix
+2629,292,Uttam Shen,sh_s
+2630,28,"Sen, Joya",word_order
+2631,318,Shyamal. Chandra Mukherjee,spacing
+2632,132,Md. Asraf Ali Mollah,sh_s
+2633,160,Robinn Sophia Corraya,double_letter
+2634,103,rAKIB aLI cHOWDHURY,case
+2635,285,Md Saiful Faruque,prefix
+2636,260,Saiful Kabeer,ee_i
+2637,207,Puja Sharkar,sh_s
+2638,318,Shyamal Chandra Mukherjee,original
+2639,67,Mst. Tania Ferdousi ,spacing
+2640,47,E.D. Rodrigues,initials
+2641,235,Sultana Tania Akter,word_order
+2642,77,Md. Rakib Rahman,original
+2643,346,Pharzana Haque,ph_f
+2644,261,Saha Gopal Lal,word_order
+2645,310,T. A. Nahar,initials
+2646,138,Md. Shehid Mahmud,typo
+2647,41,Jahid Siddiqu,typo
+2648,185,Mohammad Tanveer Talukder,ee_i
+2649,337,Sheikh Syed Karim Kabir,word_order
+2650,395,PAUL GONSALVES,case
+2651,174,Faruque Farhad Kabir,word_order
+2652,99,Jooya Ghosh,double_letter
+2653,152,Syed Hasan Khan,original
+2654,27,rUTH cHRISTOPHER cORRAYA,case
+2655,251,Riipon Ranjan Chakraborty,double_letter
+2656,60,Mst. Rcbeya Ara Khatun,typo
+2657,356,Syed Rezaul Hossain Faruque,original
+2658,116,Gomes Michael Stephen,word_order
+2659,245,MOHAMMAD ASHRAF MIAH,case
+2660,289,Sheikh Mohammad Ashik Talukder,original
+2661,273,ZAHID BHUIYAN,case
+2662,388,M. L. Chakraborty,initials
+2663,114,Tanvir Nur Siddique,original
+2664,158,Shaphiq Uddin,ph_f
+2665,263,A.A. Sarker,initials
+2666,110,pANKAJ sEN,case
+2667,385,"Ali, Arif",word_order
+2668,250,Agnes D'Costa,original
+2669,190,Sheikh Mohammad Abdur Siddique,original
+2670,220,Sheikh Sabbir Faruque,prefix
+2671,288,Shabbir Sarker,sh_s
+2672,437,Zayed Mahmud,hard_negative
+2673,183,Pankaj Bhaattacharjee,double_letter
+2674,57, Nasreen Begum,spacing
+2675,24,joseph d'costa,case
+2676,359,Sheikh Mohammad Zamal Kabir Zaman,z_j
+2677,292,Uttam. Sen,spacing
+2678,290,mD. sHAHID aLI,case
+2679,309,Shreya Das ,spacing
+2680,356,Shyed Rezaul Hossain Faruque,sh_s
+2681,209,Kishore.Dey,spacing
+2682,330,"Pereira, Raphael Nancy",word_order
+2683,156,Nazmul Ali ,spacing
+2684,380,anup dutta,case
+2685,254,sheikh mohammad rezaul hossain sarker,case
+2686,40,Ratan Mondol,vowel
+2687,282,Zaman Md. Rahim,word_order
+2688,89, Subrata Debnath,spacing
+2689,6,Debashish Chandra Biswas,original
+2690,128,Md. Rezaul Mahmuk,typo
+2691,175,Preeya Lata Das,ee_i
