@@ -1,0 +1,6 @@
+psycopg[binary]
+pandas
+streamlit
+matplotlib
+python-dotenv
+pytest
