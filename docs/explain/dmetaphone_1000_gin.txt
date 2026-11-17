@@ -1,0 +1,27 @@
+-- dmetaphone_1000_gin
+SELECT record_id, full_name, fn_phonetic_score(full_name, 'Monica Palma') AS score
+FROM bench_name
+WHERE full_name % 'Monica Palma' AND fn_phonetic_score(full_name, 'Monica Palma') >= 0.5
+ORDER BY score DESC, record_id
+LIMIT 20
+
+Limit  (cost=131.25..131.27 rows=7 width=25) (actual time=0.481..0.481 rows=7.00 loops=1)
+  Buffers: shared hit=34
+  ->  Sort  (cost=131.25..131.27 rows=7 width=25) (actual time=0.481..0.481 rows=7.00 loops=1)
+        Sort Key: (fn_word_code_ratio((full_name)::text, 'Monica Palma'::text, 'dmetaphone'::text)) DESC, record_id
+        Sort Method: quicksort  Memory: 25kB
+        Buffers: shared hit=34
+        ->  Bitmap Heap Scan on bench_name  (cost=117.10..131.15 rows=7 width=25) (actual time=0.149..0.476 rows=7.00 loops=1)
+              Recheck Cond: ((full_name)::text % 'Monica Palma'::text)
+              Rows Removed by Index Recheck: 18
+              Filter: (fn_word_code_ratio((full_name)::text, 'Monica Palma'::text, 'dmetaphone'::text) >= '0.5'::double precision)
+              Heap Blocks: exact=7
+              Buffers: shared hit=34
+              ->  Bitmap Index Scan on idx_bench_name_trgm  (cost=0.00..117.10 rows=20 width=0) (actual time=0.036..0.036 rows=25.00 loops=1)
+                    Index Cond: ((full_name)::text % 'Monica Palma'::text)
+                    Index Searches: 1
+                    Buffers: shared hit=27
+Planning:
+  Buffers: shared hit=1
+Planning Time: 0.320 ms
+Execution Time: 0.509 ms

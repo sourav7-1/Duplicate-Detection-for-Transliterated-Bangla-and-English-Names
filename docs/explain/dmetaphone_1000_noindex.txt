@@ -1,0 +1,19 @@
+-- dmetaphone_1000_noindex
+SELECT record_id, full_name, fn_phonetic_score(full_name, 'Monica Palma') AS score
+FROM bench_name
+WHERE full_name % 'Monica Palma' AND fn_phonetic_score(full_name, 'Monica Palma') >= 0.5
+ORDER BY score DESC, record_id
+LIMIT 20
+
+Limit  (cost=273.85..273.87 rows=7 width=25) (actual time=2.270..2.270 rows=7.00 loops=1)
+  Buffers: shared hit=7
+  ->  Sort  (cost=273.85..273.87 rows=7 width=25) (actual time=2.269..2.270 rows=7.00 loops=1)
+        Sort Key: (fn_word_code_ratio((full_name)::text, 'Monica Palma'::text, 'dmetaphone'::text)) DESC, record_id
+        Sort Method: quicksort  Memory: 25kB
+        Buffers: shared hit=7
+        ->  Seq Scan on bench_name  (cost=0.00..273.75 rows=7 width=25) (actual time=0.168..2.265 rows=7.00 loops=1)
+              Filter: (((full_name)::text % 'Monica Palma'::text) AND (fn_word_code_ratio((full_name)::text, 'Monica Palma'::text, 'dmetaphone'::text) >= '0.5'::double precision))
+              Rows Removed by Filter: 993
+              Buffers: shared hit=7
+Planning Time: 0.363 ms
+Execution Time: 2.279 ms

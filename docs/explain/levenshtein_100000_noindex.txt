@@ -1,0 +1,19 @@
+-- levenshtein_100000_noindex
+SELECT record_id, full_name, fn_lev_score(full_name, 'Mosammat Jannatul Nur Sultana') AS score
+FROM bench_name
+WHERE full_name % 'Mosammat Jannatul Nur Sultana' AND fn_lev_score(full_name, 'Mosammat Jannatul Nur Sultana') >= 0.5
+ORDER BY score DESC, record_id
+LIMIT 20
+
+Limit  (cost=27202.77..27202.78 rows=3 width=29) (actual time=449.396..449.399 rows=20.00 loops=1)
+  Buffers: shared hit=702
+  ->  Sort  (cost=27202.77..27202.78 rows=3 width=29) (actual time=449.394..449.396 rows=20.00 loops=1)
+        Sort Key: (fn_lev_score((full_name)::text, 'Mosammat Jannatul Nur Sultana'::text)) DESC, record_id
+        Sort Method: top-N heapsort  Memory: 27kB
+        Buffers: shared hit=702
+        ->  Seq Scan on bench_name  (cost=0.00..27202.75 rows=3 width=29) (actual time=0.060..449.055 rows=336.00 loops=1)
+              Filter: (((full_name)::text % 'Mosammat Jannatul Nur Sultana'::text) AND (fn_lev_score((full_name)::text, 'Mosammat Jannatul Nur Sultana'::text) >= '0.5'::double precision))
+              Rows Removed by Filter: 99664
+              Buffers: shared hit=702
+Planning Time: 0.555 ms
+Execution Time: 449.417 ms

@@ -1,0 +1,28 @@
+-- levenshtein_10000_gin
+SELECT record_id, full_name, fn_lev_score(full_name, 'Shipra Mondal') AS score
+FROM bench_name
+WHERE full_name % 'Shipra Mondal' AND fn_lev_score(full_name, 'Shipra Mondal') >= 0.5
+ORDER BY score DESC, record_id
+LIMIT 20
+
+Limit  (cost=231.28..231.33 rows=20 width=25) (actual time=2.360..2.362 rows=20.00 loops=1)
+  Buffers: shared hit=95
+  ->  Sort  (cost=231.28..231.36 rows=34 width=25) (actual time=2.359..2.360 rows=20.00 loops=1)
+        Sort Key: (fn_lev_score((full_name)::text, 'Shipra Mondal'::text)) DESC, record_id
+        Sort Method: top-N heapsort  Memory: 27kB
+        Buffers: shared hit=95
+        ->  Bitmap Heap Scan on bench_name  (cost=126.26..230.41 rows=34 width=25) (actual time=0.325..2.337 rows=131.00 loops=1)
+              Recheck Cond: ((full_name)::text % 'Shipra Mondal'::text)
+              Rows Removed by Index Recheck: 120
+              Filter: (fn_lev_score((full_name)::text, 'Shipra Mondal'::text) >= '0.5'::double precision)
+              Rows Removed by Filter: 23
+              Heap Blocks: exact=64
+              Buffers: shared hit=95
+              ->  Bitmap Index Scan on idx_bench_name_trgm  (cost=0.00..126.26 rows=101 width=0) (actual time=0.293..0.293 rows=274.00 loops=1)
+                    Index Cond: ((full_name)::text % 'Shipra Mondal'::text)
+                    Index Searches: 1
+                    Buffers: shared hit=31
+Planning:
+  Buffers: shared hit=1
+Planning Time: 0.280 ms
+Execution Time: 2.371 ms

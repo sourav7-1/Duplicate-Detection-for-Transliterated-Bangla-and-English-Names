@@ -1,0 +1,19 @@
+-- exact_1000_noindex
+SELECT record_id, full_name, (fn_clean(full_name) = fn_clean('Monica Palma'))::int AS score
+FROM bench_name
+WHERE full_name % 'Monica Palma' AND (fn_clean(full_name) = fn_clean('Monica Palma'))::int >= 1
+ORDER BY score DESC, record_id
+LIMIT 20
+
+Limit  (cost=34.69..34.70 rows=7 width=25) (actual time=1.487..1.488 rows=2.00 loops=1)
+  Buffers: shared hit=7
+  ->  Sort  (cost=34.69..34.70 rows=7 width=25) (actual time=1.487..1.487 rows=2.00 loops=1)
+        Sort Key: (((btrim(regexp_replace(lower((full_name)::text), '\s+'::text, ' '::text, 'g'::text)) = 'monica palma'::text))::integer) DESC, record_id
+        Sort Method: quicksort  Memory: 25kB
+        Buffers: shared hit=7
+        ->  Seq Scan on bench_name  (cost=0.00..34.59 rows=7 width=25) (actual time=0.016..1.484 rows=2.00 loops=1)
+              Filter: (((full_name)::text % 'Monica Palma'::text) AND (((btrim(regexp_replace(lower((full_name)::text), '\s+'::text, ' '::text, 'g'::text)) = 'monica palma'::text))::integer >= 1))
+              Rows Removed by Filter: 998
+              Buffers: shared hit=7
+Planning Time: 0.208 ms
+Execution Time: 1.496 ms

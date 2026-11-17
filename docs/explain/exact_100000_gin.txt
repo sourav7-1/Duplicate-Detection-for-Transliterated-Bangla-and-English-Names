@@ -1,0 +1,28 @@
+-- exact_100000_gin
+SELECT record_id, full_name, (fn_clean(full_name) = fn_clean('Mosammat Jannatul Nur Sultana'))::int AS score
+FROM bench_name
+WHERE full_name % 'Mosammat Jannatul Nur Sultana' AND (fn_clean(full_name) = fn_clean('Mosammat Jannatul Nur Sultana'))::int >= 1
+ORDER BY score DESC, record_id
+LIMIT 20
+
+Limit  (cost=305.83..305.84 rows=3 width=29) (actual time=32.466..32.468 rows=2.00 loops=1)
+  Buffers: shared hit=812
+  ->  Sort  (cost=305.83..305.84 rows=3 width=29) (actual time=32.465..32.466 rows=2.00 loops=1)
+        Sort Key: (((btrim(regexp_replace(lower((full_name)::text), '\s+'::text, ' '::text, 'g'::text)) = 'mosammat jannatul nur sultana'::text))::integer) DESC, record_id
+        Sort Method: quicksort  Memory: 25kB
+        Buffers: shared hit=812
+        ->  Bitmap Heap Scan on bench_name  (cost=269.08..305.81 rows=3 width=29) (actual time=12.597..32.456 rows=2.00 loops=1)
+              Recheck Cond: ((full_name)::text % 'Mosammat Jannatul Nur Sultana'::text)
+              Rows Removed by Index Recheck: 2430
+              Filter: (((btrim(regexp_replace(lower((full_name)::text), '\s+'::text, ' '::text, 'g'::text)) = 'mosammat jannatul nur sultana'::text))::integer >= 1)
+              Rows Removed by Filter: 604
+              Heap Blocks: exact=694
+              Buffers: shared hit=812
+              ->  Bitmap Index Scan on idx_bench_name_trgm  (cost=0.00..269.08 rows=10 width=0) (actual time=12.454..12.454 rows=3036.00 loops=1)
+                    Index Cond: ((full_name)::text % 'Mosammat Jannatul Nur Sultana'::text)
+                    Index Searches: 1
+                    Buffers: shared hit=118
+Planning:
+  Buffers: shared hit=1
+Planning Time: 0.539 ms
+Execution Time: 32.606 ms

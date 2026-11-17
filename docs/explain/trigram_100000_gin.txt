@@ -1,0 +1,28 @@
+-- trigram_100000_gin
+SELECT record_id, full_name, similarity(full_name, 'Mosammat Jannatul Nur Sultana') AS score
+FROM bench_name
+WHERE full_name % 'Mosammat Jannatul Nur Sultana' AND similarity(full_name, 'Mosammat Jannatul Nur Sultana') >= 0.5
+ORDER BY score DESC, record_id
+LIMIT 20
+
+Limit  (cost=305.70..305.71 rows=3 width=29) (actual time=28.515..28.519 rows=20.00 loops=1)
+  Buffers: shared hit=812
+  ->  Sort  (cost=305.70..305.71 rows=3 width=29) (actual time=28.515..28.516 rows=20.00 loops=1)
+        Sort Key: (similarity((full_name)::text, 'Mosammat Jannatul Nur Sultana'::text)) DESC, record_id
+        Sort Method: top-N heapsort  Memory: 27kB
+        Buffers: shared hit=812
+        ->  Bitmap Heap Scan on bench_name  (cost=269.08..305.68 rows=3 width=29) (actual time=11.270..28.483 rows=63.00 loops=1)
+              Recheck Cond: ((full_name)::text % 'Mosammat Jannatul Nur Sultana'::text)
+              Rows Removed by Index Recheck: 2430
+              Filter: (similarity((full_name)::text, 'Mosammat Jannatul Nur Sultana'::text) >= '0.5'::double precision)
+              Rows Removed by Filter: 543
+              Heap Blocks: exact=694
+              Buffers: shared hit=812
+              ->  Bitmap Index Scan on idx_bench_name_trgm  (cost=0.00..269.08 rows=10 width=0) (actual time=11.185..11.185 rows=3036.00 loops=1)
+                    Index Cond: ((full_name)::text % 'Mosammat Jannatul Nur Sultana'::text)
+                    Index Searches: 1
+                    Buffers: shared hit=118
+Planning:
+  Buffers: shared hit=1
+Planning Time: 0.529 ms
+Execution Time: 28.641 ms

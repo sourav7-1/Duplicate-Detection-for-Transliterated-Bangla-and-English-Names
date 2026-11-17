@@ -1,0 +1,19 @@
+-- exact_100000_noindex
+SELECT record_id, full_name, (fn_clean(full_name) = fn_clean('Mosammat Jannatul Nur Sultana'))::int AS score
+FROM bench_name
+WHERE full_name % 'Mosammat Jannatul Nur Sultana' AND (fn_clean(full_name) = fn_clean('Mosammat Jannatul Nur Sultana'))::int >= 1
+ORDER BY score DESC, record_id
+LIMIT 20
+
+Limit  (cost=3454.06..3454.07 rows=3 width=29) (actual time=404.409..404.411 rows=2.00 loops=1)
+  Buffers: shared hit=704
+  ->  Sort  (cost=3454.06..3454.07 rows=3 width=29) (actual time=404.408..404.409 rows=2.00 loops=1)
+        Sort Key: (((btrim(regexp_replace(lower((full_name)::text), '\s+'::text, ' '::text, 'g'::text)) = 'mosammat jannatul nur sultana'::text))::integer) DESC, record_id
+        Sort Method: quicksort  Memory: 25kB
+        Buffers: shared hit=704
+        ->  Seq Scan on bench_name  (cost=0.00..3454.04 rows=3 width=29) (actual time=0.024..404.400 rows=2.00 loops=1)
+              Filter: (((full_name)::text % 'Mosammat Jannatul Nur Sultana'::text) AND (((btrim(regexp_replace(lower((full_name)::text), '\s+'::text, ' '::text, 'g'::text)) = 'mosammat jannatul nur sultana'::text))::integer >= 1))
+              Rows Removed by Filter: 99998
+              Buffers: shared hit=704
+Planning Time: 0.575 ms
+Execution Time: 404.429 ms

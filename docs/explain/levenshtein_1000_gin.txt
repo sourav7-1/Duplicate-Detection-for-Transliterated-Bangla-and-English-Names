@@ -1,0 +1,28 @@
+-- levenshtein_1000_gin
+SELECT record_id, full_name, fn_lev_score(full_name, 'Monica Palma') AS score
+FROM bench_name
+WHERE full_name % 'Monica Palma' AND fn_lev_score(full_name, 'Monica Palma') >= 0.5
+ORDER BY score DESC, record_id
+LIMIT 20
+
+Limit  (cost=131.25..131.27 rows=7 width=25) (actual time=0.237..0.237 rows=6.00 loops=1)
+  Buffers: shared hit=34
+  ->  Sort  (cost=131.25..131.27 rows=7 width=25) (actual time=0.237..0.237 rows=6.00 loops=1)
+        Sort Key: (fn_lev_score((full_name)::text, 'Monica Palma'::text)) DESC, record_id
+        Sort Method: quicksort  Memory: 25kB
+        Buffers: shared hit=34
+        ->  Bitmap Heap Scan on bench_name  (cost=117.10..131.15 rows=7 width=25) (actual time=0.087..0.230 rows=6.00 loops=1)
+              Recheck Cond: ((full_name)::text % 'Monica Palma'::text)
+              Rows Removed by Index Recheck: 18
+              Filter: (fn_lev_score((full_name)::text, 'Monica Palma'::text) >= '0.5'::double precision)
+              Rows Removed by Filter: 1
+              Heap Blocks: exact=7
+              Buffers: shared hit=34
+              ->  Bitmap Index Scan on idx_bench_name_trgm  (cost=0.00..117.10 rows=20 width=0) (actual time=0.049..0.049 rows=25.00 loops=1)
+                    Index Cond: ((full_name)::text % 'Monica Palma'::text)
+                    Index Searches: 1
+                    Buffers: shared hit=27
+Planning:
+  Buffers: shared hit=1
+Planning Time: 0.366 ms
+Execution Time: 0.248 ms

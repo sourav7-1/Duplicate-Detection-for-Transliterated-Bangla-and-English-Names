@@ -1,0 +1,21 @@
+-- trigram_1000_gin
+SELECT record_id, full_name, similarity(full_name, 'Monica Palma') AS score
+FROM bench_name
+WHERE full_name % 'Monica Palma' AND similarity(full_name, 'Monica Palma') >= 0.5
+ORDER BY score DESC, record_id
+LIMIT 20
+
+Limit  (cost=24.62..24.63 rows=7 width=25) (actual time=2.580..2.581 rows=2.00 loops=1)
+  Buffers: shared hit=7
+  ->  Sort  (cost=24.62..24.63 rows=7 width=25) (actual time=2.579..2.580 rows=2.00 loops=1)
+        Sort Key: (similarity((full_name)::text, 'Monica Palma'::text)) DESC, record_id
+        Sort Method: quicksort  Memory: 25kB
+        Buffers: shared hit=7
+        ->  Seq Scan on bench_name  (cost=0.00..24.52 rows=7 width=25) (actual time=0.044..2.573 rows=2.00 loops=1)
+              Filter: (((full_name)::text % 'Monica Palma'::text) AND (similarity((full_name)::text, 'Monica Palma'::text) >= '0.5'::double precision))
+              Rows Removed by Filter: 998
+              Buffers: shared hit=7
+Planning:
+  Buffers: shared hit=1
+Planning Time: 0.402 ms
+Execution Time: 2.595 ms

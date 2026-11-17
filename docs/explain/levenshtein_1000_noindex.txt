@@ -1,0 +1,19 @@
+-- levenshtein_1000_noindex
+SELECT record_id, full_name, fn_lev_score(full_name, 'Monica Palma') AS score
+FROM bench_name
+WHERE full_name % 'Monica Palma' AND fn_lev_score(full_name, 'Monica Palma') >= 0.5
+ORDER BY score DESC, record_id
+LIMIT 20
+
+Limit  (cost=273.85..273.87 rows=7 width=25) (actual time=2.063..2.063 rows=6.00 loops=1)
+  Buffers: shared hit=7
+  ->  Sort  (cost=273.85..273.87 rows=7 width=25) (actual time=2.062..2.063 rows=6.00 loops=1)
+        Sort Key: (fn_lev_score((full_name)::text, 'Monica Palma'::text)) DESC, record_id
+        Sort Method: quicksort  Memory: 25kB
+        Buffers: shared hit=7
+        ->  Seq Scan on bench_name  (cost=0.00..273.75 rows=7 width=25) (actual time=0.053..2.057 rows=6.00 loops=1)
+              Filter: (((full_name)::text % 'Monica Palma'::text) AND (fn_lev_score((full_name)::text, 'Monica Palma'::text) >= '0.5'::double precision))
+              Rows Removed by Filter: 994
+              Buffers: shared hit=7
+Planning Time: 0.331 ms
+Execution Time: 2.072 ms

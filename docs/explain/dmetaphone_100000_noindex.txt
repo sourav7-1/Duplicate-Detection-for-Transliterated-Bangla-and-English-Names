@@ -1,0 +1,19 @@
+-- dmetaphone_100000_noindex
+SELECT record_id, full_name, fn_phonetic_score(full_name, 'Mosammat Jannatul Nur Sultana') AS score
+FROM bench_name
+WHERE full_name % 'Mosammat Jannatul Nur Sultana' AND fn_phonetic_score(full_name, 'Mosammat Jannatul Nur Sultana') >= 0.5
+ORDER BY score DESC, record_id
+LIMIT 20
+
+Limit  (cost=27202.77..27202.78 rows=3 width=29) (actual time=469.648..469.650 rows=20.00 loops=1)
+  Buffers: shared hit=702
+  ->  Sort  (cost=27202.77..27202.78 rows=3 width=29) (actual time=469.647..469.648 rows=20.00 loops=1)
+        Sort Key: (fn_word_code_ratio((full_name)::text, 'Mosammat Jannatul Nur Sultana'::text, 'dmetaphone'::text)) DESC, record_id
+        Sort Method: top-N heapsort  Memory: 26kB
+        Buffers: shared hit=702
+        ->  Seq Scan on bench_name  (cost=0.00..27202.75 rows=3 width=29) (actual time=0.157..469.361 rows=502.00 loops=1)
+              Filter: (((full_name)::text % 'Mosammat Jannatul Nur Sultana'::text) AND (fn_word_code_ratio((full_name)::text, 'Mosammat Jannatul Nur Sultana'::text, 'dmetaphone'::text) >= '0.5'::double precision))
+              Rows Removed by Filter: 99498
+              Buffers: shared hit=702
+Planning Time: 0.608 ms
+Execution Time: 469.661 ms
