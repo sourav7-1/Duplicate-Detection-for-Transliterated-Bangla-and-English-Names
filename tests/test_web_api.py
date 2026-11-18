@@ -147,3 +147,13 @@ def test_static_site_served_at_root():
     assert client.get("/style.css").status_code == 200
     assert client.get("/app.js").status_code == 200
     assert client.get("/api/does-not-exist").status_code == 404
+
+
+def test_report_pdf_served_from_docs(monkeypatch, tmp_path):
+    monkeypatch.setattr(web_api, "ROOT", tmp_path)
+    assert client.head("/report.pdf").status_code == 404            # not added yet
+    (tmp_path / "docs").mkdir()
+    (tmp_path / "docs" / "report.pdf").write_bytes(b"%PDF-1.4 test")
+    r = client.get("/report.pdf")
+    assert r.status_code == 200 and r.headers["content-type"] == "application/pdf"
+    assert client.head("/report.pdf").status_code == 200            # the page checks with HEAD

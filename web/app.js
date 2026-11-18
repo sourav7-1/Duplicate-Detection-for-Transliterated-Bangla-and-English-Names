@@ -376,11 +376,13 @@ async function loadResults() {
   // one bar per method: its best (method, normalized) row; d.best is sorted by F1
   const best = [];
   for (const r of d.best) if (!best.some((b) => b.method === r.method)) best.push(r);
-  const [top, second] = best;
+  const top = best[0];
+  const second = best.find((r) => !r.method.startsWith("hybrid_")) || best[1];
   $("#f1-takeaway").textContent = `${methodLabel(top.method)} on ${top.normalized ? "normalized" : "raw"} `
-    + `names scores the highest F1, ${top.f1.toFixed(3)}, ahead of ${methodLabel(second.method)} `
+    + `names scores the highest F1, ${top.f1.toFixed(3)}, ahead of the best single method, ${methodLabel(second.method)}, `
     + `at ${second.f1.toFixed(3)}.`;
-  const axisTitle = (text) => ({ display: true, text, color: "#4B5563", font: { weight: 600 } });
+  const axisTitle = (text) => ({ display: true, text, color: "#4B5563", font: { weight: 600 },
+                                 padding: { top: 8, bottom: 8 } });
 
   new Chart($("#f1-chart"), {
     type: "bar",
@@ -417,7 +419,8 @@ async function loadResults() {
     data: {
       labels: fpMethods.map((r) => methodLabel(r.method)),
       datasets: SOURCES.map(([key, label], i) => ({
-        label, data: fpMethods.map((m) => rate(m, key)), backgroundColor: SOURCE_COLORS[i],
+        label: `${label} (${(d.by_source.find((x) => x.source === key)?.pairs ?? 0).toLocaleString("en")} pairs)`,
+        data: fpMethods.map((m) => rate(m, key)), backgroundColor: SOURCE_COLORS[i],
         borderRadius: 4, borderColor: "#FFFFFF", borderWidth: { left: 1, right: 1 },
       })),
     },
@@ -434,5 +437,92 @@ async function loadResults() {
       },
     },
   });
+  // table views of the same numbers, for screen readers and exact values
+  const pct = (v) => `${v.toFixed(1)}%`;
+  dataTable("#f1-chart", ["Method", "Names", "Threshold", "Precision", "Recall", "F1"],
+    best.map((r) => [methodLabel(r.method), r.normalized ? "normalized" : "raw", r.threshold.toFixed(2),
+                     pct(r.precision * 100), pct(r.recall * 100), r.f1.toFixed(3)]));
+  dataTable("#fp-chart", ["Method", ...SOURCES.map(([, l]) => l)],
+    fpMethods.map((m) => [methodLabel(m.method), ...SOURCES.map(([k]) => pct(rate(m, k)))]));
+}
+
+/** <details> under a chart with its data as a table; text only via textContent. */
+function dataTable(canvasSel, head, rows) {
+  const box = $(canvasSel).closest(".chart-box");
+  box.after(h("details", { class: "data-table" }, h("summary", {}, "Show data as a table"),
+    h("div", { class: "table-wrap" }, h("table", { class: "table" },
+      h("thead", {}, h("tr", {}, head.map((t, i) => h("th", { scope: "col", class: i ? "num" : null }, t)))),
+      h("tbody", {}, rows.map((r) => h("tr", {}, r.map((v, i) =>
+        i ? h("td", { class: "num" }, v) : h("th", { scope: "row" }, v)))))))));
 }
 loadResults();
+
+// ============================================================ Performance
+// Colour = method (CATEGORICAL order from src/plots.py); solid = GIN index, dashed = none.
+const BENCH_COLORS = { exact: "#2a78d6", trigram: "#eb6834", levenshtein: "#1baf7a",
+                       dmetaphone: "#eda100", soundex: "#e87ba4" };
+
+async function loadBenchmark() {
+  const fail = (msg) => { const b = $("#bench-error"); b.textContent = msg; b.hidden = false; };
+  if (!window.Chart) return fail("Chart.js did not load (web/vendor/chart.umd.min.js missing).");
+  let d;
+  try { d = await getJSON("/api/benchmark"); } catch (err) { return fail(err.message); }
+
+  const sizes = [...new Set(d.rows.map((r) => r.n_records))].sort((a, b) => a - b);
+  const methods = [...new Set(d.rows.map((r) => r.method))];
+  const ms = (m, n, gin) => d.rows.find((r) => r.method === m && r.n_records === n && r.gin_index === gin)?.mean_ms ?? null;
+  const k = (n) => `${n / 1000}k`;
+  const title = (text) => ({ display: true, text, color: "#4B5563", font: { weight: 600 },
+                             padding: { top: 8, bottom: 8 } });
+
+  new Chart($("#bench-chart"), {
+    type: "line",
+    data: {
+      labels: sizes.map(k),
+      datasets: methods.flatMap((m) => [true, false].map((gin) => ({
+        label: `${methodLabel(m)}, ${gin ? "GIN index" : "no index"}`,
+        data: sizes.map((n) => ms(m, n, gin)),
+        borderColor: BENCH_COLORS[m] || "#4B5563", backgroundColor: BENCH_COLORS[m] || "#4B5563",
+        borderWidth: 2, borderDash: gin ? [] : [6, 4], pointRadius: 4, pointHoverRadius: 6,
+      }))),
+    },
+    options: {
+      maintainAspectRatio: false, interaction: { mode: "index", intersect: false },
+      plugins: {
+        legend: { position: "top", align: "start", labels: { boxWidth: 24, boxHeight: 2 } },
+        tooltip: { callbacks: { label: (c) => `${c.dataset.label}: ${c.parsed.y.toFixed(1)} ms` } },
+      },
+      scales: {
+        y: { type: "logarithmic", title: title("Mean query time (ms, log scale)"),
+             ticks: { callback: (v) => ([1, 2, 5, 10, 20, 50, 100, 200, 500, 1000].includes(v) ? `${v} ms` : "") } },
+        x: { grid: { display: false }, title: title("Records in the table") },
+      },
+    },
+  });
+
+  dataTable("#bench-chart", ["Method", "Index", ...sizes.map((n) => `${k(n)} records (ms)`)],
+    methods.flatMap((m) => [true, false].map((gin) => [methodLabel(m), gin ? "GIN" : "none",
+      ...sizes.map((n) => (ms(m, n, gin) ?? NaN).toFixed(1))])));
+
+  const largest = d.largest;
+  $("#bench-largest").textContent = k(largest);
+  const order = Object.keys(d.speedup).sort((a, b) => d.speedup[b] - d.speedup[a]);
+  $("#bench-table").replaceChildren(h("div", { class: "table-wrap" }, h("table", { class: "table" },
+    h("thead", {}, h("tr", {},
+      h("th", { scope: "col" }, "Method"),
+      h("th", { scope: "col", class: "num" }, "No index (ms)"),
+      h("th", { scope: "col", class: "num" }, "GIN index (ms)"),
+      h("th", { scope: "col", class: "num" }, "Speedup"))),
+    h("tbody", {}, order.map((m) => h("tr", {},
+      h("th", { scope: "row" }, methodLabel(m)),
+      h("td", { class: "num" }, ms(m, largest, false).toFixed(1)),
+      h("td", { class: "num" }, ms(m, largest, true).toFixed(1)),
+      h("td", { class: "num" }, `${d.speedup[m].toFixed(1)}×`)))))));
+}
+loadBenchmark();
+
+// =================================================================== Team
+// The report link works only once docs/report.pdf exists; otherwise say so.
+fetch("report.pdf", { method: "HEAD" }).then((r) => {
+  if (!r.ok) { $("#report-link").hidden = true; $("#report-missing").hidden = false; }
+}).catch(() => {});

@@ -173,6 +173,18 @@ the interactive API docs. `web_api.py` reuses the Streamlit app's data layer
 normalized names. Custom normalization and Hybrid always do. Errors: 400 bad input,
 404 missing results file, 503 database unreachable.
 
+### Website demo
+
+```bash
+python -m uvicorn web_api:app --reload
+```
+
+Then open http://localhost:8000. One page with Home, Try it, How it works, Results,
+Performance and Team. It needs the database (sections 2–4) and the results files from
+section 5. Chart.js is bundled in `web/vendor/`, so the demo works without internet
+(only the Inter and JetBrains Mono fonts fall back to system fonts). Put the report at
+`docs/report.pdf` to enable the "Report (PDF)" link.
+
 ## 7. Run the tests
 
 ```bash

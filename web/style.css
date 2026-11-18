@@ -345,3 +345,18 @@ code, kbd, .mono { font-family: var(--font-mono); font-size: 0.925em; }
 .chart-box-tall { height: 380px; }
 .findings { margin: 0; padding-left: 1.25rem; display: grid; gap: var(--space-1); }
 .note { margin: var(--space-2) 0 0; font-size: 0.875rem; color: var(--muted); }
+.data-table { margin-top: var(--space-2); }
+.data-table summary { cursor: pointer; color: var(--primary); font-weight: 600; font-size: 0.9375rem; }
+
+/* -------------------------------------------------------- performance, team */
+.mono { font-family: var(--font-mono); }
+.team { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--space-2);
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+.member h3 { margin: 0 0 var(--space-1); font-size: 1.25rem; }
+.member p { margin: 4px 0 0; }
+.team-links { margin-top: var(--space-3); align-items: center; }
+.footer-inner { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--space-1); }
+
+[hidden] { display: none !important; }   /* .btn etc. set display; hidden must win */
+/* contain absolutely positioned screen-reader text inside the scroll box (else it widens the page) */
+.table-wrap { position: relative; }

@@ -22,6 +22,7 @@ import sys
 from pathlib import Path
 
 from fastapi import FastAPI, HTTPException, Query
+from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 
 ROOT = Path(__file__).resolve().parent
@@ -210,6 +211,15 @@ def benchmark():
     rows = require_file(queries.load_benchmark(), "benchmark.py")
     largest, speedup = speedups(rows)
     return {"rows": typed(rows), "largest": largest, "speedup": speedup}
+
+
+@app.api_route("/report.pdf", methods=["GET", "HEAD"], include_in_schema=False)
+def report():
+    """docs/report.pdf (docs/ is outside web/, so it gets its own route)."""
+    path = ROOT / "docs" / "report.pdf"
+    if not path.is_file():
+        raise HTTPException(404, "report not added yet; put it at docs/report.pdf")
+    return FileResponse(path, media_type="application/pdf")
 
 
 # Last, so /api/* wins over files; html=True serves web/index.html at /.

@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>NameDedup – Duplicate Name Finder</title>
   <meta name="description" content="Find duplicate Bangla and English names in PostgreSQL with fuzzy matching.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
@@ -241,7 +242,22 @@
           <h2 id="performance-title">Performance</h2>
           <p>Query time at 1k, 10k and 100k records, with and without a GIN trigram index.</p>
         </div>
-        <div class="placeholder">Benchmark table coming here.</div>
+        <div class="card chart-card">
+          <h3>Query time as the table grows</h3>
+          <p class="muted">Mean time to find the matches for one name, averaged over 10 names and
+            5 runs. Solid lines use the GIN trigram index; dashed lines scan the whole table.</p>
+          <div class="chart-box chart-box-tall"><canvas id="bench-chart" role="img"
+            aria-label="Line chart of query time against record count for each method, with and without the GIN index"></canvas></div>
+        </div>
+        <div class="card chart-card">
+          <h3>Speedup at <span id="bench-largest">100k</span> records</h3>
+          <div id="bench-table"></div>
+          <p class="note">Double Metaphone gains less because the GIN index only narrows the table
+            to trigram candidates: every candidate must still be split into words and given a
+            phonetic code, and that per-row work, which the index cannot skip, is most of its
+            query time.</p>
+        </div>
+        <p class="state state-error" id="bench-error" hidden></p>
       </div>
     </section>
 
@@ -252,17 +268,35 @@
           <h2 id="team-title">Team</h2>
           <p>CSE311 Database Management Systems, Team 25.</p>
         </div>
-        <div class="grid grid-3">
-          <div class="card"><h3>Member name</h3><p class="muted">Role</p></div>
-          <div class="card"><h3>Member name</h3><p class="muted">Role</p></div>
-          <div class="card"><h3>Member name</h3><p class="muted">Role</p></div>
+        <ul class="team">
+          <li class="card member">
+            <h3>Sourav Kundu Samya</h3>
+            <p class="muted">Student ID <span class="mono">242-15-731</span></p>
+            <p class="muted">CSE311 · Database Management Systems</p>
+          </li>
+          <li class="card member">
+            <h3>S. M. Shorofuddin Chesty</h3>
+            <p class="muted">Student ID <span class="mono">242-15-824</span></p>
+            <p class="muted">CSE311 · Database Management Systems</p>
+          </li>
+        </ul>
+        <div class="hero-actions team-links">
+          <a class="btn btn-primary"
+             href="https://github.com/sourav7-1/Duplicate-Detection-for-Transliterated-Bangla-and-English-Names"
+             target="_blank" rel="noopener">GitHub repository</a>
+          <a class="btn btn-secondary" id="report-link" href="report.pdf" target="_blank"
+             rel="noopener">Report (PDF)</a>
+          <span class="muted" id="report-missing" hidden>Report PDF not added yet.</span>
         </div>
       </div>
     </section>
   </main>
 
   <footer class="footer">
-    <div class="container">CSE311 DBMS · Team 25</div>
+    <div class="container footer-inner">
+      <span>Duplicate Detection for Transliterated Bangla and English Names</span>
+      <span>PostgreSQL · pg_trgm · fuzzystrmatch</span>
+    </div>
   </footer>
 </body>
 </html>
