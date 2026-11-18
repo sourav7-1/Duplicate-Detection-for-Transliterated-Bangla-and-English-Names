@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NameDedup – Duplicate Name Finder</title>
+  <meta name="description" content="Find duplicate Bangla and English names in PostgreSQL with fuzzy matching.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="style.css">
+  <script src="vendor/chart.umd.min.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="navbar">
+    <nav class="container" aria-label="Main">
+      <a class="brand" href="#home">NameDedup</a>
+      <button class="btn btn-secondary nav-toggle" type="button"
+              aria-expanded="false" aria-controls="nav-links">Menu</button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#try">Try it</a></li>
+        <li><a href="#how">How it works</a></li>
+        <li><a href="#results">Results</a></li>
+        <li><a href="#performance">Performance</a></li>
+        <li><a href="#team">Team</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+    <!-- Home -->
+    <section class="hero" id="home" aria-labelledby="home-title">
+      <div class="container">
+        <p class="eyebrow">CSE311 DBMS · Team 25</p>
+        <h1 id="home-title">Find the same person behind different spellings</h1>
+        <p class="lead">Md. Rahim, Mohammad Rahim and Muhammad Raheem: fuzzy matching in
+          PostgreSQL tells you when Bangla and English names are one person.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#try">Try it</a>
+          <a class="btn btn-secondary" href="#results">See results</a>
+        </div>
+        <div class="stats" id="stats" aria-live="polite" aria-busy="true">
+          <div class="card stat"><div class="label">Name records</div>
+            <div class="value" data-stat="records">…</div>
+            <div class="sub" data-stat="records-sub">in the database</div></div>
+          <div class="card stat"><div class="label">Labelled pairs</div>
+            <div class="value" data-stat="pairs">…</div>
+            <div class="sub">half duplicates, half not</div></div>
+          <div class="card stat"><div class="label">Best F1</div>
+            <div class="value" data-stat="f1">…</div>
+            <div class="sub" data-stat="f1-sub">&nbsp;</div></div>
+          <div class="card stat"><div class="label">GIN index speedup</div>
+            <div class="value" data-stat="speedup">…</div>
+            <div class="sub" data-stat="speedup-sub">at 100k records</div></div>
+        </div>
+        <p class="state state-error" id="stats-error" hidden></p>
+      </div>
+    </section>
+
+    <!-- Try it -->
+    <section class="section section-alt" id="try" aria-labelledby="try-title">
+      <div class="container">
+        <div class="section-header">
+          <h2 id="try-title">Try it</h2>
+          <p>Type a name in English or Banglish spelling and see which stored records may be
+            the same person.</p>
+        </div>
+        <form class="search-box card" id="search-form" novalidate>
+          <div class="field">
+            <label for="name">Name</label>
+            <input class="input input-lg" id="name" name="name" type="search"
+                   value="Mohammad Nasir Uddin" autocomplete="off" maxlength="150"
+                   spellcheck="false" aria-describedby="name-error">
+            <p class="field-error" id="name-error" hidden>Type a name to search.</p>
+          </div>
+          <div class="search-controls">
+            <div class="field">
+              <label for="method">Method</label>
+              <select class="select" id="method" name="method">
+                <option>Custom normalization</option>
+                <option>Trigram</option>
+                <option>Levenshtein</option>
+                <option>Double Metaphone</option>
+                <option>Soundex</option>
+                <option>Hybrid</option>
+              </select>
+            </div>
+            <div class="field">
+              <label class="switch" for="normalize">
+                <input type="checkbox" role="switch" id="normalize" name="normalize" checked
+                       aria-describedby="normalize-hint">
+                <span>Bangla normalization</span>
+              </label>
+              <p class="hint" id="normalize-hint">Always on for this method.</p>
+            </div>
+            <button class="btn btn-primary btn-lg" type="submit" id="search-button">Search</button>
+          </div>
+        </form>
+
+        <div class="examples">
+          <span class="muted" id="examples-label">Try an example:</span>
+          <ul class="example-list" aria-labelledby="examples-label">
+            <li><button class="chip" type="button" data-example="Md. Hasan Islam">Md. Hasan Islam
+              <span class="chip-note">Md. prefix</span></button></li>
+            <li><button class="chip" type="button" data-example="Asshok Dey">Asshok Dey
+              <span class="chip-note">doubled consonant</span></button></li>
+            <li><button class="chip" type="button" data-example="Prosenjit Kumar Son">Prosenjit Kumar Son
+              <span class="chip-note">different person</span></button></li>
+          </ul>
+        </div>
+
+        <div id="search-output" aria-live="polite" aria-busy="false">
+          <p class="state">Results will appear here.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- How it works -->
+    <section class="section" id="how" aria-labelledby="how-title">
+      <div class="container">
+        <div class="section-header">
+          <h2 id="how-title">How it works</h2>
+          <p>Every search runs five steps, all inside PostgreSQL.</p>
+        </div>
+
+        <ol class="pipeline">
+          <li class="card step">
+            <span class="step-num">1</span>
+            <h3>Raw name</h3>
+            <p class="muted">The name exactly as it was typed or stored.</p>
+            <code class="example">Md. Rakib Rahmman</code>
+          </li>
+          <li class="card step">
+            <span class="step-num">2</span>
+            <h3>Bangla normalization</h3>
+            <p class="muted">26 rules map every spelling of a name to one form.</p>
+            <code class="example">muhamad rakib rahman</code>
+          </li>
+          <li class="card step">
+            <span class="step-num">3</span>
+            <h3>GIN trigram candidate search</h3>
+            <p class="muted">The index finds names sharing enough 3-letter chunks.</p>
+            <code class="example">39 of 2,691 rows</code>
+          </li>
+          <li class="card step">
+            <span class="step-num">4</span>
+            <h3>Method scoring</h3>
+            <p class="muted">The chosen method scores each candidate from 0 to 1.</p>
+            <code class="example">similarity() = 1.000</code>
+          </li>
+          <li class="card step">
+            <span class="step-num">5</span>
+            <h3>Verdict</h3>
+            <p class="muted">Fixed cut-offs turn the score into a decision.</p>
+            <span class="example"><span class="badge badge-likely">Likely duplicate</span></span>
+          </li>
+        </ol>
+
+        <div class="card tool" id="steps-tool">
+          <h3 id="steps-title">Watch normalization</h3>
+          <p class="muted">Type a name and see every rule that changes it, in order.</p>
+          <form class="inline-form" id="steps-form" novalidate>
+            <label class="visually-hidden" for="steps-name">Name to normalize</label>
+            <input class="input" id="steps-name" type="search" value="Md. Rakib Rahmman"
+                   autocomplete="off" maxlength="150" spellcheck="false">
+            <button class="btn btn-primary" type="submit">Normalize</button>
+          </form>
+          <div id="steps-output" aria-live="polite" aria-busy="false"></div>
+        </div>
+
+        <div class="card tool" id="compare-tool">
+          <h3 id="compare-title">Compare all methods</h3>
+          <p class="muted">One name, six methods. Each cell is that method's score for the stored
+            record, coloured by its verdict.</p>
+          <form class="inline-form" id="compare-form" novalidate>
+            <label class="visually-hidden" for="compare-name">Name to compare</label>
+            <input class="input" id="compare-name" type="search" value="Asshok Dey"
+                   autocomplete="off" maxlength="150" spellcheck="false">
+            <button class="btn btn-primary" type="submit">Compare</button>
+          </form>
+          <p class="legend muted">
+            <span class="badge badge-likely">Likely duplicate ≥ 0.85</span>
+            <span class="badge badge-review">Needs review 0.65–0.85</span>
+            <span class="badge badge-diff">Different person &lt; 0.65</span>
+          </p>
+          <div id="compare-output" aria-live="polite" aria-busy="false"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Results -->
+    <section class="section section-alt" id="results" aria-labelledby="results-title">
+      <div class="container">
+        <div class="section-header">
+          <h2 id="results-title">Results</h2>
+          <p>Precision, recall and F1 for every method on 15,586 labelled pairs.</p>
+        </div>
+        <div class="card chart-card">
+          <h3>Best F1 per method</h3>
+          <p class="takeaway" id="f1-takeaway">Loading results…</p>
+          <div class="chart-box chart-box-tall"><canvas id="f1-chart" role="img"
+            aria-label="Horizontal bar chart of the best F1 score for each method"></canvas></div>
+        </div>
+        <div class="card chart-card">
+          <h3>False-positive rate by pair source</h3>
+          <p class="muted">Share of non-duplicate pairs each method wrongly calls a duplicate, at
+            its best threshold. Exact match and random pairs are left out: every rate there is 0%.</p>
+          <div class="chart-box"><canvas id="fp-chart" role="img"
+            aria-label="Grouped bar chart of false-positive rate by pair source for each method"></canvas></div>
+        </div>
+        <p class="state state-error" id="results-error" hidden></p>
+        <div class="card chart-card">
+          <h3>What we learned</h3>
+          <ul class="findings">
+            <li><strong>Normalization helps every method.</strong> Double Metaphone rises from
+              F1 0.777 to 0.823 and trigram from 0.767 to 0.808; exact matching finds 33% of
+              duplicates instead of 7%.</li>
+            <li><strong>Phonetic codes are the most precise.</strong> Double Metaphone on
+              normalized names is right 94% of the time it says "duplicate", but misses about a
+              quarter of real duplicates.</li>
+            <li><strong>Hard negatives are the real test.</strong> Different people with similar
+              names fool every method: even the best Hybrid flags 39% of them, trigram 54%.</li>
+            <li><strong>Random pairs are never confused.</strong> No method made a single false
+              positive on them, so all the difficulty is in look-alike names.</li>
+          </ul>
+          <p class="note">Note: the Hybrid weights, and every method's threshold, were tuned on
+            these same 15,586 pairs, so the scores are optimistic. A held-out set would give a
+            fairer estimate.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Performance -->
+    <section class="section" id="performance" aria-labelledby="performance-title">
+      <div class="container">
+        <div class="section-header">
+          <h2 id="performance-title">Performance</h2>
+          <p>Query time at 1k, 10k and 100k records, with and without a GIN trigram index.</p>
+        </div>
+        <div class="placeholder">Benchmark table coming here.</div>
+      </div>
+    </section>
+
+    <!-- Team -->
+    <section class="section section-alt" id="team" aria-labelledby="team-title">
+      <div class="container">
+        <div class="section-header">
+          <h2 id="team-title">Team</h2>
+          <p>CSE311 Database Management Systems, Team 25.</p>
+        </div>
+        <div class="grid grid-3">
+          <div class="card"><h3>Member name</h3><p class="muted">Role</p></div>
+          <div class="card"><h3>Member name</h3><p class="muted">Role</p></div>
+          <div class="card"><h3>Member name</h3><p class="muted">Role</p></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">CSE311 DBMS · Team 25</div>
+  </footer>
+</body>
+</html>

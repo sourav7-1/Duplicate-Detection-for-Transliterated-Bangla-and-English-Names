@@ -39,9 +39,20 @@ METHODS = {
     ),
 }
 METHOD_NAMES = list(METHODS)
+# Methods that score the raw name; with normalize=True they score normalized names instead.
+RAW_METHODS = {"Trigram", "Levenshtein", "Double Metaphone", "Soundex"}
 
 
-def search(name, method, threshold, ignore_common=False):
+def method_sql(method, normalize=False):
+    """(score SQL, prefilter) for a method, optionally switched to normalized names."""
+    score_sql, prefilter = METHODS[method]
+    if normalize and method in RAW_METHODS:
+        swap = lambda s: s and s.replace("full_name", "normalized_name").replace("%(q)s", "%(nq)s")
+        return swap(score_sql), swap(prefilter)
+    return score_sql, prefilter
+
+
+def search(name, method, threshold, ignore_common=False, normalize=False, limit=10):
     """Top 10 records scoring >= threshold.
 
     Returns (normalized query, rows, elapsed ms, sql) where
@@ -52,8 +63,9 @@ def search(name, method, threshold, ignore_common=False):
                  the two (see components.duplicates_table_html).
     sql  = the exact statements sent to PostgreSQL. A ClientCursor binds the values
            into the SQL text itself, so what is shown is byte-for-byte what ran.
+    normalize: score normalized names with the raw-name methods (see RAW_METHODS).
     """
-    score_sql, prefilter = METHODS[method]
+    score_sql, prefilter = method_sql(method, normalize)
     where = f"WHERE {prefilter}" if prefilter else ""
     core_sql = ("similarity(fn_strip_common_tokens(normalized_name), "
                 "fn_strip_common_tokens(%(nq)s))::float8" if ignore_common else "NULL::float8")
@@ -64,7 +76,7 @@ def search(name, method, threshold, ignore_common=False):
               FROM name_record {where}) AS s
         WHERE score >= %(t)s
         ORDER BY score DESC, record_id
-        LIMIT 10""")
+        LIMIT %(limit)s""")
     with ClientCursor(get_conn()) as cur:
         t0 = time.perf_counter()
         normalize_sql = cur.mogrify(
@@ -73,11 +85,77 @@ def search(name, method, threshold, ignore_common=False):
             (name, str(threshold)))
         cur.execute(normalize_sql)
         nq = cur.fetchone()[0]
-        search_sql = cur.mogrify(query, {"q": name, "nq": nq, "t": threshold})
+        search_sql = cur.mogrify(query, {"q": name, "nq": nq, "t": threshold, "limit": limit})
         cur.execute(search_sql)
         rows = cur.fetchall()
         elapsed_ms = (time.perf_counter() - t0) * 1000
     return nq, rows, elapsed_ms, f"{normalize_sql};\n\n{search_sql};"
+
+
+def normalize_steps(name):
+    """Replay fn_normalize_bn_name rule by rule (sql/04_normalize.sql).
+
+    Returns (steps, result): steps = one dict per step that changed the string
+    ({"rule", "rule_group", "before", "after"}), starting with lower-casing and ending
+    with whitespace clean-up; result equals fn_normalize_bn_name(name).
+    """
+    steps = []
+
+    def step(rule, group, before, after):
+        if before != after:
+            steps.append({"rule": rule, "rule_group": group, "before": before, "after": after})
+        return after
+
+    with get_conn().cursor() as cur:
+        cur.execute("SELECT rule_group, rule_type, pattern, replacement FROM name_variant_rule "
+                    "WHERE is_active ORDER BY apply_order, rule_id")
+        rules = cur.fetchall()
+        s = step("lower-case", "setup", name, name.lower())
+        for group, rtype, pattern, repl in rules:
+            regex = rf"\m{pattern}\M" if rtype == "word" else pattern
+            cur.execute("SELECT regexp_replace(%s, %s, %s, 'g')", (s, regex, repl))
+            shown = {"": "(delete)", " ": "(space)"}.get(repl, repl)
+            label = f"{pattern} -> {shown}" + (" (whole word)" if rtype == "word" else "")
+            s = step(label, group, s, cur.fetchone()[0])
+        cur.execute("SELECT btrim(regexp_replace(%s, '\\s+', ' ', 'g'))", (s,))
+        s = step("collapse spaces", "cleanup", s, cur.fetchone()[0])
+    return steps, s
+
+
+def score_all(name, nq, record_ids):
+    """{record_id: {method: score}} for every method in METHODS, in one query."""
+    if not record_ids:
+        return {}
+    cols = ", ".join(f"({sql})::float8" for sql, _ in METHODS.values())
+    with get_conn().cursor() as cur:
+        cur.execute(f"SELECT record_id, {cols} FROM name_record "
+                    "WHERE record_id = ANY(%(ids)s)",
+                    {"q": name, "nq": nq, "ids": list(record_ids)})
+        return {rid: dict(zip(METHOD_NAMES, scores)) for rid, *scores in cur.fetchall()}
+
+
+def normalize_words(words):
+    """{word: fn_normalize_bn_name(word)} for each distinct word, in one query."""
+    words = sorted(set(words))
+    if not words:
+        return {}
+    with get_conn().cursor() as cur:
+        cur.execute("SELECT w, fn_normalize_bn_name(w) FROM unnest(%s::text[]) AS w", (words,))
+        return dict(cur.fetchall())
+
+
+def counts():
+    """{"records": rows in name_record, "gold_pairs": rows in gold_pair}."""
+    with get_conn().cursor() as cur:
+        cur.execute("SELECT (SELECT count(*) FROM name_record), (SELECT count(*) FROM gold_pair)")
+        records, pairs = cur.fetchone()
+    return {"records": records, "gold_pairs": pairs}
+
+
+def load_metrics_by_source():
+    """Rows of results/metrics_by_source.csv, or None if evaluate.py hasn't been run."""
+    path = RESULTS / "metrics_by_source.csv"
+    return read_csv(path) if path.exists() else None
 
 
 def dataset_sizes():

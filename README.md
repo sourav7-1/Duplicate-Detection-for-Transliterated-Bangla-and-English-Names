@@ -150,6 +150,29 @@ normalization, Hybrid) plus a threshold. It shows the top 10 possible duplicates
 their scores, normalized names and query time. The **Evaluation results** tab shows the
 F1 table and chart.
 
+### Web version (FastAPI)
+
+```bash
+python -m uvicorn web_api:app --reload
+```
+
+Then open http://localhost:8000 for the website (`web/`) or http://localhost:8000/docs for
+the interactive API docs. `web_api.py` reuses the Streamlit app's data layer
+(`src/ui/queries.py`, `src/ui/db.py`). All endpoints are GET and return JSON:
+
+| Endpoint | Returns |
+|---|---|
+| `/api/stats` | record count, gold pairs, best method + F1, GIN speedup at 100k |
+| `/api/search?name=&method=&normalize=&threshold=` | top 10 matches, normalized query, query time, exact SQL |
+| `/api/compare?name=` | top 5 matches from every method |
+| `/api/normalize-steps?name=` | each normalization rule that changed the name (rule, before, after) |
+| `/api/metrics` | best row per method + false-positive rate per gold-pair source |
+| `/api/benchmark` | rows of `results/benchmark.csv` + speedup at 100k |
+
+`normalize=true` makes Trigram, Levenshtein, Double Metaphone and Soundex compare
+normalized names. Custom normalization and Hybrid always do. Errors: 400 bad input,
+404 missing results file, 503 database unreachable.
+
 ## 7. Run the tests
 
 ```bash

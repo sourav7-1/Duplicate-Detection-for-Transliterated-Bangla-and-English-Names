@@ -4,3 +4,6 @@ streamlit
 matplotlib
 python-dotenv
 pytest
+fastapi
+uvicorn
+httpx

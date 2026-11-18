@@ -20,7 +20,7 @@ st.caption("Type a name in English or Banglish spelling. The app searches the Po
 
 db_problem = connection_error()             # None when the database answers
 if db_problem:
-    components.db_error(db_problem)          # the one and only connection message
+    components.db_error(db_problem)         # the one and only connection message
 
 tab_search, tab_eval, tab_perf = st.tabs(["Find duplicates", "Evaluation results",
                                           "Performance"])
