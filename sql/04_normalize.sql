@@ -48,7 +48,11 @@ INSERT INTO name_variant_rule (rule_group, rule_type, pattern, replacement, appl
     ('double_vowel', 'pattern', 'oo',       'u',         30),
     ('consonant',   'pattern', 'ph',        'f',         40),
     ('consonant',   'pattern', 'z',         'j',         40),
-    ('consonant',   'pattern', 'sh',        's',         40)
+    ('consonant',   'pattern', 'sh',        's',         40),
+    -- 4. doubled consonants -> one ("Rassel" -> rasel, "Rahmman" -> rahman). Runs last so
+    --    it also catches doubles created above (z -> j, sh -> s). Also collapses the
+    --    canonical forms: muhammad -> muhamad, hossain -> hosain, uddin -> udin.
+    ('double_consonant', 'pattern', '([bcdfghjklmnpqrstvwxyz])\1', '\1', 50)
 ON CONFLICT (rule_type, pattern) DO NOTHING;
 
 -- ------------------------------------------------------------ normalizer
@@ -87,6 +91,23 @@ $$;
 CREATE OR REPLACE FUNCTION fn_lev_score_norm(a text, b text) RETURNS real
 LANGUAGE sql STABLE STRICT PARALLEL SAFE AS $$
     SELECT fn_lev_score(fn_normalize_bn_name(a), fn_normalize_bn_name(b))
+$$;
+
+-- ---------------------------------------------------- common-token removal
+-- Very frequent name words make unrelated people look similar ("Md. Munir Rahman" vs
+-- "Mohammad Rakib Rahman" share muhammad + rahman). This drops them as whole words.
+-- Apply it to NORMALIZED names, where every Md/Mohd/Mohammed spelling is already
+-- "muhamad" (doubled consonants collapsed); the raw spellings are listed too, so
+-- fn_strip_common_tokens(fn_normalize_bn_name(x)) and plain lower-case input both work. If nothing is left (e.g. "Md. Rahman"), the input is returned unchanged
+-- so the name can still be compared.
+CREATE OR REPLACE FUNCTION fn_strip_common_tokens(s text) RETURNS text
+LANGUAGE sql IMMUTABLE STRICT PARALLEL SAFE AS $$
+    SELECT coalesce(
+        nullif(btrim(regexp_replace(
+            regexp_replace(lower(s),
+                '\m(muhammad|muhamad|md|rahman|hossain|hosain|islam|ahmed|akter|khatun)\M', '', 'g'),
+            '\s+', ' ', 'g')), ''),
+        lower(s))
 $$;
 
 -- Fill the stored column. Re-run this after adding or switching off rules.

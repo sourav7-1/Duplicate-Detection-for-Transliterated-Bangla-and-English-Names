@@ -1,4 +1,5 @@
 """Data access for the app: every SQL call, plus reading results/metrics.csv."""
+import json
 import time
 from textwrap import dedent
 
@@ -7,8 +8,20 @@ from psycopg import ClientCursor
 from plots import RESULTS, read_csv
 from ui.db import get_conn
 
-# Hybrid = weighted mix of three normalized scores (not yet evaluated in metrics.csv).
-HYBRID_WEIGHTS = {"trigram": 0.4, "levenshtein": 0.3, "phonetic": 0.3}
+def load_hybrid_weights(path=RESULTS / "hybrid_weights.json"):
+    """Best Hybrid weights picked by evaluate.py, or None if it hasn't been run."""
+    try:
+        weights = json.loads(path.read_text(encoding="utf-8"))["weights"]
+        return {k: float(weights[k]) for k in ("dmetaphone", "trigram", "levenshtein")}
+    except (OSError, ValueError, KeyError, TypeError):
+        return None
+
+
+# Hybrid = weighted mix of three scores on normalized names. Uses the best-F1 weight set
+# from results/hybrid_weights.json; until evaluate.py has written it, the old untuned mix.
+HYBRID_DEFAULT = {"dmetaphone": 0.3, "trigram": 0.4, "levenshtein": 0.3}
+HYBRID_TUNED = load_hybrid_weights()
+HYBRID_WEIGHTS = HYBRID_TUNED or HYBRID_DEFAULT
 
 # method -> (score SQL, optional index-backed prefilter). %(q)s = raw query,
 # %(nq)s = normalized query. Trigram methods use the GIN index through the % operator.
@@ -19,29 +32,35 @@ METHODS = {
     "Double Metaphone": ("fn_phonetic_score(full_name, %(q)s)", None),
     "Soundex": ("fn_soundex_score(full_name, %(q)s)", None),
     "Hybrid": (
-        f"{HYBRID_WEIGHTS['trigram']} * fn_trigram_score(normalized_name, %(nq)s)"
-        f" + {HYBRID_WEIGHTS['levenshtein']} * fn_lev_score(normalized_name, %(nq)s)"
-        f" + {HYBRID_WEIGHTS['phonetic']} * fn_phonetic_score(normalized_name, %(nq)s)",
+        f"{HYBRID_WEIGHTS['dmetaphone']} * fn_phonetic_score(normalized_name, %(nq)s)"
+        f" + {HYBRID_WEIGHTS['trigram']} * fn_trigram_score(normalized_name, %(nq)s)"
+        f" + {HYBRID_WEIGHTS['levenshtein']} * fn_lev_score(normalized_name, %(nq)s)",
         None,
     ),
 }
 METHOD_NAMES = list(METHODS)
 
 
-def search(name, method, threshold):
+def search(name, method, threshold, ignore_common=False):
     """Top 10 records scoring >= threshold.
 
     Returns (normalized query, rows, elapsed ms, sql) where
-    rows = [(record_id, person_id, full_name, normalized_name, score), ...] and
+    rows = [(record_id, person_id, full_name, normalized_name, score, core_score), ...]
+    core_score = trigram similarity of the normalized names after fn_strip_common_tokens
+                 (muhammad, rahman, islam, ...) when ignore_common is on, else None.
+                 Rows stay ranked by score; the UI bases the verdict on the lower of
+                 the two (see components.duplicates_table_html).
     sql  = the exact statements sent to PostgreSQL. A ClientCursor binds the values
            into the SQL text itself, so what is shown is byte-for-byte what ran.
     """
     score_sql, prefilter = METHODS[method]
     where = f"WHERE {prefilter}" if prefilter else ""
-    query = dedent(f"""\
-        SELECT record_id, person_id, full_name, normalized_name, score
+    core_sql = ("similarity(fn_strip_common_tokens(normalized_name), "
+                "fn_strip_common_tokens(%(nq)s))::float8" if ignore_common else "NULL::float8")
+    query = dedent(f"""        SELECT record_id, person_id, full_name, normalized_name, score, core_score
         FROM (SELECT record_id, person_id, full_name, normalized_name,
-                     ({score_sql})::float8 AS score
+                     ({score_sql})::float8 AS score,
+                     {core_sql} AS core_score
               FROM name_record {where}) AS s
         WHERE score >= %(t)s
         ORDER BY score DESC, record_id

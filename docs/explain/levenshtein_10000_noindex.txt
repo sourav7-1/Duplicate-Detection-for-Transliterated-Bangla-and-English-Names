@@ -1,19 +1,19 @@
 -- levenshtein_10000_noindex
-SELECT record_id, full_name, fn_lev_score(full_name, 'Shipra Mondal') AS score
+SELECT record_id, full_name, fn_lev_score(full_name, 'Musammat Nasreen Akter Chowdhury') AS score
 FROM bench_name
-WHERE full_name % 'Shipra Mondal' AND fn_lev_score(full_name, 'Shipra Mondal') >= 0.5
+WHERE full_name % 'Musammat Nasreen Akter Chowdhury' AND fn_lev_score(full_name, 'Musammat Nasreen Akter Chowdhury') >= 0.5
 ORDER BY score DESC, record_id
 LIMIT 20
 
-Limit  (cost=2725.36..2725.41 rows=20 width=25) (actual time=18.775..18.777 rows=20.00 loops=1)
+Limit  (cost=2716.26..2716.27 rows=1 width=25) (actual time=37.957..37.960 rows=20.00 loops=1)
   Buffers: shared hit=66
-  ->  Sort  (cost=2725.36..2725.45 rows=34 width=25) (actual time=18.775..18.775 rows=20.00 loops=1)
-        Sort Key: (fn_lev_score((full_name)::text, 'Shipra Mondal'::text)) DESC, record_id
-        Sort Method: top-N heapsort  Memory: 27kB
+  ->  Sort  (cost=2716.26..2716.27 rows=1 width=25) (actual time=37.956..37.958 rows=20.00 loops=1)
+        Sort Key: (fn_lev_score((full_name)::text, 'Musammat Nasreen Akter Chowdhury'::text)) DESC, record_id
+        Sort Method: quicksort  Memory: 27kB
         Buffers: shared hit=66
-        ->  Seq Scan on bench_name  (cost=0.00..2724.50 rows=34 width=25) (actual time=0.030..18.744 rows=131.00 loops=1)
-              Filter: (((full_name)::text % 'Shipra Mondal'::text) AND (fn_lev_score((full_name)::text, 'Shipra Mondal'::text) >= '0.5'::double precision))
-              Rows Removed by Filter: 9869
+        ->  Seq Scan on bench_name  (cost=0.00..2716.25 rows=1 width=25) (actual time=0.520..37.932 rows=34.00 loops=1)
+              Filter: (((full_name)::text % 'Musammat Nasreen Akter Chowdhury'::text) AND (fn_lev_score((full_name)::text, 'Musammat Nasreen Akter Chowdhury'::text) >= '0.5'::double precision))
+              Rows Removed by Filter: 9966
               Buffers: shared hit=66
-Planning Time: 0.248 ms
-Execution Time: 18.786 ms
+Planning Time: 0.454 ms
+Execution Time: 37.972 ms

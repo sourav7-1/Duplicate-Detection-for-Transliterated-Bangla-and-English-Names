@@ -1,19 +1,19 @@
 -- soundex_1000_noindex
-SELECT record_id, full_name, fn_soundex_score(full_name, 'Monica Palma') AS score
+SELECT record_id, full_name, fn_soundex_score(full_name, 'Majumder Ruma') AS score
 FROM bench_name
-WHERE full_name % 'Monica Palma' AND fn_soundex_score(full_name, 'Monica Palma') >= 0.5
+WHERE full_name % 'Majumder Ruma' AND fn_soundex_score(full_name, 'Majumder Ruma') >= 0.5
 ORDER BY score DESC, record_id
 LIMIT 20
 
-Limit  (cost=273.85..273.87 rows=7 width=25) (actual time=1.992..1.993 rows=7.00 loops=1)
+Limit  (cost=272.77..272.78 rows=3 width=25) (actual time=2.270..2.271 rows=10.00 loops=1)
   Buffers: shared hit=7
-  ->  Sort  (cost=273.85..273.87 rows=7 width=25) (actual time=1.992..1.992 rows=7.00 loops=1)
-        Sort Key: (fn_word_code_ratio((full_name)::text, 'Monica Palma'::text, 'soundex'::text)) DESC, record_id
+  ->  Sort  (cost=272.77..272.78 rows=3 width=25) (actual time=2.269..2.270 rows=10.00 loops=1)
+        Sort Key: (fn_word_code_ratio((full_name)::text, 'Majumder Ruma'::text, 'soundex'::text)) DESC, record_id
         Sort Method: quicksort  Memory: 25kB
         Buffers: shared hit=7
-        ->  Seq Scan on bench_name  (cost=0.00..273.75 rows=7 width=25) (actual time=0.111..1.988 rows=7.00 loops=1)
-              Filter: (((full_name)::text % 'Monica Palma'::text) AND (fn_word_code_ratio((full_name)::text, 'Monica Palma'::text, 'soundex'::text) >= '0.5'::double precision))
-              Rows Removed by Filter: 993
+        ->  Seq Scan on bench_name  (cost=0.00..272.75 rows=3 width=25) (actual time=0.156..2.265 rows=10.00 loops=1)
+              Filter: (((full_name)::text % 'Majumder Ruma'::text) AND (fn_word_code_ratio((full_name)::text, 'Majumder Ruma'::text, 'soundex'::text) >= '0.5'::double precision))
+              Rows Removed by Filter: 990
               Buffers: shared hit=7
-Planning Time: 0.282 ms
-Execution Time: 1.999 ms
+Planning Time: 0.267 ms
+Execution Time: 2.276 ms

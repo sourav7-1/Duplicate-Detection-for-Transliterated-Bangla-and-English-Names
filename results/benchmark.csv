@@ -1,31 +1,31 @@
-method,n_records,query_name,gin_index,runs,mean_ms,std_ms,min_ms,rows_returned,plan_scan,index_size_bytes,table_size_bytes,index_build_ms
-exact,1000,Monica Palma,False,5,2.097,0.275,1.859,2,Seq Scan,0,57344,0
-trigram,1000,Monica Palma,False,5,1.878,0.069,1.805,2,Seq Scan,0,57344,0
-levenshtein,1000,Monica Palma,False,5,2.265,0.179,2.12,6,Seq Scan,0,57344,0
-dmetaphone,1000,Monica Palma,False,5,2.941,0.438,2.52,7,Seq Scan,0,57344,0
-soundex,1000,Monica Palma,False,5,2.742,0.106,2.658,7,Seq Scan,0,57344,0
-exact,1000,Monica Palma,True,5,1.82,0.19,1.694,2,Seq Scan,131072,57344,6.5
-trigram,1000,Monica Palma,True,5,1.953,0.293,1.723,2,Seq Scan,131072,57344,6.5
-levenshtein,1000,Monica Palma,True,5,0.394,0.053,0.35,6,Bitmap Heap Scan,131072,57344,6.5
-dmetaphone,1000,Monica Palma,True,5,0.73,0.09,0.648,7,Bitmap Heap Scan,131072,57344,6.5
-soundex,1000,Monica Palma,True,5,0.774,0.052,0.713,7,Bitmap Heap Scan,131072,57344,6.5
-exact,10000,Shipra Mondal,False,5,18.879,1.461,17.481,2,Seq Scan,0,540672,0
-trigram,10000,Shipra Mondal,False,5,17.669,0.112,17.519,10,Seq Scan,0,540672,0
-levenshtein,10000,Shipra Mondal,False,5,21.171,1.031,19.764,20,Seq Scan,0,540672,0
-dmetaphone,10000,Shipra Mondal,False,5,26.13,0.821,25.403,20,Seq Scan,0,540672,0
-soundex,10000,Shipra Mondal,False,5,25.837,0.52,25.506,20,Seq Scan,0,540672,0
-exact,10000,Shipra Mondal,True,5,1.121,0.084,1.032,2,Bitmap Heap Scan,598016,540672,33.7
-trigram,10000,Shipra Mondal,True,5,1.619,0.388,1.235,10,Bitmap Heap Scan,598016,540672,33.7
-levenshtein,10000,Shipra Mondal,True,5,3.119,0.466,2.636,20,Bitmap Heap Scan,598016,540672,33.7
-dmetaphone,10000,Shipra Mondal,True,5,8.659,0.455,8.095,20,Bitmap Heap Scan,598016,540672,33.7
-soundex,10000,Shipra Mondal,True,5,9.891,1.471,8.191,20,Bitmap Heap Scan,598016,540672,33.7
-exact,100000,Mosammat Jannatul Nur Sultana,False,5,426.898,5.382,419.029,2,Seq Scan,0,5767168,0
-trigram,100000,Mosammat Jannatul Nur Sultana,False,5,420.808,11.394,408.4,20,Seq Scan,0,5767168,0
-levenshtein,100000,Mosammat Jannatul Nur Sultana,False,5,459.761,30.411,437.355,20,Seq Scan,0,5767168,0
-dmetaphone,100000,Mosammat Jannatul Nur Sultana,False,5,489.007,10.639,478.532,20,Seq Scan,0,5767168,0
-soundex,100000,Mosammat Jannatul Nur Sultana,False,5,476.188,20.868,458.26,20,Seq Scan,0,5767168,0
-exact,100000,Mosammat Jannatul Nur Sultana,True,5,30.898,0.821,29.753,2,Bitmap Heap Scan,5177344,5767168,550.0
-trigram,100000,Mosammat Jannatul Nur Sultana,True,5,33.619,3.863,30.666,20,Bitmap Heap Scan,5177344,5767168,550.0
-levenshtein,100000,Mosammat Jannatul Nur Sultana,True,5,40.294,0.583,39.764,20,Bitmap Heap Scan,5177344,5767168,550.0
-dmetaphone,100000,Mosammat Jannatul Nur Sultana,True,5,77.09,2.776,73.229,20,Bitmap Heap Scan,5177344,5767168,550.0
-soundex,100000,Mosammat Jannatul Nur Sultana,True,5,88.248,18.145,76.079,20,Bitmap Heap Scan,5177344,5767168,550.0
+method,n_records,query_names,queries,gin_index,runs,mean_ms,std_ms,min_ms,mean_rows_returned,plan_scan,index_size_bytes,table_size_bytes,index_build_ms
+exact,1000,"Majumder Ruma | partha kumar karmakar | Farjana Islam | Md. Shakil ossain Khan | Rahman, Mamun | Anoop Ghosh | Ayesha Ferdousi | Shoaib.Faruque | Nasreen   Begum | D'Costa, Joseph",10,False,5,2.175,0.302,1.815,1.5,Seq Scan,0,57344,0
+trigram,1000,"Majumder Ruma | partha kumar karmakar | Farjana Islam | Md. Shakil ossain Khan | Rahman, Mamun | Anoop Ghosh | Ayesha Ferdousi | Shoaib.Faruque | Nasreen   Begum | D'Costa, Joseph",10,False,5,2.157,0.296,1.794,5.9,Seq Scan,0,57344,0
+levenshtein,1000,"Majumder Ruma | partha kumar karmakar | Farjana Islam | Md. Shakil ossain Khan | Rahman, Mamun | Anoop Ghosh | Ayesha Ferdousi | Shoaib.Faruque | Nasreen   Begum | D'Costa, Joseph",10,False,5,2.76,0.464,2.093,8.7,Seq Scan,0,57344,0
+dmetaphone,1000,"Majumder Ruma | partha kumar karmakar | Farjana Islam | Md. Shakil ossain Khan | Rahman, Mamun | Anoop Ghosh | Ayesha Ferdousi | Shoaib.Faruque | Nasreen   Begum | D'Costa, Joseph",10,False,5,3.175,0.493,2.246,9.5,Seq Scan,0,57344,0
+soundex,1000,"Majumder Ruma | partha kumar karmakar | Farjana Islam | Md. Shakil ossain Khan | Rahman, Mamun | Anoop Ghosh | Ayesha Ferdousi | Shoaib.Faruque | Nasreen   Begum | D'Costa, Joseph",10,False,5,3.067,0.502,2.159,9.9,Seq Scan,0,57344,0
+exact,1000,"Majumder Ruma | partha kumar karmakar | Farjana Islam | Md. Shakil ossain Khan | Rahman, Mamun | Anoop Ghosh | Ayesha Ferdousi | Shoaib.Faruque | Nasreen   Begum | D'Costa, Joseph",10,True,5,2.115,0.414,1.616,1.5,Seq Scan,131072,57344,4.9
+trigram,1000,"Majumder Ruma | partha kumar karmakar | Farjana Islam | Md. Shakil ossain Khan | Rahman, Mamun | Anoop Ghosh | Ayesha Ferdousi | Shoaib.Faruque | Nasreen   Begum | D'Costa, Joseph",10,True,5,1.987,0.38,1.624,5.9,Seq Scan,131072,57344,4.9
+levenshtein,1000,"Majumder Ruma | partha kumar karmakar | Farjana Islam | Md. Shakil ossain Khan | Rahman, Mamun | Anoop Ghosh | Ayesha Ferdousi | Shoaib.Faruque | Nasreen   Begum | D'Costa, Joseph",10,True,5,0.332,0.098,0.141,8.7,Bitmap Heap Scan,131072,57344,4.9
+dmetaphone,1000,"Majumder Ruma | partha kumar karmakar | Farjana Islam | Md. Shakil ossain Khan | Rahman, Mamun | Anoop Ghosh | Ayesha Ferdousi | Shoaib.Faruque | Nasreen   Begum | D'Costa, Joseph",10,True,5,0.829,0.281,0.277,9.5,Bitmap Heap Scan,131072,57344,4.9
+soundex,1000,"Majumder Ruma | partha kumar karmakar | Farjana Islam | Md. Shakil ossain Khan | Rahman, Mamun | Anoop Ghosh | Ayesha Ferdousi | Shoaib.Faruque | Nasreen   Begum | D'Costa, Joseph",10,True,5,0.844,0.234,0.305,9.9,Bitmap Heap Scan,131072,57344,4.9
+exact,10000,"Musammat Nasreen Akter Chowdhury | LIPIKA RANI SARKAR | Ratan Dash | Ayesha. Ferdousi | Debashish Chandra.Biswas | Syed  Rakib Hossain | Faruque, Rafiq Nur | Priya Bala Biswash | mD. mAHBUB uLLAH mOLLAH | Bjioy Sen",10,False,5,20.139,2.854,15.575,1.6,Seq Scan,0,540672,0
+trigram,10000,"Musammat Nasreen Akter Chowdhury | LIPIKA RANI SARKAR | Ratan Dash | Ayesha. Ferdousi | Debashish Chandra.Biswas | Syed  Rakib Hossain | Faruque, Rafiq Nur | Priya Bala Biswash | mD. mAHBUB uLLAH mOLLAH | Bjioy Sen",10,False,5,26.529,3.865,19.641,9,Seq Scan,0,540672,0
+levenshtein,10000,"Musammat Nasreen Akter Chowdhury | LIPIKA RANI SARKAR | Ratan Dash | Ayesha. Ferdousi | Debashish Chandra.Biswas | Syed  Rakib Hossain | Faruque, Rafiq Nur | Priya Bala Biswash | mD. mAHBUB uLLAH mOLLAH | Bjioy Sen",10,False,5,29.559,4.935,21.652,16.7,Seq Scan,0,540672,0
+dmetaphone,10000,"Musammat Nasreen Akter Chowdhury | LIPIKA RANI SARKAR | Ratan Dash | Ayesha. Ferdousi | Debashish Chandra.Biswas | Syed  Rakib Hossain | Faruque, Rafiq Nur | Priya Bala Biswash | mD. mAHBUB uLLAH mOLLAH | Bjioy Sen",10,False,5,33.037,5.697,23.229,16.8,Seq Scan,0,540672,0
+soundex,10000,"Musammat Nasreen Akter Chowdhury | LIPIKA RANI SARKAR | Ratan Dash | Ayesha. Ferdousi | Debashish Chandra.Biswas | Syed  Rakib Hossain | Faruque, Rafiq Nur | Priya Bala Biswash | mD. mAHBUB uLLAH mOLLAH | Bjioy Sen",10,False,5,32.848,5.522,22.737,17.8,Seq Scan,0,540672,0
+exact,10000,"Musammat Nasreen Akter Chowdhury | LIPIKA RANI SARKAR | Ratan Dash | Ayesha. Ferdousi | Debashish Chandra.Biswas | Syed  Rakib Hossain | Faruque, Rafiq Nur | Priya Bala Biswash | mD. mAHBUB uLLAH mOLLAH | Bjioy Sen",10,True,5,1.443,0.768,0.52,1.6,Bitmap Heap Scan,598016,540672,47.4
+trigram,10000,"Musammat Nasreen Akter Chowdhury | LIPIKA RANI SARKAR | Ratan Dash | Ayesha. Ferdousi | Debashish Chandra.Biswas | Syed  Rakib Hossain | Faruque, Rafiq Nur | Priya Bala Biswash | mD. mAHBUB uLLAH mOLLAH | Bjioy Sen",10,True,5,10.42,14.301,0.6,9,Seq Scan,598016,540672,47.4
+levenshtein,10000,"Musammat Nasreen Akter Chowdhury | LIPIKA RANI SARKAR | Ratan Dash | Ayesha. Ferdousi | Debashish Chandra.Biswas | Syed  Rakib Hossain | Faruque, Rafiq Nur | Priya Bala Biswash | mD. mAHBUB uLLAH mOLLAH | Bjioy Sen",10,True,5,2.684,1.403,0.635,16.7,Bitmap Heap Scan,598016,540672,47.4
+dmetaphone,10000,"Musammat Nasreen Akter Chowdhury | LIPIKA RANI SARKAR | Ratan Dash | Ayesha. Ferdousi | Debashish Chandra.Biswas | Syed  Rakib Hossain | Faruque, Rafiq Nur | Priya Bala Biswash | mD. mAHBUB uLLAH mOLLAH | Bjioy Sen",10,True,5,6.211,3.344,1.645,16.8,Bitmap Heap Scan,598016,540672,47.4
+soundex,10000,"Musammat Nasreen Akter Chowdhury | LIPIKA RANI SARKAR | Ratan Dash | Ayesha. Ferdousi | Debashish Chandra.Biswas | Syed  Rakib Hossain | Faruque, Rafiq Nur | Priya Bala Biswash | mD. mAHBUB uLLAH mOLLAH | Bjioy Sen",10,True,5,6.067,3.236,1.539,17.8,Bitmap Heap Scan,598016,540672,47.4
+exact,100000,Mohd. Rashed Hossain Ali | Jenny Mary  Gonsalves | Paul Ruth Palma  | Syed Abdurr Ahmed | Ashik Uddin Ali | Christofer Anthony Gomes | Sheeekh Mohammad Kamal Mollah | Deepak Kanti Roy | Nadia Ara Haque | Sheikh Mohammad Zakir Ullah Siddique,10,False,5,351.97,50.562,301.714,1.5,Seq Scan,0,5767168,0
+trigram,100000,Mohd. Rashed Hossain Ali | Jenny Mary  Gonsalves | Paul Ruth Palma  | Syed Abdurr Ahmed | Ashik Uddin Ali | Christofer Anthony Gomes | Sheeekh Mohammad Kamal Mollah | Deepak Kanti Roy | Nadia Ara Haque | Sheikh Mohammad Zakir Ullah Siddique,10,False,5,347.893,60.05,291.185,19.9,Seq Scan,0,5767168,0
+levenshtein,100000,Mohd. Rashed Hossain Ali | Jenny Mary  Gonsalves | Paul Ruth Palma  | Syed Abdurr Ahmed | Ashik Uddin Ali | Christofer Anthony Gomes | Sheeekh Mohammad Kamal Mollah | Deepak Kanti Roy | Nadia Ara Haque | Sheikh Mohammad Zakir Ullah Siddique,10,False,5,385.707,114.589,298.623,20,Seq Scan,0,5767168,0
+dmetaphone,100000,Mohd. Rashed Hossain Ali | Jenny Mary  Gonsalves | Paul Ruth Palma  | Syed Abdurr Ahmed | Ashik Uddin Ali | Christofer Anthony Gomes | Sheeekh Mohammad Kamal Mollah | Deepak Kanti Roy | Nadia Ara Haque | Sheikh Mohammad Zakir Ullah Siddique,10,False,5,487.602,212.198,313.443,20,Seq Scan,0,5767168,0
+soundex,100000,Mohd. Rashed Hossain Ali | Jenny Mary  Gonsalves | Paul Ruth Palma  | Syed Abdurr Ahmed | Ashik Uddin Ali | Christofer Anthony Gomes | Sheeekh Mohammad Kamal Mollah | Deepak Kanti Roy | Nadia Ara Haque | Sheikh Mohammad Zakir Ullah Siddique,10,False,5,471.709,199.936,314.578,20,Seq Scan,0,5767168,0
+exact,100000,Mohd. Rashed Hossain Ali | Jenny Mary  Gonsalves | Paul Ruth Palma  | Syed Abdurr Ahmed | Ashik Uddin Ali | Christofer Anthony Gomes | Sheeekh Mohammad Kamal Mollah | Deepak Kanti Roy | Nadia Ara Haque | Sheikh Mohammad Zakir Ullah Siddique,10,True,5,44.698,35.941,12.107,1.5,Bitmap Heap Scan,5177344,5767168,491.2
+trigram,100000,Mohd. Rashed Hossain Ali | Jenny Mary  Gonsalves | Paul Ruth Palma  | Syed Abdurr Ahmed | Ashik Uddin Ali | Christofer Anthony Gomes | Sheeekh Mohammad Kamal Mollah | Deepak Kanti Roy | Nadia Ara Haque | Sheikh Mohammad Zakir Ullah Siddique,10,True,5,48.894,42.227,12.358,19.9,Bitmap Heap Scan,5177344,5767168,491.2
+levenshtein,100000,Mohd. Rashed Hossain Ali | Jenny Mary  Gonsalves | Paul Ruth Palma  | Syed Abdurr Ahmed | Ashik Uddin Ali | Christofer Anthony Gomes | Sheeekh Mohammad Kamal Mollah | Deepak Kanti Roy | Nadia Ara Haque | Sheikh Mohammad Zakir Ullah Siddique,10,True,5,88.009,99.448,18.537,20,Bitmap Heap Scan,5177344,5767168,491.2
+dmetaphone,100000,Mohd. Rashed Hossain Ali | Jenny Mary  Gonsalves | Paul Ruth Palma  | Syed Abdurr Ahmed | Ashik Uddin Ali | Christofer Anthony Gomes | Sheeekh Mohammad Kamal Mollah | Deepak Kanti Roy | Nadia Ara Haque | Sheikh Mohammad Zakir Ullah Siddique,10,True,5,168.014,186.059,34.523,20,Bitmap Heap Scan,5177344,5767168,491.2
+soundex,100000,Mohd. Rashed Hossain Ali | Jenny Mary  Gonsalves | Paul Ruth Palma  | Syed Abdurr Ahmed | Ashik Uddin Ali | Christofer Anthony Gomes | Sheeekh Mohammad Kamal Mollah | Deepak Kanti Roy | Nadia Ara Haque | Sheikh Mohammad Zakir Ullah Siddique,10,True,5,162.27,175.763,34.472,20,Bitmap Heap Scan,5177344,5767168,491.2

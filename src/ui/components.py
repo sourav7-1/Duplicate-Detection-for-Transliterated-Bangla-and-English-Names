@@ -5,8 +5,13 @@ import html
 import streamlit as st
 
 from plots import FIG
+from ui.queries import HYBRID_TUNED, HYBRID_WEIGHTS
 
 APP_NAME = "NameDedup"
+# Must match the word list in fn_strip_common_tokens (sql/04_normalize.sql), same order;
+# tests/test_ui.py checks it. "muhamad"/"hosain" are the forms after normalization.
+COMMON_TOKENS = ["muhammad", "muhamad", "md", "rahman", "hossain", "hosain", "islam",
+                 "ahmed", "akter", "khatun"]
 FOOTER = "CSE311 DBMS · Team 25"
 
 DESCRIPTIONS = {
@@ -16,8 +21,11 @@ DESCRIPTIONS = {
     "Levenshtein": "1 − edit distance / longer length, on the raw name (full scan).",
     "Double Metaphone": "Share of words whose Double Metaphone codes match (full scan).",
     "Soundex": "Share of words whose Soundex codes match (full scan).",
-    "Hybrid":"0.4 × trigram + 0.3 × Levenshtein + 0.3 × phonetic, all on normalized names. "
-              "Not evaluated yet.",
+    "Hybrid": (f"{HYBRID_WEIGHTS['dmetaphone']} × Double Metaphone + "
+               f"{HYBRID_WEIGHTS['trigram']} × trigram + "
+               f"{HYBRID_WEIGHTS['levenshtein']} × Levenshtein, all on normalized names. "
+               + ("Best-F1 weights from results/hybrid_weights.json." if HYBRID_TUNED else
+                  "Untuned weights: run python src/evaluate.py to pick the best set.")),
 }
 
 
@@ -33,7 +41,7 @@ def sidebar(method_names, dataset_sizes):
     """Render the settings sidebar and return every setting as one dict:
 
     {"method": str, "threshold": float, "dataset_size": int | None,
-     "normalize": bool, "use_gin_index": bool}
+     "normalize": bool, "use_gin_index": bool, "ignore_common": bool}
 
     dataset_sizes: record counts that exist in the database (see queries.dataset_sizes).
     Widget keys are prefixed so they never clash with same-label widgets in the page.
@@ -52,14 +60,20 @@ def sidebar(method_names, dataset_sizes):
         normalize = st.checkbox("Apply Bangla name normalization", value=True,
                                 key="sb_normalize")
         use_gin_index = st.checkbox("Use GIN trigram index", value=True, key="sb_use_gin")
+        ignore_common = st.checkbox(
+            "Ignore common tokens", value=False, key="sb_ignore_common",
+            help="Adds a second trigram score computed without " + ", ".join(COMMON_TOKENS)
+                 + ". The verdict then uses the lower of the two scores.")
         st.divider()
         st.caption(FOOTER)
     return {"method": method, "threshold": threshold, "dataset_size": dataset_size,
-            "normalize": normalize, "use_gin_index": use_gin_index}
+            "normalize": normalize, "use_gin_index": use_gin_index,
+            "ignore_common": ignore_common}
 
 
 # ------------------------------------------------------------------ search tab
-DEFAULT_NAME = "Md. Abdur Rahman"
+# person 338: 8 spelling variants in data/names.csv (prefix, vowel, sh_s, word order, ...)
+DEFAULT_NAME = "Mohammad Nasir Uddin"
 
 
 def search_bar():
@@ -95,7 +109,8 @@ def result_cards(normalized, method, elapsed_ms):
 CELL = "padding:8px 10px;border-bottom:1px solid #E5E7EB;vertical-align:middle;"
 HEAD = "padding:8px 10px;border-bottom:2px solid #D1D5DB;font-weight:600;"
 
-VERDICT_MARGIN = 0.15
+# Fixed cut-offs, independent of the sidebar threshold (which only filters rows).
+LIKELY_MIN, REVIEW_MIN = 0.85, 0.65
 # verdict -> (badge background, badge text): light tint + dark text keeps contrast high
 BADGES = {
     "Likely duplicate": ("#DCFCE7", "#166534"),   # green
@@ -104,12 +119,12 @@ BADGES = {
 }
 
 
-def verdict(score, threshold):
+def verdict(score):
     """Compare at the 3 decimals shown in the table, so the badge matches the number."""
     s = round(score, 3)
-    if s >= round(threshold + VERDICT_MARGIN, 3):
+    if s >= LIKELY_MIN:
         return "Likely duplicate"
-    if s >= round(threshold, 3):
+    if s >= REVIEW_MIN:
         return "Needs review"
     return "Different person"
 
@@ -120,38 +135,48 @@ def badge(label):
             f'font-size:0.85em;font-weight:600;white-space:nowrap">{label}</span>')
 
 
-def duplicates_table_html(rows, threshold):
+def duplicates_table_html(rows):
     """HTML table of results. Every database value is passed through html.escape.
 
-    Built as one line: Markdown would treat indented HTML lines as a code block.
+    rows: see queries.search. When core_score is set (Ignore common tokens), it gets
+    its own column and the verdict uses min(score, core_score): stripping alone would
+    rate "Md. Rakib Hossain" 1.000 against "Mohammad Rakib Rahman" (different people). Built as one line: Markdown would treat
+    indented HTML lines as a code block.
     """
+    with_core = any(r[5] is not None for r in rows)
     columns = [("Record", "right"), ("Name in database", "left"), ("Normalized", "left"),
-               ("Score", "right"), ("Verdict", "left")]
+               ("Score", "right")]
+    columns += [("Trigram score without common tokens", "right")] if with_core else []
+    columns += [("Verdict", "left")]
+    num = f"{CELL}text-align:right;font-variant-numeric:tabular-nums"
     header = "".join(f'<th style="{HEAD}text-align:{align}">{title}</th>'
                      for title, align in columns)
     body = []
-    for record_id, _person_id, full_name, normalized, score in rows:
+    for record_id, _person_id, full_name, normalized, score, core in rows:
         norm = (f'<code>{html.escape(normalized)}</code>' if normalized is not None else "–")
         body.append(
             "<tr>"
             f'<td style="{CELL}text-align:right">{record_id}</td>'
             f'<td style="{CELL}white-space:pre-wrap">{html.escape(full_name)}</td>'
             f'<td style="{CELL}">{norm}</td>'
-            f'<td style="{CELL}text-align:right;font-variant-numeric:tabular-nums">'
-            f'{score:.3f}</td>'
-            f'<td style="{CELL}">{badge(verdict(score, threshold))}</td>'
+            f'<td style="{num}">{score:.3f}</td>'
+            + (f'<td style="{num}">{core:.3f}</td>' if with_core else "")
+            + f'<td style="{CELL}">{badge(verdict(min(score, core) if with_core else score))}</td>'
             "</tr>")
     return (f'<table style="width:100%;border-collapse:collapse">'
             f'<thead><tr>{header}</tr></thead><tbody>{"".join(body)}</tbody></table>')
 
 
-def duplicates_table(rows, threshold):
+def duplicates_table(rows):
     """'Possible duplicates' heading, then the HTML table or a no-match warning."""
     st.subheader("Possible duplicates")
     if not rows:
         st.info("No similar names found above this threshold.")
         return
-    st.markdown(duplicates_table_html(rows, threshold), unsafe_allow_html=True)
+    st.markdown(duplicates_table_html(rows), unsafe_allow_html=True)
+    st.caption(f"Verdict: score ≥ {LIKELY_MIN} likely duplicate, {REVIEW_MIN}–{LIKELY_MIN} "
+               "needs review, below that different person. The sidebar threshold only "
+               "decides which rows are listed.")
 
 
 def sql_expander(sql):
@@ -162,6 +187,14 @@ def sql_expander(sql):
 # -------------------------------------------------------------- evaluation tab
 METHOD_LABELS = {"exact": "Exact", "trigram": "Trigram", "levenshtein": "Levenshtein",
                  "dmetaphone": "Double Metaphone", "soundex": "Soundex"}
+
+
+def method_label(method):
+    """'trigram' -> 'Trigram'; evaluate.py's 'hybrid_40_40_20' -> 'Hybrid 0.40/0.40/0.20'
+    (weights for Double Metaphone / trigram / Levenshtein)."""
+    if method.startswith("hybrid_"):
+        return "Hybrid " + "/".join(f"{int(p) / 100:.2f}" for p in method.split("_")[1:])
+    return METHOD_LABELS.get(method, method)
 BEST_BG, BEST_FG = BADGES["Likely duplicate"]          # same green as the badge
 
 
@@ -195,7 +228,7 @@ def best_f1_table_html(metrics):
               f'<th style="{HEAD}text-align:center" colspan="4">Normalized names</th></tr>'
               f"<tr>{sub}{sub}</tr>")
     body = "".join(
-        f'<tr><td style="{CELL}">{html.escape(METHOD_LABELS.get(m, m))}</td>'
+        f'<tr><td style="{CELL}">{html.escape(method_label(m))}</td>'
         f"{cells(best.get((m, False)))}{cells(best.get((m, True)))}</tr>"
         for m in methods)
     return (f'<table style="width:100%;border-collapse:collapse">'
@@ -205,7 +238,9 @@ def best_f1_table_html(metrics):
 def best_f1_table(metrics):
     st.subheader("Best F1 per method")
     st.markdown(best_f1_table_html(metrics), unsafe_allow_html=True)
-    st.caption("Best threshold = the threshold with the highest F1 in the 0.50–0.95 sweep. "
+    ts = [float(r["threshold"]) for r in metrics]        # range of the sweep that was run
+    st.caption(f"Best threshold = the threshold with the highest F1 in the "
+               f"{min(ts):.2f}–{max(ts):.2f} sweep. "
                "Highlighted: best F1 overall.")
 
 
@@ -217,6 +252,8 @@ FIGURES = [
                                "(log scale)."),
     ("failure_table.png", "Share of true duplicates each method misses, by spelling-variant "
                           "type."),
+    ("fp_by_source.png", "False-positive rate per method, by how the non-duplicate pair "
+                         "was chosen."),
 ]
 
 
@@ -278,7 +315,7 @@ def performance_table_html(bench):
                         f'<th style="{HEAD}text-align:right">GIN</th>' for _ in sizes)
               + "</tr>")
     body = "".join(
-        f'<tr><td style="{CELL}">{html.escape(METHOD_LABELS.get(m, m))}</td>'
+        f'<tr><td style="{CELL}">{html.escape(method_label(m))}</td>'
         + "".join(f'<td style="{num}">{ms((m, n, False))}</td>'
                   f'<td style="{num}">{ms((m, n, True))}</td>' for n in sizes)
         + f'<td style="{num}font-weight:700">{speedup(m)}</td></tr>'
@@ -289,10 +326,13 @@ def performance_table_html(bench):
 
 def performance_table(bench):
     runs = bench[0]["runs"] if bench else "?"
+    # "queries" exists from the 10-name benchmark on; older CSVs used a single name
+    per_cell = (f"{bench[0]['queries']} search names × {runs} runs"
+                if bench and "queries" in bench[0] else f"{runs} runs")
     largest = max(int(r["n_records"]) for r in bench)
     st.subheader("Query time per method (ms)")
     st.markdown(performance_table_html(bench), unsafe_allow_html=True)
-    st.caption(f"Mean of {runs} runs per cell, in milliseconds, from results/benchmark.csv. "
+    st.caption(f"Mean of {per_cell} per cell, in milliseconds, from results/benchmark.csv. "
                f"Speedup = no-index time ÷ GIN time at {size_label(largest)} records.")
 
 

@@ -1,19 +1,19 @@
 -- exact_100000_noindex
-SELECT record_id, full_name, (fn_clean(full_name) = fn_clean('Mosammat Jannatul Nur Sultana'))::int AS score
+SELECT record_id, full_name, (fn_clean(full_name) = fn_clean('Mohd. Rashed Hossain Ali'))::int AS score
 FROM bench_name
-WHERE full_name % 'Mosammat Jannatul Nur Sultana' AND (fn_clean(full_name) = fn_clean('Mosammat Jannatul Nur Sultana'))::int >= 1
+WHERE full_name % 'Mohd. Rashed Hossain Ali' AND (fn_clean(full_name) = fn_clean('Mohd. Rashed Hossain Ali'))::int >= 1
 ORDER BY score DESC, record_id
 LIMIT 20
 
-Limit  (cost=3454.06..3454.07 rows=3 width=29) (actual time=404.409..404.411 rows=2.00 loops=1)
+Limit  (cost=3480.32..3480.37 rows=20 width=29) (actual time=361.582..361.583 rows=1.00 loops=1)
   Buffers: shared hit=704
-  ->  Sort  (cost=3454.06..3454.07 rows=3 width=29) (actual time=404.408..404.409 rows=2.00 loops=1)
-        Sort Key: (((btrim(regexp_replace(lower((full_name)::text), '\s+'::text, ' '::text, 'g'::text)) = 'mosammat jannatul nur sultana'::text))::integer) DESC, record_id
+  ->  Sort  (cost=3480.32..3482.00 rows=673 width=29) (actual time=361.580..361.581 rows=1.00 loops=1)
+        Sort Key: (((btrim(regexp_replace(lower((full_name)::text), '\s+'::text, ' '::text, 'g'::text)) = 'mohd. rashed hossain ali'::text))::integer) DESC, record_id
         Sort Method: quicksort  Memory: 25kB
         Buffers: shared hit=704
-        ->  Seq Scan on bench_name  (cost=0.00..3454.04 rows=3 width=29) (actual time=0.024..404.400 rows=2.00 loops=1)
-              Filter: (((full_name)::text % 'Mosammat Jannatul Nur Sultana'::text) AND (((btrim(regexp_replace(lower((full_name)::text), '\s+'::text, ' '::text, 'g'::text)) = 'mosammat jannatul nur sultana'::text))::integer >= 1))
-              Rows Removed by Filter: 99998
+        ->  Seq Scan on bench_name  (cost=0.00..3462.41 rows=673 width=29) (actual time=82.705..361.572 rows=1.00 loops=1)
+              Filter: (((full_name)::text % 'Mohd. Rashed Hossain Ali'::text) AND (((btrim(regexp_replace(lower((full_name)::text), '\s+'::text, ' '::text, 'g'::text)) = 'mohd. rashed hossain ali'::text))::integer >= 1))
+              Rows Removed by Filter: 99999
               Buffers: shared hit=704
-Planning Time: 0.575 ms
-Execution Time: 404.429 ms
+Planning Time: 0.500 ms
+Execution Time: 361.600 ms

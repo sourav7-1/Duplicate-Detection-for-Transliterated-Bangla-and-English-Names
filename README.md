@@ -90,7 +90,10 @@ python src/make_pairs.py
   identical every run. For a larger dataset run, for example,
   `python src/generate_dataset.py --size 5000`.
 - `make_pairs.py` writes `data/gold_pairs.csv`: all duplicate pairs plus an equal number of
-  random non-duplicate pairs.
+  non-duplicate pairs: every hard negative paired with each record of the person it imitates,
+  then similar names of different people drawn evenly from three pools (trigram >= 0.5, same
+  Double Metaphone codes, Levenshtein >= 0.7), then random pairs to fill. The `source` column
+  says which rule picked each pair. Needs sql/02 and sql/03 applied (it scores in PostgreSQL).
 
 ## 4. Build the schema, load data, create functions and indexes
 
@@ -129,7 +132,7 @@ python src/plots.py
 
 | Script | Output |
 |---|---|
-| `evaluate.py` (RQ1, RQ2) | Scores every gold pair with every method, raw and normalized, and sweeps the threshold from 0.50 to 0.95. Writes `results/metrics.csv` and the `experiment_run` / `match_result` tables. |
+| `evaluate.py` (RQ1, RQ2) | Scores every gold pair with every method, raw and normalized, and sweeps the threshold from 0.30 to 0.95 in steps of 0.05. Also tries three Hybrid weight sets (Double Metaphone / trigram / Levenshtein on normalized names: 0.4/0.4/0.2, 0.5/0.3/0.2, 0.34/0.33/0.33). Writes `results/metrics.csv`, `results/metrics_by_source.csv` (per `gold_pair.source` at each best threshold), `results/hybrid_weights.json` (the best Hybrid set, which the app's Hybrid method uses) and the `experiment_run` / `match_result` tables. |
 | `benchmark.py` (RQ3) | Query time at 1k / 10k / 100k records with and without the GIN index, 5 runs each. Writes `results/benchmark.csv` and plans in `docs/explain/`. Uses a scratch table, so your data is untouched. |
 | `plots.py` | Figures in `docs/figures/` and `results/failure_table.csv` |
 
@@ -157,26 +160,56 @@ pytest
 
 ## Results
 
-Best threshold per method on the default dataset (2,691 records, 15,586 gold pairs), from
-`results/metrics.csv`:
+Best threshold per method on the default dataset (2,691 records, 15,586 gold pairs: 7,793
+duplicates; 7,793 non-duplicates of which 541 hard-negative, 2,656 trigram, 31 dmetaphone,
+2,276 levenshtein and 2,289 random), threshold sweep 0.30–0.95, from `results/metrics.csv`:
 
 | Method | Normalized | Best threshold | Precision | Recall | F1 |
 |---|---|---:|---:|---:|---:|
-| dmetaphone | yes | 0.50 | 0.988 | 0.914 | 0.950 |
-| soundex | yes | 0.50 | 0.988 | 0.914 | 0.949 |
-| soundex | no | 0.50 | 0.990 | 0.911 | 0.949 |
-| dmetaphone | no | 0.50 | 0.990 | 0.904 | 0.945 |
-| trigram | yes | 0.50 | 0.997 | 0.873 | 0.931 |
-| trigram | no | 0.50 | 0.999 | 0.835 | 0.909 |
-| levenshtein | no | 0.50 | 0.983 | 0.805 | 0.886 |
-| levenshtein | yes | 0.50 | 0.968 | 0.804 | 0.878 |
-| exact | yes | 0.95 | 1.000 | 0.288 | 0.447 |
+| hybrid 0.50/0.30/0.20 (DM/tri/lev) | yes | 0.70 | 0.927 | 0.756 | 0.833 |
+| hybrid 0.40/0.40/0.20 | yes | 0.65 | 0.873 | 0.792 | 0.830 |
+| dmetaphone | yes | 0.75 | 0.944 | 0.729 | 0.823 |
+| soundex | yes | 0.75 | 0.937 | 0.729 | 0.820 |
+| hybrid 0.34/0.33/0.33 | yes | 0.70 | 0.911 | 0.734 | 0.813 |
+| trigram | yes | 0.60 | 0.834 | 0.784 | 0.808 |
+| soundex | no | 0.75 | 0.940 | 0.703 | 0.804 |
+| dmetaphone | no | 0.65 | 0.798 | 0.756 | 0.777 |
+| trigram | no | 0.55 | 0.785 | 0.750 | 0.767 |
+| levenshtein | yes | 0.85 | 0.911 | 0.627 | 0.743 |
+| levenshtein | no | 0.80 | 0.882 | 0.626 | 0.732 |
+| exact | yes | 0.95 | 1.000 | 0.329 | 0.495 |
 | exact | no | 0.95 | 1.000 | 0.069 | 0.129 |
 
-Figures: `docs/figures/f1_by_method.png`, `pr_curves.png`, `query_time_scaling.png`,
-`failure_table.png`.
+The app's Hybrid uses the winning set, 0.50/0.30/0.20 (`results/hybrid_weights.json`).
+
+False-positive rate per non-duplicate source, normalized names, each method at its best
+threshold (`results/metrics_by_source.csv`):
+
+| Method | hard negative | trigram | dmetaphone (n=31) | levenshtein | random |
+|---|---:|---:|---:|---:|---:|
+| exact | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% |
+| trigram | 53.6% | 21.8% | 71.0% | 14.5% | 0.0% |
+| levenshtein | 46.8% | 2.7% | 19.4% | 6.4% | 0.0% |
+| dmetaphone | 26.6% | 4.2% | 74.2% | 2.5% | 0.0% |
+| soundex | 25.5% | 4.9% | 74.2% | 4.0% | 0.0% |
+| hybrid 0.50/0.30/0.20 | 39.4% | 4.6% | 87.1% | 4.5% | 0.0% |
+
+Query time at 100k records, mean of 10 search names × 5 runs (`results/benchmark.csv`):
+
+| Method | No index (ms) | GIN (ms) | Speedup |
+|---|---:|---:|---:|
+| exact | 352.0 | 44.7 | 7.9× |
+| trigram | 347.9 | 48.9 | 7.1× |
+| levenshtein | 385.7 | 88.0 | 4.4× |
+| dmetaphone | 487.6 | 168.0 | 2.9× |
+| soundex | 471.7 | 162.3 | 2.9× |
+
+Figures: `docs/figures/f1_by_method.png`, `pr_curves.png`, `fp_by_source.png`,
+`query_time_scaling.png`, `failure_table.png`.
 
 **Caveats**
 
-- 0.50 is the lowest threshold in the sweep, so the true best thresholds may be lower.
-- The non-duplicate pairs are random and rarely near-misses, so precision is optimistic.
+- Every best threshold lies inside the 0.30–0.95 sweep. None sit at its lower edge, so widening the sweep further would not change them.
+- The dmetaphone source has only 31 pairs, so its false-positive rates move by 3.2 points per pair.
+- With the GIN index, query time varies a lot between search names (dmetaphone: mean 168 ms, std 186 ms, min 35 ms). The scaling chart's lower whiskers stop at the fastest run, because mean − std falls below zero. Names that share common words such as "Md." or "Islam" have many trigram candidates to rescore.
+- Hybrid weights and thresholds were chosen on the same gold pairs they are reported on, with no held-out split, so Hybrid's F1 is slightly optimistic.

@@ -1,21 +1,19 @@
 -- trigram_100000_noindex
-SELECT record_id, full_name, similarity(full_name, 'Mosammat Jannatul Nur Sultana') AS score
+SELECT record_id, full_name, similarity(full_name, 'Mohd. Rashed Hossain Ali') AS score
 FROM bench_name
-WHERE full_name % 'Mosammat Jannatul Nur Sultana' AND similarity(full_name, 'Mosammat Jannatul Nur Sultana') >= 0.5
+WHERE full_name % 'Mohd. Rashed Hossain Ali' AND similarity(full_name, 'Mohd. Rashed Hossain Ali') >= 0.5
 ORDER BY score DESC, record_id
 LIMIT 20
 
-Limit  (cost=2447.06..2447.07 rows=3 width=29) (actual time=451.819..451.822 rows=20.00 loops=1)
+Limit  (cost=2481.40..2481.45 rows=20 width=29) (actual time=365.771..365.775 rows=20.00 loops=1)
   Buffers: shared hit=702
-  ->  Sort  (cost=2447.06..2447.07 rows=3 width=29) (actual time=451.817..451.819 rows=20.00 loops=1)
-        Sort Key: (similarity((full_name)::text, 'Mosammat Jannatul Nur Sultana'::text)) DESC, record_id
+  ->  Sort  (cost=2481.40..2483.93 rows=1010 width=29) (actual time=365.770..365.771 rows=20.00 loops=1)
+        Sort Key: (similarity((full_name)::text, 'Mohd. Rashed Hossain Ali'::text)) DESC, record_id
         Sort Method: top-N heapsort  Memory: 27kB
         Buffers: shared hit=702
-        ->  Seq Scan on bench_name  (cost=0.00..2447.04 rows=3 width=29) (actual time=0.052..451.705 rows=63.00 loops=1)
-              Filter: (((full_name)::text % 'Mosammat Jannatul Nur Sultana'::text) AND (similarity((full_name)::text, 'Mosammat Jannatul Nur Sultana'::text) >= '0.5'::double precision))
-              Rows Removed by Filter: 99937
+        ->  Seq Scan on bench_name  (cost=0.00..2454.53 rows=1010 width=29) (actual time=11.115..365.680 rows=110.00 loops=1)
+              Filter: (((full_name)::text % 'Mohd. Rashed Hossain Ali'::text) AND (similarity((full_name)::text, 'Mohd. Rashed Hossain Ali'::text) >= '0.5'::double precision))
+              Rows Removed by Filter: 99890
               Buffers: shared hit=702
-Planning:
-  Buffers: shared hit=32
-Planning Time: 0.662 ms
-Execution Time: 451.840 ms
+Planning Time: 0.448 ms
+Execution Time: 365.792 ms

@@ -1,9 +1,10 @@
 """RQ3 benchmark: query time per method at 1k / 10k / 100k records, without and with
 a GIN trigram index.
 
-Workload: one candidate search, "find the 20 best matches for a name" (the first
-"original" name in each dataset, recorded as query_name). Every method
-uses the same shape so the index is the only thing that changes between runs:
+Workload: a candidate search, "find the 20 best matches for a name", run for
+N_QUERIES names drawn with a fixed seed from the distinct names in that dataset (so
+every method, including exact, has at least one match). Every method uses the same
+shape so the index is the only thing that changes between runs:
 
     SELECT ... FROM bench_name
     WHERE full_name % <query>            -- trigram blocking (the GIN index can serve this)
@@ -16,12 +17,15 @@ uses the same shape so the index is the only thing that changes between runs:
 
 Data: synthetic names from generate_dataset.py (seed 42), loaded into a scratch table
 bench_name that is dropped at the end. The evaluation tables are not touched.
-Timing: client wall clock around execute + fetch, 1 warm-up run then RUNS timed runs.
+Timing: client wall clock around execute + fetch. Per name: 1 warm-up run, then RUNS
+timed runs. mean_ms / std_ms / min_ms are over all N_QUERIES x RUNS timings.
+EXPLAIN (ANALYZE, BUFFERS) is saved for the first name only.
 JIT is switched off so it doesn't add compile time noise at 100k rows.
 
 Usage: python src/benchmark.py
 """
 import csv
+import random
 import statistics
 import time
 
@@ -32,6 +36,8 @@ from load_data import ROOT, connect
 
 SIZES = [1_000, 10_000, 100_000]
 RUNS = 5
+N_QUERIES = 10             # search names per dataset size
+QUERY_SEED = 7             # fixed, so every run benchmarks the same names
 THRESHOLD = 0.5            # best threshold for every fuzzy method in results/metrics.csv
 INDEX = "idx_bench_name_trgm"
 
@@ -70,8 +76,13 @@ def load_bench_table(cur, n):
         for i, r in enumerate(rows, 1):
             copy.write_row((i, r["full_name"]))
     cur.execute("VACUUM ANALYZE bench_name")
-    # search for a name that exists, so every method (including exact) has matches
-    return next(r["full_name"] for r in rows if r["variant_type"] == "original")
+    return pick_query_names(rows)
+
+
+def pick_query_names(rows, k=N_QUERIES, seed=QUERY_SEED):
+    """k distinct names present in rows, chosen with a fixed seed."""
+    names = sorted({r["full_name"] for r in rows})       # sorted: same input -> same pick
+    return random.Random(seed).sample(names, min(k, len(names)))
 
 
 def time_query(cur, query):
@@ -109,9 +120,9 @@ def main():
 
         for n in SIZES:
             t0 = time.perf_counter()
-            query_name = load_bench_table(cur, n)
+            query_names = load_bench_table(cur, n)
             print(f"\n== {n:,} records (loaded in {time.perf_counter() - t0:.1f} s), "
-                  f"query: {query_name!r}")
+                  f"{len(query_names)} query names, first: {query_names[0]!r}")
             cur.execute("SELECT pg_relation_size('bench_name')")
             table_bytes = cur.fetchone()[0]
 
@@ -127,23 +138,30 @@ def main():
                     index_bytes = cur.fetchone()[0]
 
                 for method in METHODS:
-                    query = build_query(method, query_name)
-                    times, n_rows = time_query(cur, query)
+                    times, n_rows = [], []
+                    for name in query_names:
+                        t, r = time_query(cur, build_query(method, name))
+                        times += t
+                        n_rows.append(r)
+                    n_rows = round(statistics.mean(n_rows), 1)
                     tag = f"{method}_{n}_{'gin' if gin else 'noindex'}"
-                    scan = explain(cur, query, EXPLAIN_DIR / f"{tag}.txt")
+                    # ponytail: plan of the first name only; plans could differ per name
+                    scan = explain(cur, build_query(method, query_names[0]),
+                                   EXPLAIN_DIR / f"{tag}.txt")
                     row = {
-                        "method": method, "n_records": n, "query_name": query_name,
+                        "method": method, "n_records": n,
+                        "query_names": " | ".join(query_names), "queries": len(query_names),
                         "gin_index": gin, "runs": RUNS,
                         "mean_ms": round(statistics.mean(times), 3),
                         "std_ms": round(statistics.stdev(times), 3),
                         "min_ms": round(min(times), 3),
-                        "rows_returned": n_rows, "plan_scan": scan,
+                        "mean_rows_returned": n_rows, "plan_scan": scan,
                         "index_size_bytes": index_bytes, "table_size_bytes": table_bytes,
                         "index_build_ms": round(build_ms, 1),
                     }
                     results.append(row)
                     print(f"  {method:<11} gin={gin!s:<5} {row['mean_ms']:>9.2f} +/- "
-                          f"{row['std_ms']:>7.2f} ms  rows={n_rows:<3} {scan}")
+                          f"{row['std_ms']:>7.2f} ms  mean rows={n_rows:<5} {scan}")
 
         cur.execute("DROP TABLE IF EXISTS bench_name")
 

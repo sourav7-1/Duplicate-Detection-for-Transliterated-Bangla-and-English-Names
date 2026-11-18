@@ -13,9 +13,9 @@ from load_data import connect  # noqa: E402
 
 CASES = [
     # prefixes -> one canonical form
-    ("Md. Abdur Rahman",        "muhammad abdul rahman"),
-    ("MOHAMMED Abdul Rahman",   "muhammad abdul rahman"),
-    ("Mohd Rahim",              "muhammad rahim"),
+    ("Md. Abdur Rahman",        "muhamad abdul rahman"),   # muhammad -> muhamad (doubled m)
+    ("MOHAMMED Abdul Rahman",   "muhamad abdul rahman"),
+    ("Mohd Rahim",              "muhamad rahim"),
     ("Sk. Shafiq",              "seikh safiq"),          # sheikh, then sh -> s
     ("Ch. Kamal",               "chowdhury kamal"),
     ("Kamal Choudhury",         "kamal chowdhury"),
@@ -27,12 +27,16 @@ CASES = [
     ("Farook",                  "faruk"),
     # consonant variants
     ("Philip",                  "filip"),
-    ("Zannat Ara",              "jannat ara"),
+    ("Zannat Ara",              "janat ara"),
     # punctuation and spacing
-    ("Md.Rahim  Uddin",         "muhammad rahim uddin"),
+    ("Md.Rahim  Uddin",         "muhamad rahim udin"),
     ("Abu-Bakar",               "abu bakar"),
     # whole-word rules must not fire inside a word ('md' in 'ahmed')
-    ("Ahmed Hossain",           "ahmed hossain"),
+    ("Ahmed Hossain",           "ahmed hosain"),
+    # doubled consonants collapse to one
+    ("Rassel",                  "rasel"),
+    ("Md. Rakib Rahmman",       "muhamad rakib rahman"),
+    ("Asshok Dey",              "asok dey"),             # ssh -> sh -> s
 ]
 
 
@@ -50,3 +54,12 @@ def cur():
 def test_normalize(cur, raw, expected):
     cur.execute("SELECT fn_normalize_bn_name(%s)", (raw,))
     assert cur.fetchone()[0] == expected
+
+
+def test_collapse_runs_before_common_token_strip(cur):
+    # The typo "Rahmman" only becomes the common token "rahman" after normalization,
+    # so stripping must see the normalized name: then both spellings agree on "rakib".
+    cur.execute("SELECT fn_strip_common_tokens(fn_normalize_bn_name(%s)), "
+                "fn_strip_common_tokens(fn_normalize_bn_name(%s))",
+                ("Md. Rakib Rahmman", "Mohammad Rakib Rahman"))
+    assert cur.fetchone() == ("rakib", "rakib")

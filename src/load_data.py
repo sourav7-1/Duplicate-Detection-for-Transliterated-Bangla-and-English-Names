@@ -39,6 +39,14 @@ def copy_csv(cur, sql, path):
 def main():
     with connect() as conn, conn.cursor() as cur:
         cur.execute("TRUNCATE gold_pair, person, name_record CASCADE")
+        # Databases created before gold_pair.source existed (see sql/01_schema.sql).
+        # The table is empty after TRUNCATE, so NOT NULL is safe to add here.
+        cur.execute("""
+            ALTER TABLE gold_pair ADD COLUMN IF NOT EXISTS source VARCHAR(15) NOT NULL
+                CHECK (source IN ('duplicate', 'hard_negative', 'trigram', 'dmetaphone',
+                                  'levenshtein', 'random'))
+                CHECK (is_duplicate = (source = 'duplicate'))
+        """)
 
         # names.csv has one row per record; person rows are derived from it.
         cur.execute("""
@@ -59,7 +67,7 @@ def main():
             SELECT record_id, person_id, full_name, variant_type FROM staging_names
         """)
 
-        copy_csv(cur, "COPY gold_pair (record_id_a, record_id_b, is_duplicate) "
+        copy_csv(cur, "COPY gold_pair (record_id_a, record_id_b, is_duplicate, source) "
                       "FROM STDIN (FORMAT csv, HEADER true)",
                  DATA / "gold_pairs.csv")
 

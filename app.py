@@ -34,13 +34,13 @@ with tab_search:
             st.info("Type a name to search for possible duplicates.")
         else:
             try:
-                nq, rows, elapsed_ms, sql = queries.search(name, settings["method"],
-                                                           settings["threshold"])
+                nq, rows, elapsed_ms, sql = queries.search(
+                    name, settings["method"], settings["threshold"], settings["ignore_common"])
             except Exception as e:  # connection dropped mid-search, SQL function missing, ...
                 st.error(f"Query failed: {e}")
             else:
                 components.result_cards(nq, settings["method"], elapsed_ms)
-                components.duplicates_table(rows, settings["threshold"])
+                components.duplicates_table(rows)
                 components.sql_expander(sql)
 
 with tab_eval:

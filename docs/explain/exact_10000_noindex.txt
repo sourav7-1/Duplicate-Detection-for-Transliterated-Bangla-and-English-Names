@@ -1,19 +1,19 @@
 -- exact_10000_noindex
-SELECT record_id, full_name, (fn_clean(full_name) = fn_clean('Shipra Mondal'))::int AS score
+SELECT record_id, full_name, (fn_clean(full_name) = fn_clean('Musammat Nasreen Akter Chowdhury'))::int AS score
 FROM bench_name
-WHERE full_name % 'Shipra Mondal' AND (fn_clean(full_name) = fn_clean('Shipra Mondal'))::int >= 1
+WHERE full_name % 'Musammat Nasreen Akter Chowdhury' AND (fn_clean(full_name) = fn_clean('Musammat Nasreen Akter Chowdhury'))::int >= 1
 ORDER BY score DESC, record_id
 LIMIT 20
 
-Limit  (cost=342.29..342.34 rows=20 width=25) (actual time=17.192..17.193 rows=2.00 loops=1)
+Limit  (cost=341.02..341.03 rows=1 width=25) (actual time=25.608..25.609 rows=1.00 loops=1)
   Buffers: shared hit=66
-  ->  Sort  (cost=342.29..342.37 rows=34 width=25) (actual time=17.192..17.192 rows=2.00 loops=1)
-        Sort Key: (((btrim(regexp_replace(lower((full_name)::text), '\s+'::text, ' '::text, 'g'::text)) = 'shipra mondal'::text))::integer) DESC, record_id
+  ->  Sort  (cost=341.02..341.03 rows=1 width=25) (actual time=25.607..25.608 rows=1.00 loops=1)
+        Sort Key: (((btrim(regexp_replace(lower((full_name)::text), '\s+'::text, ' '::text, 'g'::text)) = 'musammat nasreen akter chowdhury'::text))::integer) DESC, record_id
         Sort Method: quicksort  Memory: 25kB
         Buffers: shared hit=66
-        ->  Seq Scan on bench_name  (cost=0.00..341.43 rows=34 width=25) (actual time=0.014..17.188 rows=2.00 loops=1)
-              Filter: (((full_name)::text % 'Shipra Mondal'::text) AND (((btrim(regexp_replace(lower((full_name)::text), '\s+'::text, ' '::text, 'g'::text)) = 'shipra mondal'::text))::integer >= 1))
-              Rows Removed by Filter: 9998
+        ->  Seq Scan on bench_name  (cost=0.00..341.01 rows=1 width=25) (actual time=22.226..25.602 rows=1.00 loops=1)
+              Filter: (((full_name)::text % 'Musammat Nasreen Akter Chowdhury'::text) AND (((btrim(regexp_replace(lower((full_name)::text), '\s+'::text, ' '::text, 'g'::text)) = 'musammat nasreen akter chowdhury'::text))::integer >= 1))
+              Rows Removed by Filter: 9999
               Buffers: shared hit=66
-Planning Time: 0.367 ms
-Execution Time: 17.203 ms
+Planning Time: 0.481 ms
+Execution Time: 25.624 ms

@@ -1,19 +1,19 @@
 -- exact_1000_noindex
-SELECT record_id, full_name, (fn_clean(full_name) = fn_clean('Monica Palma'))::int AS score
+SELECT record_id, full_name, (fn_clean(full_name) = fn_clean('Majumder Ruma'))::int AS score
 FROM bench_name
-WHERE full_name % 'Monica Palma' AND (fn_clean(full_name) = fn_clean('Monica Palma'))::int >= 1
+WHERE full_name % 'Majumder Ruma' AND (fn_clean(full_name) = fn_clean('Majumder Ruma'))::int >= 1
 ORDER BY score DESC, record_id
 LIMIT 20
 
-Limit  (cost=34.69..34.70 rows=7 width=25) (actual time=1.487..1.488 rows=2.00 loops=1)
+Limit  (cost=34.56..34.57 rows=3 width=25) (actual time=1.989..1.990 rows=1.00 loops=1)
   Buffers: shared hit=7
-  ->  Sort  (cost=34.69..34.70 rows=7 width=25) (actual time=1.487..1.487 rows=2.00 loops=1)
-        Sort Key: (((btrim(regexp_replace(lower((full_name)::text), '\s+'::text, ' '::text, 'g'::text)) = 'monica palma'::text))::integer) DESC, record_id
+  ->  Sort  (cost=34.56..34.57 rows=3 width=25) (actual time=1.988..1.989 rows=1.00 loops=1)
+        Sort Key: (((btrim(regexp_replace(lower((full_name)::text), '\s+'::text, ' '::text, 'g'::text)) = 'majumder ruma'::text))::integer) DESC, record_id
         Sort Method: quicksort  Memory: 25kB
         Buffers: shared hit=7
-        ->  Seq Scan on bench_name  (cost=0.00..34.59 rows=7 width=25) (actual time=0.016..1.484 rows=2.00 loops=1)
-              Filter: (((full_name)::text % 'Monica Palma'::text) AND (((btrim(regexp_replace(lower((full_name)::text), '\s+'::text, ' '::text, 'g'::text)) = 'monica palma'::text))::integer >= 1))
-              Rows Removed by Filter: 998
+        ->  Seq Scan on bench_name  (cost=0.00..34.54 rows=3 width=25) (actual time=1.380..1.983 rows=1.00 loops=1)
+              Filter: (((full_name)::text % 'Majumder Ruma'::text) AND (((btrim(regexp_replace(lower((full_name)::text), '\s+'::text, ' '::text, 'g'::text)) = 'majumder ruma'::text))::integer >= 1))
+              Rows Removed by Filter: 999
               Buffers: shared hit=7
-Planning Time: 0.208 ms
-Execution Time: 1.496 ms
+Planning Time: 0.340 ms
+Execution Time: 1.999 ms

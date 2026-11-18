@@ -90,6 +90,10 @@ CREATE TABLE gold_pair (
     record_id_a   INTEGER  NOT NULL REFERENCES name_record (record_id) ON DELETE CASCADE,
     record_id_b   INTEGER  NOT NULL REFERENCES name_record (record_id) ON DELETE CASCADE,
     is_duplicate  BOOLEAN  NOT NULL,
+    -- how make_pairs.py chose the pair, for per-source results
+    source        VARCHAR(15) NOT NULL CHECK (source IN ('duplicate', 'hard_negative',
+                      'trigram', 'dmetaphone', 'levenshtein', 'random')),
+    CHECK (is_duplicate = (source = 'duplicate')),
     PRIMARY KEY (record_id_a, record_id_b),
     CHECK (record_id_a < record_id_b)
 );

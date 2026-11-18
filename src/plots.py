@@ -4,14 +4,18 @@
   pr_curves.png           precision-recall curve per method, raw vs normalized
   query_time_scaling.png  records vs query time, GIN index off / on (RQ3)
   failure_table.png       miss rate per variant type and method (+ results/failure_table.csv)
+  fp_by_source.png        false-positive rate per non-duplicate source and method
 
-Inputs: results/metrics.csv, results/benchmark.csv, and per-pair scores from the
-latest evaluate.py runs in the database (match_result).
+Inputs: results/metrics.csv, results/benchmark.csv, results/metrics_by_source.csv,
+results/hybrid_weights.json, and per-pair scores from the latest evaluate.py runs in
+the database (match_result). Hybrid = the winning weight set in hybrid_weights.json,
+normalized names only; it is left out (with a note) until evaluate.py has written it.
 Uses only csv + numpy + matplotlib (pandas is blocked by this machine's App Control policy).
 
 Usage: python src/plots.py
 """
 import csv
+import json
 from collections import defaultdict
 
 import matplotlib
@@ -33,6 +37,10 @@ SURFACE, INK, INK_2, MUTED = "#fcfcfb", "#0b0b0b", "#52514e", "#898781"
 GRID, BASELINE = "#e1e0d9", "#c3c2b7"
 C1, C2 = "#2a78d6", "#eb6834"          # slot 1 blue, slot 2 orange
 SEQ = ["#cde2fb", "#9ec5f4", "#6da7ec", "#3987e5", "#256abf", "#184f95", "#0d366b"]
+# Categorical slots 1-6 in the palette's fixed order (validated for adjacent pairs, which
+# is what grouped bars need). One slot per method, never cycled.
+CATEGORICAL = ["#2a78d6", "#eb6834", "#1baf7a", "#eda100", "#e87ba4", "#008300"]
+NEG_SOURCES = ["hard_negative", "trigram", "dmetaphone", "levenshtein", "random"]
 
 plt.rcParams.update({
     "font.family": ["Segoe UI", "DejaVu Sans"], "font.size": 10,
@@ -51,6 +59,21 @@ def read_csv(path):
         return list(csv.DictReader(f))
 
 
+def hybrid_method(path=RESULTS / "hybrid_weights.json"):
+    """Method name of the winning Hybrid set (e.g. 'hybrid_40_40_20'), or None."""
+    try:
+        return json.loads(path.read_text(encoding="utf-8"))["method"]
+    except (OSError, ValueError, KeyError, TypeError):
+        return None
+
+
+def method_tick(method):
+    """'hybrid_40_40_20' -> 'hybrid\\n0.40/0.40/0.20'; other names unchanged."""
+    if method.startswith("hybrid_"):
+        return "hybrid\n" + "/".join(f"{int(p) / 100:.2f}" for p in method.split("_")[1:])
+    return method
+
+
 def save(fig, name):
     fig.savefig(FIG / name, dpi=200, bbox_inches="tight")
     plt.close(fig)
@@ -58,20 +81,23 @@ def save(fig, name):
 
 
 # ------------------------------------------------------------------ (1) F1 bars
-def plot_f1_bars(metrics):
+def plot_f1_bars(metrics, hybrid=None):
+    """hybrid: winning Hybrid method name; it has a normalized bar only."""
     best = {(r["method"], r["normalized"] == "True"): float(r["f1"])
             for r in metrics if r["is_best"] == "True"}
-    x = np.arange(len(METHODS))
+    methods = METHODS + ([hybrid] if hybrid and (hybrid, True) in best else [])
+    x = np.arange(len(methods))
     w = 0.38
-    fig, ax = plt.subplots(figsize=(8, 4))
+    fig, ax = plt.subplots(figsize=(8 + 1.3 * (len(methods) - len(METHODS)), 4))
     for offset, norm, color, label in [(-w / 2, False, C1, "Raw names"),
                                        (w / 2, True, C2, "Normalized names")]:
-        vals = [best[(m, norm)] for m in METHODS]
-        bars = ax.bar(x + offset, vals, w, color=color, label=label,
+        xs = [i for i, m in enumerate(methods) if (m, norm) in best]
+        vals = [best[(methods[i], norm)] for i in xs]
+        bars = ax.bar(x[xs] + offset, vals, w, color=color, label=label,
                       edgecolor=SURFACE, linewidth=2, zorder=3)
         ax.bar_label(bars, labels=[f"{v:.3f}" for v in vals], padding=2,
                      fontsize=8, color=INK_2)
-    ax.set_xticks(x, METHODS)
+    ax.set_xticks(x, [method_tick(m) for m in methods])
     ax.set_ylim(0, 1.08)
     ax.set_ylabel("F1 at best threshold")
     ax.grid(axis="x", visible=False)
@@ -123,10 +149,14 @@ def pr_curve(scores, labels):
     return tp[last] / y.sum(), tp[last] / (tp[last] + fp[last])
 
 
-def plot_pr_curves(pairs):
-    fig, axes = plt.subplots(1, len(METHODS), figsize=(15, 3.6), sharey=True)
-    for ax, method in zip(axes, METHODS):
+def plot_pr_curves(pairs, hybrid=None):
+    """One panel per method, plus the winning Hybrid (normalized curve only)."""
+    methods = METHODS + ([hybrid] if hybrid and (hybrid, True) in pairs else [])
+    fig, axes = plt.subplots(1, len(methods), figsize=(3 * len(methods), 3.6), sharey=True)
+    for ax, method in zip(axes, methods):
         for norm, color, label in [(False, C1, "Raw"), (True, C2, "Normalized")]:
+            if (method, norm) not in pairs:
+                continue
             d = pairs[(method, norm)]
             recall, precision = pr_curve(d["score"], d["dup"])
             ax.plot(recall, precision, color=color, label=label, zorder=3,
@@ -134,7 +164,7 @@ def plot_pr_curves(pairs):
             tp = (d["pred"] & d["dup"]).sum()           # best-threshold operating point
             ax.plot(tp / d["dup"].sum(), tp / max(d["pred"].sum(), 1), "o", color=color,
                     markersize=8, markeredgecolor=INK, markeredgewidth=1, zorder=4)
-        ax.set_title(method, loc="left")
+        ax.set_title(method_tick(method).replace("\n", " "), loc="left")
         ax.set_xlim(0, 1.02)
         ax.set_ylim(0.45, 1.02)
         ax.set_xlabel("Recall")
@@ -143,7 +173,7 @@ def plot_pr_curves(pairs):
     fig.suptitle("Precision-recall per method (dot = best-F1 threshold)",
                  x=0.005, ha="left", fontweight="bold", fontsize=12)
     fig.tight_layout()
-    save(fig, "pr_curves.png")
+    return fig
 
 
 # ------------------------------------------------------- (3) query-time scaling
@@ -154,23 +184,28 @@ def plot_scaling(bench):
                                   ("True", C2, "GIN trigram index")]:
             d = sorted((r for r in bench if r["method"] == method and r["gin_index"] == gin),
                        key=lambda r: int(r["n_records"]))
-            ax.errorbar([int(r["n_records"]) for r in d], [float(r["mean_ms"]) for r in d],
-                        yerr=[float(r["std_ms"]) for r in d], color=color, label=label,
+            mean = [float(r["mean_ms"]) for r in d]
+            std = [float(r["std_ms"]) for r in d]
+            # Log axis: mean - std can be <= 0 and would draw to the bottom edge, so the
+            # lower whisker stops at the fastest measured run instead.
+            low = [min(s, m - float(r["min_ms"])) for s, m, r in zip(std, mean, d)]
+            ax.errorbar([int(r["n_records"]) for r in d], mean,
+                        yerr=[low, std], color=color, label=label,
                         marker="o", markersize=8, markeredgecolor=SURFACE,
                         markeredgewidth=2, capsize=3, zorder=3)
         biggest = max(int(r["n_records"]) for r in bench)
         ms = {r["gin_index"]: float(r["mean_ms"]) for r in bench
               if r["method"] == method and int(r["n_records"]) == biggest}
-        ax.annotate(f"{ms['False'] / ms['True']:.1f}x faster at {biggest // 1000}k",
-                    xy=(0.98, 0.04), xycoords="axes fraction", ha="right",
-                    fontsize=9, color=INK_2)
         ax.set_xscale("log")
         ax.set_yscale("log")
         ax.set_xticks([1_000, 10_000, 100_000], ["1k", "10k", "100k"])
         ax.minorticks_off()
+        # speedup in the title row: inside the plot it collided with the 100k whiskers
         ax.set_title(method, loc="left")
+        ax.set_title(f"{ms['False'] / ms['True']:.1f}x faster at {biggest // 1000}k",
+                     loc="right", fontsize=9, fontweight="normal", color=INK_2)
         ax.set_xlabel("Records")
-    axes[0].set_ylabel("Query time, ms (mean ± std, log)")
+    axes[0].set_ylabel("Query time, ms (mean, whisker ± std\nfloored at fastest run, log)")
     axes[0].legend(loc="upper left")
     fig.suptitle("Query time vs table size, with and without the GIN index",
                  x=0.005, ha="left", fontweight="bold", fontsize=12)
@@ -236,11 +271,52 @@ def plot_failure_table(types, columns, rates, counts):
     save(fig, "failure_table.png")
 
 
+# ---------------------------------------------------- (5) false positives by source
+def plot_fp_by_source(by_source, hybrid=None):
+    """Grouped bars: x = non-duplicate source, one bar per method (normalized names).
+
+    by_source: rows of results/metrics_by_source.csv. rate = share of that source's
+    pairs predicted duplicate at the method's best threshold = false-positive rate.
+    The exact values are in the CSV (the chart's table view).
+    """
+    rate = {(r["method"], r["source"]): float(r["rate"])
+            for r in by_source if r["normalized"] == "True"}
+    methods = [m for m in METHODS + ([hybrid] if hybrid else [])
+               if any((m, s) in rate for s in NEG_SOURCES)]
+    sources = [s for s in NEG_SOURCES if any((m, s) in rate for m in methods)]
+    x = np.arange(len(sources))
+    w = 0.8 / len(methods)
+    fig, ax = plt.subplots(figsize=(10, 4.2))
+    for i, (m, color) in enumerate(zip(methods, CATEGORICAL)):
+        vals = [rate.get((m, s), 0.0) * 100 for s in sources]
+        ax.bar(x - 0.4 + w * (i + 0.5), vals, w, color=color,
+               label=method_tick(m).replace("\n", " "),
+               edgecolor=SURFACE, linewidth=2, zorder=3)
+    ax.set_xticks(x, [s.replace("_", " ") for s in sources])
+    ax.set_ylim(0, 100)
+    ax.set_ylabel("False-positive rate, % of pairs")
+    ax.grid(axis="x", visible=False)
+    ax.set_title("Non-duplicate pairs wrongly matched, by how the pair was chosen "
+                 "(normalized names, best threshold)", loc="left")
+    ax.legend(loc="upper left", ncols=len(methods), fontsize=8.5)
+    return fig
+
+
 def main():
     FIG.mkdir(parents=True, exist_ok=True)
     pairs = load_pair_scores()
-    save(plot_f1_bars(read_csv(RESULTS / "metrics.csv")), "f1_by_method.png")
-    plot_pr_curves(pairs)
+    hybrid = hybrid_method()
+    if hybrid is None:
+        print("  note: results/hybrid_weights.json missing, Hybrid left out "
+              "(run python src/evaluate.py)")
+    save(plot_f1_bars(read_csv(RESULTS / "metrics.csv"), hybrid), "f1_by_method.png")
+    save(plot_pr_curves(pairs, hybrid), "pr_curves.png")
+    by_source = RESULTS / "metrics_by_source.csv"
+    if by_source.exists():
+        save(plot_fp_by_source(read_csv(by_source), hybrid), "fp_by_source.png")
+    else:
+        print("  note: results/metrics_by_source.csv missing, fp_by_source.png skipped "
+              "(run python src/evaluate.py)")
     plot_scaling(read_csv(RESULTS / "benchmark.csv"))
     plot_failure_table(*failure_table(pairs))
 

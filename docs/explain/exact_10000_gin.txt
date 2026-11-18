@@ -1,28 +1,28 @@
 -- exact_10000_gin
-SELECT record_id, full_name, (fn_clean(full_name) = fn_clean('Shipra Mondal'))::int AS score
+SELECT record_id, full_name, (fn_clean(full_name) = fn_clean('Musammat Nasreen Akter Chowdhury'))::int AS score
 FROM bench_name
-WHERE full_name % 'Shipra Mondal' AND (fn_clean(full_name) = fn_clean('Shipra Mondal'))::int >= 1
+WHERE full_name % 'Musammat Nasreen Akter Chowdhury' AND (fn_clean(full_name) = fn_clean('Musammat Nasreen Akter Chowdhury'))::int >= 1
 ORDER BY score DESC, record_id
 LIMIT 20
 
-Limit  (cost=199.22..199.27 rows=20 width=25) (actual time=0.964..0.964 rows=2.00 loops=1)
-  Buffers: shared hit=95
-  ->  Sort  (cost=199.22..199.30 rows=34 width=25) (actual time=0.964..0.964 rows=2.00 loops=1)
-        Sort Key: (((btrim(regexp_replace(lower((full_name)::text), '\s+'::text, ' '::text, 'g'::text)) = 'shipra mondal'::text))::integer) DESC, record_id
+Limit  (cost=294.87..294.87 rows=1 width=25) (actual time=1.602..1.602 rows=1.00 loops=1)
+  Buffers: shared hit=133
+  ->  Sort  (cost=294.87..294.87 rows=1 width=25) (actual time=1.602..1.602 rows=1.00 loops=1)
+        Sort Key: (((btrim(regexp_replace(lower((full_name)::text), '\s+'::text, ' '::text, 'g'::text)) = 'musammat nasreen akter chowdhury'::text))::integer) DESC, record_id
         Sort Method: quicksort  Memory: 25kB
-        Buffers: shared hit=95
-        ->  Bitmap Heap Scan on bench_name  (cost=126.26..198.35 rows=34 width=25) (actual time=0.353..0.962 rows=2.00 loops=1)
-              Recheck Cond: ((full_name)::text % 'Shipra Mondal'::text)
-              Rows Removed by Index Recheck: 120
-              Filter: (((btrim(regexp_replace(lower((full_name)::text), '\s+'::text, ' '::text, 'g'::text)) = 'shipra mondal'::text))::integer >= 1)
-              Rows Removed by Filter: 152
-              Heap Blocks: exact=64
-              Buffers: shared hit=95
-              ->  Bitmap Index Scan on idx_bench_name_trgm  (cost=0.00..126.26 rows=101 width=0) (actual time=0.339..0.339 rows=274.00 loops=1)
-                    Index Cond: ((full_name)::text % 'Shipra Mondal'::text)
+        Buffers: shared hit=133
+        ->  Bitmap Heap Scan on bench_name  (cost=290.82..294.86 rows=1 width=25) (actual time=1.497..1.599 rows=1.00 loops=1)
+              Recheck Cond: ((full_name)::text % 'Musammat Nasreen Akter Chowdhury'::text)
+              Rows Removed by Index Recheck: 204
+              Filter: (((btrim(regexp_replace(lower((full_name)::text), '\s+'::text, ' '::text, 'g'::text)) = 'musammat nasreen akter chowdhury'::text))::integer >= 1)
+              Rows Removed by Filter: 51
+              Heap Blocks: exact=65
+              Buffers: shared hit=133
+              ->  Bitmap Index Scan on idx_bench_name_trgm  (cost=0.00..290.82 rows=1 width=0) (actual time=0.789..0.790 rows=256.00 loops=1)
+                    Index Cond: ((full_name)::text % 'Musammat Nasreen Akter Chowdhury'::text)
                     Index Searches: 1
-                    Buffers: shared hit=31
+                    Buffers: shared hit=68
 Planning:
   Buffers: shared hit=1
-Planning Time: 0.274 ms
-Execution Time: 0.975 ms
+Planning Time: 0.474 ms
+Execution Time: 1.614 ms
